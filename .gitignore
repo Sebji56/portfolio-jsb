@@ -15,3 +15,6 @@ photos-originales/
 .playwright-mcp/
 .taste-skill/
 directions/
+
+# Espace de travail des plans (local)
+.superpowers/
