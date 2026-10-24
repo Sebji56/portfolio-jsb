@@ -1,11 +1,27 @@
 ---
 import '../styles/global.css';
-import { t, type Locale, type RouteId } from '../i18n/index.ts';
+import { localizePath, t, type Locale, type RouteId } from '../i18n/index.ts';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 interface Props { locale: Locale; route: RouteId; title: string; description: string; noindex?: boolean }
 const { locale, route, title, description, noindex = false } = Astro.props;
+const site = Astro.site!;
+const url = (l: Locale) => new URL(localizePath(route, l), site).href;
+const ogImage = new URL('/og-image.jpg', site).href;
+const linkedin = 'https://www.linkedin.com/in/jean-sébastien-bisson-a13b4b23b';
+const person = route === 'home' && {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Jean-Sébastien Bisson',
+  alternateName: 'Seb Ji',
+  jobTitle: t(locale, 'hero.title'),
+  url: url(locale),
+  image: ogImage,
+  address: { '@type': 'PostalAddress', addressLocality: 'Terrebonne', addressRegion: 'QC', addressCountry: 'CA' },
+  sameAs: [linkedin],
+  knowsLanguage: ['fr', 'en'],
+};
 ---
 <!doctype html>
 <html lang={`${locale}-CA`} data-theme="dark">
@@ -16,7 +32,29 @@ const { locale, route, title, description, noindex = false } = Astro.props;
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex" />}
     <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#070a10" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    {!noindex && (
+      <>
+        <link rel="canonical" href={url(locale)} />
+        <link rel="alternate" hreflang="fr-CA" href={url('fr')} />
+        <link rel="alternate" hreflang="en-CA" href={url('en')} />
+        <link rel="alternate" hreflang="x-default" href={url('fr')} />
+      </>
+    )}
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Seb Ji" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={url(locale)} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={t(locale, 'hero.portraitAlt')} />
+    <meta property="og:locale" content={locale === 'fr' ? 'fr_CA' : 'en_CA'} />
+    <meta property="og:locale:alternate" content={locale === 'fr' ? 'en_CA' : 'fr_CA'} />
+    <meta name="twitter:card" content="summary_large_image" />
+    {person && <script type="application/ld+json" set:html={JSON.stringify(person)} />}
     <script is:inline src="/scripts/theme.js"></script>
     <slot name="head" />
   </head>

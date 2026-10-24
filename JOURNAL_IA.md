@@ -77,3 +77,9 @@ Ce site a été conçu avec Claude Code (Anthropic). Ce journal note, à chaque 
 
 - **Fait :** en-têtes HTTP (CSP stricte, HSTS, nosniff, Referrer-Policy, Permissions-Policy, COOP), fichier security.txt, page « Sécurité de ce site » en langage simple, configuration Netlify.
 - **Vérifié :** la CSP réelle a été injectée dans le navigateur de test sur 4 pages : aucune ressource bloquée, toutes les fonctions marchent.
+
+## 2026-10-24 — Tâche 12 : SEO, audits, mise en ligne
+
+- **Fait :** méta-données par page, Open Graph avec image de partage, hreflang FR/EN, données structurées Person, sitemap, robots.txt, favicon, page 404 bilingue, guide de mise en ligne pas à pas.
+- **Audits :** Lighthouse mobile — accueil 99 / 96 / 100 / 100, page Sécurité 100 partout ; 0 vulnérabilité npm ; 0 constat du détecteur Impeccable ; JavaScript total sous 25 Ko compressé.
+- **Correction :** le lien « English » avait une étiquette accessible différente de son texte visible ; retirée.

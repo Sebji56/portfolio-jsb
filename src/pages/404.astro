@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+import { localizePath, t } from '../i18n/index.ts';
+---
+<Base locale="fr" route="home" title={t('fr', 'meta.notFoundTitle')} description={t('fr', 'meta.notFoundDescription')} noindex>
+  <section class="wrap simple">
+    <h1>{t('fr', 'notFound.title')}</h1>
+    <p class="lead">{t('fr', 'notFound.text')}</p>
+    <a class="btn btn-primary" href={localizePath('home', 'fr')}>{t('fr', 'notFound.back')}</a>
+    <div lang="en-CA" class="en">
+      <p class="lead">{t('en', 'notFound.title')} {t('en', 'notFound.text')}</p>
+      <a class="btn btn-ghost" href={localizePath('home', 'en')}>{t('en', 'notFound.back')} (English)</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .simple { min-height: 80svh; display: grid; align-content: center; justify-items: start; gap: 1.5rem; padding-block: 8rem 4rem; }
+  h1 { font-size: clamp(2.25rem, 5vw, 4rem); max-width: 18ch; }
+  .en { display: grid; gap: 1rem; justify-items: start; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--line); }
+</style>

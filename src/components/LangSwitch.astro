@@ -4,7 +4,7 @@ interface Props { locale: Locale; route: RouteId }
 const { locale, route } = Astro.props;
 const other: Locale = locale === 'fr' ? 'en' : 'fr';
 ---
-<a class="lang" data-lang-switch href={localizePath(route, other)} hreflang={`${other}-CA`} lang={`${other}-CA`} aria-label={t(locale, 'nav.langName')}>
+<a class="lang" data-lang-switch href={localizePath(route, other)} hreflang={`${other}-CA`} lang={`${other}-CA`}>
   {t(locale, 'nav.langLabel')}
 </a>
 
