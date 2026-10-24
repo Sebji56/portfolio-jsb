@@ -1,0 +1,77 @@
+---
+import { localizePath, t, type Locale } from '../i18n/index.ts';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const linkedin = 'https://www.linkedin.com/in/jean-sébastien-bisson-a13b4b23b';
+---
+<section id="contact" class="section" aria-labelledby="contact-title">
+  <div class="wrap grid">
+    <div class="intro">
+      <h2 id="contact-title" class="h2" data-reveal>{t(locale, 'contact.title')}</h2>
+      <p class="lead" data-reveal>{t(locale, 'contact.intro')}</p>
+      <dl class="channels" data-reveal>
+        <div>
+          <dt>{t(locale, 'contact.emailLabel')}</dt>
+          <dd data-email data-u="sebji56" data-d="gmail.com">{t(locale, 'contact.emailFallback')}</dd>
+        </div>
+        <div>
+          <dt>{t(locale, 'contact.linkedinLabel')}</dt>
+          <dd><a href={linkedin} target="_blank" rel="noopener noreferrer">Seb Ji (Jean-Sébastien Bisson)<span class="sr-only"> {t(locale, 'experiences.newTab')}</span></a></dd>
+        </div>
+      </dl>
+    </div>
+
+    <form class="card form" name="contact" method="POST" action={localizePath('thanks', locale)} data-netlify="true" netlify-honeypot="bot-field" data-reveal>
+      <input type="hidden" name="form-name" value="contact" />
+      <h3>{t(locale, 'contact.formTitle')}</h3>
+      <p class="sr-only" aria-hidden="true">
+        <label for="bot-field">{t(locale, 'contact.honeypot')}</label>
+        <input id="bot-field" name="bot-field" tabindex="-1" autocomplete="off" />
+      </p>
+      <div class="field">
+        <label for="f-nom">{t(locale, 'contact.name')} <span class="req">{t(locale, 'contact.required')}</span></label>
+        <input id="f-nom" name="nom" type="text" required autocomplete="name" maxlength="120" />
+      </div>
+      <div class="field">
+        <label for="f-courriel">{t(locale, 'contact.email')} <span class="req">{t(locale, 'contact.required')}</span></label>
+        <input id="f-courriel" name="courriel" type="email" required autocomplete="email" maxlength="200" aria-describedby="f-courriel-hint" />
+        <p id="f-courriel-hint" class="hint">{t(locale, 'contact.hintEmail')}</p>
+      </div>
+      <div class="field">
+        <label for="f-message">{t(locale, 'contact.message')} <span class="req">{t(locale, 'contact.required')}</span></label>
+        <textarea id="f-message" name="message" rows="5" required minlength="10" maxlength="4000" aria-describedby="f-message-hint"></textarea>
+        <p id="f-message-hint" class="hint">{t(locale, 'contact.hintMessage')}</p>
+      </div>
+      <button class="btn btn-primary" type="submit">{t(locale, 'contact.send')}</button>
+    </form>
+  </div>
+</section>
+
+<script>
+  import { revealEmails } from '../lib/email.ts';
+  revealEmails();
+</script>
+
+<style>
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 5rem); align-items: start; }
+  .intro { display: grid; gap: 1.25rem; }
+  .channels { display: grid; gap: 1.25rem; margin: 1rem 0 0; }
+  .channels dt { color: var(--mute); font-size: 0.875rem; font-weight: 600; }
+  .channels dd { margin: 0.25rem 0 0; font-size: 1.25rem; font-weight: 600; letter-spacing: -0.02em; }
+  .channels :global(a) { color: var(--ink); text-decoration-color: var(--acc); text-decoration-thickness: 2px; }
+  .form { padding: clamp(1.5rem, 3vw, 2.25rem); display: grid; gap: 1.25rem; }
+  .form h3 { font-size: 1.5rem; }
+  .field { display: grid; gap: 0.45rem; }
+  label { font-weight: 600; font-size: 0.9375rem; }
+  .req { color: var(--mute); font-weight: 400; font-size: 0.8125rem; }
+  input, textarea {
+    width: 100%; font: inherit; color: var(--ink); background: var(--bg); border: 1px solid var(--line-strong); border-radius: 0.75rem;
+    padding: 0.75rem 0.9rem; transition: border-color 200ms ease, box-shadow 200ms ease;
+  }
+  input:focus-visible, textarea:focus-visible { outline: none; border-color: var(--acc); box-shadow: 0 0 0 3px color-mix(in oklab, var(--acc) 30%, transparent); }
+  input:user-invalid, textarea:user-invalid { border-color: #ff6b6b; }
+  textarea { resize: vertical; min-height: 8rem; }
+  .hint { font-size: 0.8125rem; color: var(--mute); }
+  .form .btn { justify-self: start; }
+  @media (max-width: 52rem) { .grid { grid-template-columns: 1fr; } }
+</style>

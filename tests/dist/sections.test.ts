@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { readPage } from './helpers.ts';
 
 // Ancres partagées FR/EN ; chaque tâche ajoute la sienne (expériences, salons, contact)
-export const ANCHORS = ['parcours', 'piliers', 'competences', 'ia', 'formation'];
+export const ANCHORS = ['parcours', 'piliers', 'competences', 'ia', 'formation', 'contact'];
 
 for (const route of ['', 'en']) {
   test(`/${route} : chaque section attendue existe et porte un titre h2`, () => {

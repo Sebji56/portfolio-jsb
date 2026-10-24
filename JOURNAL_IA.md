@@ -54,3 +54,7 @@ Ce site a été conçu avec Claude Code (Anthropic). Ce journal note, à chaque 
 
 - **Fait :** chiffres clés, À propos (avec la phrase unique sur le CHSLD), trois piliers, compétences et outils, technologies émergentes avec l'encadré « Ce site a été conçu avec l'IA », formation, et section Projets qui n'apparaît que lorsqu'un projet existe.
 - **Vérifié :** aucun titre de plus de deux lignes à 360, 390 et 1440 px, en français comme en anglais ; aucun débordement horizontal.
+
+## 2026-10-24 — Tâche 7 : contact
+
+- **Fait :** formulaire Netlify avec champ « pot de miel » contre les robots, validation native et messages d'aide, courriel reconstitué en JavaScript (absent du HTML), pages de remerciement non indexées.

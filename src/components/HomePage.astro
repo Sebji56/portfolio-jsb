@@ -9,6 +9,7 @@ import Skills from './Skills.astro';
 import Emerging from './Emerging.astro';
 import Education from './Education.astro';
 import Projects from './Projects.astro';
+import Contact from './Contact.astro';
 
 interface Props { locale: Locale }
 const { locale } = Astro.props;
@@ -22,6 +23,7 @@ const { locale } = Astro.props;
   <Emerging locale={locale} />
   <Education locale={locale} />
   <Projects locale={locale} />
+  <Contact locale={locale} />
 </Base>
 
 <script>

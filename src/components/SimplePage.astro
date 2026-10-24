@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+import { localizePath, t, type Locale, type RouteId } from '../i18n/index.ts';
+interface Props { locale: Locale; route: RouteId; metaKey: 'thanks' | 'notFound'; noindex?: boolean }
+const { locale, route, metaKey, noindex = true } = Astro.props;
+---
+<Base locale={locale} route={route} title={t(locale, `meta.${metaKey}Title`)} description={t(locale, `meta.${metaKey}Description`)} noindex={noindex}>
+  <section class="wrap simple">
+    <h1>{t(locale, `${metaKey}.title`)}</h1>
+    <p class="lead">{t(locale, `${metaKey}.text`)}</p>
+    <a class="btn btn-primary" href={localizePath('home', locale)}>{t(locale, `${metaKey}.back`)}</a>
+  </section>
+</Base>
+
+<style>
+  .simple { min-height: 80svh; display: grid; align-content: center; justify-items: start; gap: 1.5rem; padding-block: 8rem 4rem; }
+  h1 { font-size: clamp(2.25rem, 5vw, 4rem); max-width: 18ch; }
+</style>
