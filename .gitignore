@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.astro/
+.netlify/
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
+
+# Photos reçues non retouchées (seules les versions recadrées sont publiées)
+photos-originales/
+
+# Outils et maquettes locales
+.playwright-mcp/
+.taste-skill/
+directions/
