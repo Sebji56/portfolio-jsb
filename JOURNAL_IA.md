@@ -39,3 +39,8 @@ Ce site a été conçu avec Claude Code (Anthropic). Ce journal note, à chaque 
 
 - **Fait :** couleurs, polices auto-hébergées, thème clair/sombre (sombre par défaut), en-tête, pied de page, sélecteur de langue, lien d'évitement. Contrastes vérifiés par des tests.
 - **Correction en cours de route :** Astro intégrait les petits scripts directement dans le HTML, ce que la politique de sécurité interdit ; ils sont maintenant servis en fichiers séparés.
+
+## 2026-10-24 — Tâche 4 : contenu
+
+- **Fait :** expériences, salons, compétences et formation en fichiers de données, validés automatiquement ; Seb peut les modifier sans toucher au code.
+- **Choix :** titre « Représentant des ventes automobiles » repris du CV (harmonisé avec LinkedIn) plutôt que la forme courte du brief.

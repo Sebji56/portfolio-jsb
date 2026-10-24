@@ -1,0 +1,39 @@
+{
+  "key": [
+    { "fr": "Développement des affaires B2B/B2C", "en": "B2B/B2C business development" },
+    { "fr": "Découverte des besoins", "en": "Needs discovery" },
+    { "fr": "Vente-conseil et fidélisation", "en": "Consultative selling and customer loyalty" },
+    { "fr": "Démonstration de solutions technologiques", "en": "Technology solution demos" },
+    { "fr": "Partenariats", "en": "Partnerships" },
+    { "fr": "Négociation", "en": "Negotiation" },
+    { "fr": "Gestion de pipeline", "en": "Pipeline management" },
+    { "fr": "Présentations internationales", "en": "International presentations" },
+    { "fr": "Optimisation des méthodes de travail", "en": "Improving work methods" }
+  ],
+  "tools": [
+    { "category": { "fr": "IA", "en": "AI" }, "items": [
+      { "fr": "ChatGPT", "en": "ChatGPT" },
+      { "fr": "Claude (skills et plugins)", "en": "Claude (skills and plugins)" },
+      { "fr": "Claude Code (utilisé pour bâtir ce site)", "en": "Claude Code (used to build this site)" }
+    ] },
+    { "category": { "fr": "CRM et bureautique", "en": "CRM and office" }, "items": [
+      { "fr": "HubSpot", "en": "HubSpot" },
+      { "fr": "Microsoft 365 (Word, Excel, PowerPoint, Outlook)", "en": "Microsoft 365 (Word, Excel, PowerPoint, Outlook)" }
+    ] },
+    { "category": { "fr": "VR/AR et développement", "en": "VR/AR and development" }, "items": [
+      { "fr": "Unreal Engine (Blueprints)", "en": "Unreal Engine (Blueprints)" },
+      { "fr": "Unity", "en": "Unity" },
+      { "fr": "Visual Studio", "en": "Visual Studio" },
+      { "fr": "Maya", "en": "Maya" },
+      { "fr": "Substance 3D", "en": "Substance 3D" }
+    ] },
+    { "category": { "fr": "Création de contenu", "en": "Content creation" }, "items": [
+      { "fr": "Photoshop", "en": "Photoshop" },
+      { "fr": "Premiere Pro", "en": "Premiere Pro" }
+    ] }
+  ],
+  "languages": [
+    { "name": { "fr": "Français", "en": "French" }, "level": { "fr": "Langue maternelle", "en": "Native language" } },
+    { "name": { "fr": "Anglais", "en": "English" }, "level": { "fr": "Conversationnel avancé ; démonstrations et échanges professionnels à l'international ; anglais des affaires en perfectionnement", "en": "Advanced conversational; international demos and professional exchanges; business English in progress" } }
+  ]
+}

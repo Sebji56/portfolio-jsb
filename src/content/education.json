@@ -1,0 +1,6 @@
+[
+  { "id": "pl900", "featured": true, "status": "in-progress", "title": { "fr": "Certification Microsoft PL-900 – Power Platform Fundamentals", "en": "Microsoft PL-900 – Power Platform Fundamentals certification" }, "org": { "fr": "Microsoft", "en": "Microsoft" }, "detail": { "fr": "Power Apps, Power Automate, Power BI, Copilot Studio", "en": "Power Apps, Power Automate, Power BI, Copilot Studio" } },
+  { "id": "aec", "featured": true, "status": "done", "title": { "fr": "AEC Spécialiste en réalité virtuelle et augmentée", "en": "AEC (college certificate), Virtual and Augmented Reality Specialist" }, "org": { "fr": "Institut Grasset, Montréal", "en": "Institut Grasset, Montréal" }, "dates": "2022 – 2023" },
+  { "id": "aep", "featured": false, "status": "done", "title": { "fr": "AEP Soins d'assistance en établissement de soins longue durée", "en": "AEP (vocational certificate), Assistance Care in Long-Term Care Facilities" }, "org": { "fr": "CEP Performance Plus", "en": "CEP Performance Plus" }, "dates": "2020" },
+  { "id": "asp", "featured": false, "status": "done", "title": { "fr": "Attestation Santé et sécurité générale sur les chantiers de construction", "en": "Certificate, General Health and Safety on Construction Sites" }, "org": { "fr": "ASP Construction", "en": "ASP Construction" }, "dates": "2017" }
+]
