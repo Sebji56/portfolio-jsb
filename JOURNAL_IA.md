@@ -89,3 +89,7 @@ Ce site a été conçu avec Claude Code (Anthropic). Ce journal note, à chaque 
 - **Revue :** un relecteur indépendant (sous-agent sur le modèle le plus performant) a relu toute la branche : aucun problème critique, quatre importants.
 - **Corrigé :** la phrase du héros disait « commercialisé dans quatre pays » alors que le brief parle de démarchage ; reformulée en « présenté à des districts scolaires dans quatre pays ». Kiosque Collision et fin de l'allée atteignables au clavier. Proposition de valeur rétablie sur téléphone. Adresses uniformisées avec barre oblique finale (évite une redirection qui aurait pu perdre les messages du formulaire). Menu ajouté pour les téléphones. Phrase inexacte corrigée sur la page Sécurité.
 - **Leçon :** même avec une règle d'honnêteté écrite, une formulation peut glisser ; la relecture indépendante l'a attrapée.
+
+## 2026-10-24 — Fusion
+
+- **Décision de Seb :** validation des outils de développement @astrojs/check et typescript ; fusion de la branche de travail dans main, prête à publier avec GitHub Desktop.
