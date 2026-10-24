@@ -1,5 +1,5 @@
 type T = { fr: string; en: string };
-export interface PhotoMeta { alt: T; credit?: T }
+export interface PhotoMeta { alt: T; credit?: T; creditUrl?: string; licenseUrl?: string }
 
 const creditTodo: T = {
   fr: '[À COMPLÉTER : crédit et droits du photographe de l’événement]',
@@ -12,7 +12,10 @@ export const photoMeta = {
   'bcedl-vancouver-conference': { alt: { fr: 'Jean-Sébastien sur scène au podium, présentant Proteus Labs au Demo Slam du symposium BCEDL à Vancouver', en: 'Jean-Sébastien on stage at the podium, presenting Proteus Labs at the BCEDL symposium Demo Slam in Vancouver' } },
   'bcedl-vancouver-kiosque': { alt: { fr: 'Jean-Sébastien, chapeau de cowboy noir, devant le kiosque Proteus Labs et ses casques de réalité virtuelle au symposium BCEDL à Vancouver', en: 'Jean-Sébastien, wearing a black cowboy hat, beside the Proteus Labs booth and its virtual reality headsets at the BCEDL symposium in Vancouver' } },
   'collision-toronto-2024': { alt: { fr: 'Jean-Sébastien devant les grandes lettres rouges de l’enseigne Collision à Toronto', en: 'Jean-Sébastien in front of the large red letters of the Collision sign in Toronto' } },
-  'collision-toronto-portrait-casque-vr': { alt: { fr: 'Jean-Sébastien souriant, chapeau de cowboy noir, tenant un casque de réalité virtuelle à la conférence Collision', en: 'Jean-Sébastien smiling in a black cowboy hat, holding a virtual reality headset at the Collision conference' }, credit: creditTodo },
+  'collision-toronto-portrait-casque-vr': { alt: { fr: 'Jean-Sébastien souriant, chapeau de cowboy noir, tenant un casque de réalité virtuelle à la conférence Collision', en: 'Jean-Sébastien smiling in a black cowboy hat, holding a virtual reality headset at the Collision conference' },
+    credit: { fr: 'Photo : Ramsey Cardy / Collision via Sportsfile', en: 'Photo: Ramsey Cardy / Collision via Sportsfile' },
+    creditUrl: 'https://www.flickr.com/photos/collisionconf/53802395183/',
+    licenseUrl: 'https://creativecommons.org/licenses/by/2.0/' },
   'edutech-asia-singapour-2023': { alt: { fr: 'Jean-Sébastien derrière l’enseigne EduTECH Asia 2023 à Singapour', en: 'Jean-Sébastien behind the EduTECH Asia 2023 sign in Singapore' } },
   'nsta-atlanta': { alt: { fr: 'Jean-Sébastien, casque de réalité virtuelle en main, devant l’enseigne de la conférence NSTA à Atlanta', en: 'Jean-Sébastien holding a virtual reality headset in front of the NSTA conference sign in Atlanta' } },
   'sxsw-edu-austin-2024': { alt: { fr: 'Jean-Sébastien avec un casque Meta Quest et ses manettes devant le mur SXSW 2024 à Austin', en: 'Jean-Sébastien with a Meta Quest headset and controllers in front of the SXSW 2024 wall in Austin' } },

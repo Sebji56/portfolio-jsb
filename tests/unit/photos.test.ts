@@ -19,8 +19,14 @@ test('chaque photo a un texte alternatif FR et EN descriptif', () => {
   }
 });
 
-test('les photos de photographes d’événement portent un crédit à confirmer', () => {
-  for (const id of ['collision-toronto-portrait-casque-vr', 'sxsw-edu-austin-2024-demo-casque'] as const) {
-    assert.match(photoMeta[id].credit?.fr ?? '', /À COMPLÉTER/);
-  }
+test('la photo Collision porte le crédit et la licence CC BY 2.0 de Flickr', () => {
+  const m = photoMeta['collision-toronto-portrait-casque-vr'];
+  assert.match(m.credit?.fr ?? '', /Ramsey Cardy \/ Collision via Sportsfile/);
+  assert.match(m.credit?.en ?? '', /Ramsey Cardy \/ Collision via Sportsfile/);
+  assert.equal(m.creditUrl, 'https://www.flickr.com/photos/collisionconf/53802395183/');
+  assert.equal(m.licenseUrl, 'https://creativecommons.org/licenses/by/2.0/');
+});
+
+test('la photo SXSW de démonstration garde un crédit à confirmer', () => {
+  assert.match(photoMeta['sxsw-edu-austin-2024-demo-casque'].credit?.fr ?? '', /À COMPLÉTER/);
 });

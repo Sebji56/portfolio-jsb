@@ -103,3 +103,8 @@ Ce site a été conçu avec Claude Code (Anthropic). Ce journal note, à chaque 
 
 - **Fourni :** Seb a identifié les deux photos de kiosques ; elles correspondaient aux hypothèses faites au départ (ISTE : stand B-43 à Denver ; OCTE : exposant en enseignement technologique). Les 7 salons de l'allée ont maintenant une photo.
 - **Débogage :** le nouveau test échouait d'abord pour une mauvaise raison (barre oblique inverse perdue dans une expression régulière) ; corrigé, puis vérifié qu'il échoue bien sans la photo.
+
+## 2026-10-24 — Crédit photo et année NSTA
+
+- **Fourni :** l'année de NSTA (2024) et le lien Flickr de la photo Collision.
+- **Vérifié avant usage :** la licence de la photo sur Flickr est CC BY 2.0 et la page nomme le photographe (Ramsey Cardy / Collision via Sportsfile) ; la photo est maintenant dans la carte Proteus-VR avec son crédit et le lien vers la licence, ce qui règle aussi un doublon de photo signalé par la revue.

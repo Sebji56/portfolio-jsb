@@ -39,3 +39,19 @@ test('les kiosques OCTE et ISTE montrent une vraie photo', () => {
     assert.doesNotMatch(booth, /class="type"/, `${name} encore en typographie`);
   }
 });
+
+test('le kiosque NSTA affiche l’année 2024', () => {
+  const booth = readPage('').match(/<li[^>]*data-sign="NSTA"[\s\S]*?<\/li>/)?.[0] ?? '';
+  assert.match(booth, /Atlanta, Géorgie · 2024/);
+});
+
+for (const route of ['', 'en']) {
+  test(`/${route} : la carte Proteus montre la photo Collision avec son crédit CC BY`, () => {
+    // la carte précise : un <article class="exp"> qui contient Proteus-VR sans traverser une autre carte
+    const card = readPage(route).match(/<article[^>]*class="[^"]*exp[^"]*"[^>]*>(?:(?!<\/article>)[\s\S])*?Proteus-VR[\s\S]*?<\/article>/)?.[0] ?? '';
+    assert.match(card, /collision-toronto-portrait-casque-vr/);
+    assert.match(card, /Ramsey Cardy \/ Collision via Sportsfile/);
+    assert.match(card, /<a[^>]*href="https:\/\/www\.flickr\.com\/photos\/collisionconf\/53802395183\/"[^>]*rel="noopener noreferrer"/);
+    assert.match(card, /<a[^>]*href="https:\/\/creativecommons\.org\/licenses\/by\/2\.0\/"/);
+  });
+}
