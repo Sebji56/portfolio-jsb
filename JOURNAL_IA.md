@@ -44,3 +44,8 @@ Ce site a été conçu avec Claude Code (Anthropic). Ce journal note, à chaque 
 
 - **Fait :** expériences, salons, compétences et formation en fichiers de données, validés automatiquement ; Seb peut les modifier sans toucher au code.
 - **Choix :** titre « Représentant des ventes automobiles » repris du CV (harmonisé avec LinkedIn) plutôt que la forme courte du brief.
+
+## 2026-10-24 — Tâche 5 : héros Signal
+
+- **Fait :** le portrait en particules se transforme en casque VR puis en globe des villes au défilement ; les légendes se dévoilent mot à mot. Versions de repli vérifiées : mouvement réduit, photo qui ne charge pas, téléphone.
+- **Débogage :** l'animation semblait « en retard » ; la cause était le navigateur de test en arrière-plan (2 images/s). Le lissage dépend maintenant du temps écoulé, ce qui aide aussi les téléphones lents. Rayures du portrait sur téléphone corrigées (tirage aléatoire des particules).

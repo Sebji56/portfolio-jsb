@@ -1,8 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
 import { t } from '../i18n/index.ts';
+import SignalHero from '../components/SignalHero.astro';
 const locale = 'fr';
 ---
 <Base locale={locale} route="home" title={t(locale, 'meta.homeTitle')} description={t(locale, 'meta.homeDescription')}>
-  <section class="wrap section"><h1 class="h2">{t(locale, 'hero.name')}</h1></section>
+  <SignalHero locale={locale} />
 </Base>
