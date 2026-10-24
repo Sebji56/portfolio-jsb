@@ -1,0 +1,45 @@
+---
+import skills from '../content/skills.json';
+import { t, type Locale } from '../i18n/index.ts';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+---
+<section id="competences" class="section" aria-labelledby="skills-title">
+  <div class="wrap grid">
+    <div>
+      <h2 id="skills-title" class="h2" data-reveal>{t(locale, 'skills.title')}</h2>
+      <h3 class="sub" data-reveal>{t(locale, 'skills.keyTitle')}</h3>
+      <ul class="chips" data-reveal>{skills.key.map((s) => <li>{s[locale]}</li>)}</ul>
+      <h3 class="sub" data-reveal>{t(locale, 'skills.languagesTitle')}</h3>
+      <dl class="langs" data-reveal>
+        {skills.languages.map((l) => (<div><dt>{l.name[locale]}</dt><dd>{l.level[locale]}</dd></div>))}
+      </dl>
+    </div>
+    <div>
+      <h3 class="sub first" data-reveal>{t(locale, 'skills.toolsTitle')}</h3>
+      <dl class="tools">
+        {skills.tools.map((c) => (
+          <div class="tool" data-reveal>
+            <dt>{c.category[locale]}</dt>
+            <dd><ul class="chips">{c.items.map((i) => <li>{i[locale]}</li>)}</ul></dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </div>
+</section>
+
+<style>
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 5rem); }
+  .sub { font-size: 1rem; font-weight: 600; letter-spacing: -0.01em; margin: 2.5rem 0 1rem; color: var(--mute); }
+  .sub.first { margin-top: 0.6rem; }
+  .chips { display: flex; flex-wrap: wrap; gap: 0.5rem; list-style: none; padding: 0; margin: 0; }
+  .chips li { padding: 0.45rem 0.85rem; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); font-size: 0.9375rem; }
+  .langs { display: grid; gap: 1rem; margin: 0; }
+  .langs dt { font-weight: 600; }
+  .langs dd { margin: 0.2rem 0 0; color: var(--mute); max-width: 52ch; }
+  .tools { display: grid; gap: 1.75rem; margin: 0; }
+  .tool dt { font-weight: 600; margin-bottom: 0.65rem; }
+  .tool dd { margin: 0; }
+  @media (max-width: 52rem) { .grid { grid-template-columns: 1fr; } .sub.first { margin-top: 0; } }
+</style>

@@ -49,3 +49,8 @@ Ce site a été conçu avec Claude Code (Anthropic). Ce journal note, à chaque 
 
 - **Fait :** le portrait en particules se transforme en casque VR puis en globe des villes au défilement ; les légendes se dévoilent mot à mot. Versions de repli vérifiées : mouvement réduit, photo qui ne charge pas, téléphone.
 - **Débogage :** l'animation semblait « en retard » ; la cause était le navigateur de test en arrière-plan (2 images/s). Le lissage dépend maintenant du temps écoulé, ce qui aide aussi les téléphones lents. Rayures du portrait sur téléphone corrigées (tirage aléatoire des particules).
+
+## 2026-10-24 — Tâche 6 : sections
+
+- **Fait :** chiffres clés, À propos (avec la phrase unique sur le CHSLD), trois piliers, compétences et outils, technologies émergentes avec l'encadré « Ce site a été conçu avec l'IA », formation, et section Projets qui n'apparaît que lorsqu'un projet existe.
+- **Vérifié :** aucun titre de plus de deux lignes à 360, 390 et 1440 px, en français comme en anglais ; aucun débordement horizontal.

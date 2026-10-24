@@ -1,0 +1,46 @@
+---
+import { localizePath, t, tx, type Locale } from '../i18n/index.ts';
+import Todo from './Todo.astro';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+---
+<section id="ia" class="section" aria-labelledby="ia-title">
+  <div class="wrap">
+    <h2 id="ia-title" class="h2 ia-title" data-reveal>{t(locale, 'emerging.title')}</h2>
+    <div class="grid">
+    <div class="text">
+      <p class="lead" data-reveal>{t(locale, 'emerging.intro')}</p>
+      <h3 class="sub" data-reveal>{t(locale, 'emerging.usesTitle')}</h3>
+      <ul class="uses" data-reveal>{tx<string[]>(locale, 'emerging.uses').map((u) => <li>{u}</li>)}</ul>
+      <h3 class="sub" data-reveal>{t(locale, 'emerging.nextTitle')}</h3>
+      <p data-reveal><Todo text={t(locale, 'emerging.next')} /></p>
+      <h3 class="sub" data-reveal>{t(locale, 'emerging.rolesTitle')}</h3>
+      <p data-reveal>{t(locale, 'emerging.roles')}</p>
+    </div>
+    <aside class="card built" aria-labelledby="built-title" data-reveal>
+      <h3 id="built-title">{t(locale, 'emerging.builtTitle')}</h3>
+      <ol>{tx<string[]>(locale, 'emerging.builtSteps').map((s) => <li>{s}</li>)}</ol>
+      <p class="lesson">{t(locale, 'emerging.builtLesson')}</p>
+      <a class="btn btn-ghost" href={localizePath('security', locale)}>{t(locale, 'emerging.securityLink')}</a>
+    </aside>
+    </div>
+  </div>
+</section>
+
+<style>
+  .ia-title { max-width: 22ch; margin-bottom: 2rem; }
+  @media (max-width: 30rem) { .ia-title { font-size: 1.625rem; max-width: none; } }
+  .grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(2rem, 5vw, 5rem); align-items: start; }
+  .text { display: grid; gap: 1rem; }
+  .text .lead { margin-top: 0.5rem; }
+  .sub { font-size: 1rem; font-weight: 600; letter-spacing: -0.01em; color: var(--mute); margin-top: 1.5rem; }
+  .uses { display: grid; gap: 0.6rem; padding-left: 1.1rem; margin: 0; }
+  .uses li::marker { color: var(--acc); }
+  .built { padding: 2rem; display: grid; gap: 1.25rem; position: sticky; top: 6rem; background: linear-gradient(180deg, color-mix(in oklab, var(--acc) 7%, var(--surface)), var(--surface) 60%); }
+  .built h3 { font-size: 1.5rem; }
+  .built ol { display: grid; gap: 0.9rem; padding-left: 1.25rem; margin: 0; }
+  .built ol li::marker { color: var(--acc); font-weight: 700; }
+  .lesson { color: var(--mute); }
+  .built .btn { justify-self: start; }
+  @media (max-width: 52rem) { .grid { grid-template-columns: 1fr; } .built { position: static; } }
+</style>

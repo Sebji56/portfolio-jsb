@@ -1,0 +1,31 @@
+---
+import { t, tx, type Locale } from '../i18n/index.ts';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const items = tx<{ value: string; label: string }[]>(locale, 'figures.items');
+---
+<section class="figures" aria-labelledby="figures-title">
+  <h2 id="figures-title" class="sr-only">{t(locale, 'figures.title')}</h2>
+  <ul class="wrap grid">
+    {items.map((it) => (
+      <li data-reveal>
+        <span class="value">{it.value}</span>
+        <span class="label">{it.label}</span>
+      </li>
+    ))}
+  </ul>
+</section>
+
+<style>
+  .figures { border-block: 1px solid var(--line); background: var(--surface); }
+  .grid { display: grid; grid-template-columns: repeat(5, 1fr); list-style: none; margin: 0 auto; }
+  li { padding: 2rem 1.5rem 2rem 0; display: grid; gap: 0.5rem; align-content: start; }
+  li + li { padding-left: 1.5rem; border-left: 1px solid var(--line); }
+  .value { font-weight: 700; font-size: clamp(1.75rem, 2.6vw, 2.5rem); letter-spacing: -0.04em; line-height: 1; font-variant-numeric: tabular-nums; }
+  .label { color: var(--mute); font-size: 0.9375rem; line-height: 1.35; }
+  @media (max-width: 60rem) {
+    .grid { grid-template-columns: 1fr 1fr; }
+    li, li + li { padding: 1.5rem 1rem 1.5rem 0; border-left: 0; }
+    li:last-child { grid-column: 1 / -1; }
+  }
+</style>

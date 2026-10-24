@@ -1,0 +1,6 @@
+---
+import { splitTodo } from '../lib/todo.ts';
+interface Props { text: string }
+const parts = splitTodo(Astro.props.text);
+---
+{parts.map((p) => (p.todo ? <span class="todo">{p.text}</span> : p.text))}

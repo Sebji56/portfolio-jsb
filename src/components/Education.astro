@@ -1,0 +1,42 @@
+---
+import education from '../content/education.json';
+import { t, type Locale } from '../i18n/index.ts';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const featured = education.filter((e) => e.featured);
+const others = education.filter((e) => !e.featured);
+---
+<section id="formation" class="section" aria-labelledby="edu-title">
+  <div class="wrap">
+    <h2 id="edu-title" class="h2" data-reveal>{t(locale, 'education.title')}</h2>
+    <ul class="featured">
+      {featured.map((e) => (
+        <li data-reveal>
+          <div>
+            <h3>{e.title[locale]}</h3>
+            <p class="org">{e.org[locale]}{'detail' in e && e.detail ? ` · ${e.detail[locale]}` : ''}</p>
+          </div>
+          {e.status === 'in-progress'
+            ? <span class="status">{t(locale, 'education.inProgress')}</span>
+            : <span class="dates">{'dates' in e ? e.dates : ''}</span>}
+        </li>
+      ))}
+    </ul>
+    <h3 class="others-title" data-reveal>{t(locale, 'education.othersTitle')}</h3>
+    <ul class="others" data-reveal>
+      {others.map((e) => <li>{e.title[locale]} · {e.org[locale]} ({'dates' in e ? e.dates : ''})</li>)}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .featured { list-style: none; padding: 0; margin: 2.5rem 0 0; border-top: 1px solid var(--line); }
+  .featured li { display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; padding: 1.75rem 0; border-bottom: 1px solid var(--line); }
+  .featured h3 { font-size: clamp(1.25rem, 2vw, 1.625rem); letter-spacing: -0.03em; line-height: 1.15; }
+  .org { color: var(--mute); margin-top: 0.4rem; }
+  .status { flex: none; font-size: 0.8125rem; font-weight: 700; color: var(--acc); padding: 0.35rem 0.8rem; border-radius: 999px; box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--acc) 50%, transparent); }
+  .dates { flex: none; color: var(--mute); font-variant-numeric: tabular-nums; }
+  .others-title { font-size: 0.9375rem; font-weight: 600; color: var(--mute); margin-top: 2.5rem; }
+  .others { list-style: none; padding: 0; margin: 0.6rem 0 0; display: grid; gap: 0.35rem; font-size: 0.875rem; color: var(--mute); }
+  @media (max-width: 40rem) { .featured li { flex-direction: column; align-items: flex-start; } }
+</style>

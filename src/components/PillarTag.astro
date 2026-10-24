@@ -1,0 +1,20 @@
+---
+interface Props { pillar: 'service' | 'sales' | 'tech'; label: string }
+const { pillar, label } = Astro.props;
+---
+<span class={`tag tag-${pillar}`}>
+  <svg viewBox="0 0 10 10" width="9" height="9" aria-hidden="true">
+    {pillar === 'service' && <circle cx="5" cy="5" r="4" />}
+    {pillar === 'sales' && <path d="M5 1 9 5 5 9 1 5Z" />}
+    {pillar === 'tech' && <path d="M5 .8 8.7 3v4L5 9.2 1.3 7V3Z" />}
+  </svg>
+  {label}
+</span>
+
+<style>
+  .tag { display: inline-flex; align-items: center; gap: 0.45rem; font-size: 0.8125rem; line-height: 1.2; padding: 0.35rem 0.7rem; border-radius: 999px; border: 1px solid var(--line-strong); color: var(--ink); }
+  .tag svg { flex: none; }
+  .tag-service svg { fill: var(--pillar-service); }
+  .tag-sales svg { fill: var(--pillar-sales); }
+  .tag-tech svg { fill: var(--pillar-tech); }
+</style>
