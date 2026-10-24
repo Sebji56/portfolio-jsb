@@ -1,10 +1,6 @@
 type T = { fr: string; en: string };
 export interface PhotoMeta { alt: T; credit?: T; creditUrl?: string; licenseUrl?: string }
 
-const creditTodo: T = {
-  fr: '[À COMPLÉTER : crédit et droits du photographe de l’événement]',
-  en: '[TO COMPLETE: event photographer credit and usage rights]',
-};
 
 /** Texte alternatif et crédit de chaque photo de src/assets/photos (clé = nom de fichier sans extension). */
 export const photoMeta = {
@@ -19,7 +15,6 @@ export const photoMeta = {
   'edutech-asia-singapour-2023': { alt: { fr: 'Jean-Sébastien derrière l’enseigne EduTECH Asia 2023 à Singapour', en: 'Jean-Sébastien behind the EduTECH Asia 2023 sign in Singapore' } },
   'nsta-atlanta': { alt: { fr: 'Jean-Sébastien, casque de réalité virtuelle en main, devant l’enseigne de la conférence NSTA à Atlanta', en: 'Jean-Sébastien holding a virtual reality headset in front of the NSTA conference sign in Atlanta' } },
   'sxsw-edu-austin-2024': { alt: { fr: 'Jean-Sébastien avec un casque Meta Quest et ses manettes devant le mur SXSW 2024 à Austin', en: 'Jean-Sébastien with a Meta Quest headset and controllers in front of the SXSW 2024 wall in Austin' } },
-  'sxsw-edu-austin-2024-demo-casque': { alt: { fr: 'Jean-Sébastien portant un casque de réalité virtuelle, badge SXSW EDU 2024 au cou, dans le hall d’exposition', en: 'Jean-Sébastien wearing a virtual reality headset, with his SXSW EDU 2024 badge, in the exhibit hall' }, credit: creditTodo },
   'kiosque-proteus-quebec-a-identifier-1': { alt: { fr: 'Kiosque Proteus Labs avec deux casques de réalité virtuelle et un écran, dans un salon au Québec', en: 'Proteus Labs booth with two virtual reality headsets and a screen, at a show in Quebec' } },
   'kiosque-proteus-quebec-a-identifier-2': { alt: { fr: 'Kiosque Proteus Labs avec casques de réalité virtuelle et tablette, dans un salon au Québec', en: 'Proteus Labs booth with virtual reality headsets and a tablet, at a show in Quebec' } },
   'iste-denver-2024': { alt: { fr: 'Jean-Sébastien, chapeau de cowboy noir, devant le kiosque Proteus Labs au salon ISTE à Denver', en: 'Jean-Sébastien, in a black cowboy hat, in front of the Proteus Labs booth at ISTE in Denver' } },

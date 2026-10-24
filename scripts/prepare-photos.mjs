@@ -24,6 +24,9 @@ const CROPS = {
 };
 
 
+// Photos non publiées : droits d'utilisation inconnus (photographe d'événement non crédité)
+const SKIP = new Set(['sxsw-edu-austin-2024-demo-casque']);
+
 const px = (r, W, H) => ({
   left: Math.round(r.x * W), top: Math.round(r.y * H),
   width: Math.round(r.w * W), height: Math.round(r.h * H),
@@ -32,6 +35,7 @@ const px = (r, W, H) => ({
 mkdirSync(OUT, { recursive: true });
 for (const file of readdirSync(SRC).filter((f) => f.endsWith('.jpg'))) {
   const id = file.replace(/\.jpg$/, '');
+  if (SKIP.has(id)) continue;
   const input = join(SRC, file);
   const { width: W, height: H } = await sharp(input).metadata();
   let img = sharp(input).rotate();

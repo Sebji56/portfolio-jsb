@@ -7,8 +7,12 @@ import { photoMeta } from '../../src/lib/photos.ts';
 const dir = join(import.meta.dirname, '..', '..', 'src', 'assets', 'photos');
 const files = readdirSync(dir).filter((f) => f.endsWith('.jpg')).map((f) => f.replace(/\.jpg$/, ''));
 
-test('les 13 photos préparées sont présentes', () => {
-  assert.equal(files.length, 13);
+test('les 12 photos préparées sont présentes', () => {
+  assert.equal(files.length, 12);
+});
+
+test('la photo SXSW aux droits inconnus n’est pas publiée', () => {
+  assert.ok(!files.includes('sxsw-edu-austin-2024-demo-casque'));
 });
 
 test('chaque photo a un texte alternatif FR et EN descriptif', () => {
@@ -27,6 +31,3 @@ test('la photo Collision porte le crédit et la licence CC BY 2.0 de Flickr', ()
   assert.equal(m.licenseUrl, 'https://creativecommons.org/licenses/by/2.0/');
 });
 
-test('la photo SXSW de démonstration garde un crédit à confirmer', () => {
-  assert.match(photoMeta['sxsw-edu-austin-2024-demo-casque'].credit?.fr ?? '', /À COMPLÉTER/);
-});
