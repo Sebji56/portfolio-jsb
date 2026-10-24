@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   // Adresse provisoire Netlify (voir A_COMPLETER.md)
   site: 'https://portfolio-jsb.netlify.app',
-  trailingSlash: 'ignore',
+  trailingSlash: 'always', // même forme partout : pas de redirection 301 (formulaire, canonique)
   i18n: {
     defaultLocale: 'fr',
     locales: ['fr', 'en'],

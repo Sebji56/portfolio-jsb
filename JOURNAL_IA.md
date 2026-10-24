@@ -83,3 +83,9 @@ Ce site a été conçu avec Claude Code (Anthropic). Ce journal note, à chaque 
 - **Fait :** méta-données par page, Open Graph avec image de partage, hreflang FR/EN, données structurées Person, sitemap, robots.txt, favicon, page 404 bilingue, guide de mise en ligne pas à pas.
 - **Audits :** Lighthouse mobile — accueil 99 / 96 / 100 / 100, page Sécurité 100 partout ; 0 vulnérabilité npm ; 0 constat du détecteur Impeccable ; JavaScript total sous 25 Ko compressé.
 - **Correction :** le lien « English » avait une étiquette accessible différente de son texte visible ; retirée.
+
+## 2026-10-24 — Revue finale et corrections
+
+- **Revue :** un relecteur indépendant (sous-agent sur le modèle le plus performant) a relu toute la branche : aucun problème critique, quatre importants.
+- **Corrigé :** la phrase du héros disait « commercialisé dans quatre pays » alors que le brief parle de démarchage ; reformulée en « présenté à des districts scolaires dans quatre pays ». Kiosque Collision et fin de l'allée atteignables au clavier. Proposition de valeur rétablie sur téléphone. Adresses uniformisées avec barre oblique finale (évite une redirection qui aurait pu perdre les messages du formulaire). Menu ajouté pour les téléphones. Phrase inexacte corrigée sur la page Sécurité.
+- **Leçon :** même avec une règle d'honnêteté écrite, une formulation peut glisser ; la relecture indépendante l'a attrapée.

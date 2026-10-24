@@ -7,7 +7,7 @@ import { allPages, DIST, readPage } from './helpers.ts';
 
 const SITE = 'https://portfolio-jsb.netlify.app';
 const INDEXABLE = ['', 'en', 'securite', 'en/security'];
-const pair: Record<string, string> = { '': 'en/', en: '', securite: 'en/security', 'en/security': 'securite' };
+const pair: Record<string, string> = { '': 'en/', en: '', securite: 'en/security/', 'en/security': 'securite/' };
 const attr = (html: string, re: RegExp) => html.match(re)?.[1];
 
 test('titres uniques et descriptions de 50 à 160 caractères', () => {

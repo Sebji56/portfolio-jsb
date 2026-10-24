@@ -31,12 +31,12 @@ const ardoisiere = salons.filter((s) => s.data.group === 'ardoisiere');
     <ol class="world" data-world>
       {proteus.map((s) => (
         <li class="booth" data-booth data-sign={s.data.name}>
-          <article>
+          <article tabindex="0" aria-labelledby={`booth-${s.id}`}>
             {s.data.photo
               ? <Picture src={photo(s.data.photo as PhotoId)} formats={['avif', 'webp']} alt={photoMeta[s.data.photo as PhotoId].alt[locale]} widths={[480, 800]} sizes="(max-width: 52rem) 76vw, 40vw" />
               : <div class="type" aria-hidden="true"><span>{s.data.name}</span><span>{s.data.city[locale].split(',')[0]}</span></div>}
             <div class="cap">
-              <h4>{s.data.name}</h4>
+              <h4 id={`booth-${s.id}`}>{s.data.name}</h4>
               <p class="where">{s.data.city[locale]}{s.data.date && ` · ${s.data.date[locale]}`}</p>
               <p class="desc">{s.data.description[locale]}</p>
               <div class="links">

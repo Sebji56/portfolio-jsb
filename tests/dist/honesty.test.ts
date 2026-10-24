@@ -43,3 +43,8 @@ test('aucune préférence d’horaire affichée', () => {
     assert.doesNotMatch(text(html), /horaire de jour|semaine seulement|day shift|weekdays only/i, `/${route}`);
   }
 });
+
+test('la proposition de valeur ne prétend pas à une commercialisation dans quatre pays', () => {
+  assert.doesNotMatch(text(readPage('')), /commercialisé une solution[^.]*quatre pays/);
+  assert.doesNotMatch(text(readPage('en')), /to market in four countries/);
+});

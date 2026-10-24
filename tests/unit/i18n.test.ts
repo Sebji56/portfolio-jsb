@@ -14,16 +14,17 @@ test('fr.json et en.json ont exactement les mêmes clés', () => {
 });
 
 test('localizePath traduit le slug de la page Sécurité', () => {
-  assert.equal(localizePath('security', 'en'), '/en/security');
-  assert.equal(localizePath('security', 'fr'), '/securite');
+  assert.equal(localizePath('security', 'en'), '/en/security/');
+  assert.equal(localizePath('security', 'fr'), '/securite/');
 });
 
-test('routeFromPath reconnaît /securite en français', () => {
+test('routeFromPath reconnaît /securite avec ou sans barre finale', () => {
+  assert.deepEqual(routeFromPath('/securite/'), { route: 'security', locale: 'fr' });
   assert.deepEqual(routeFromPath('/securite'), { route: 'security', locale: 'fr' });
 });
 
 test("le changement de langue de /en/thanks mène à /merci", () => {
-  assert.equal(localizePath(routeFromPath('/en/thanks').route, 'fr'), '/merci');
+  assert.equal(localizePath(routeFromPath('/en/thanks').route, 'fr'), '/merci/');
 });
 
 test('routeFromPath tolère la barre oblique finale', () => {

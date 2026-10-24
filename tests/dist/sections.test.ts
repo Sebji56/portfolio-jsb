@@ -21,7 +21,7 @@ for (const route of ['', 'en']) {
 
   test(`/${route} : l’encadré IA mène à la page Sécurité`, () => {
     const ia = readPage(route).match(/<section[^>]*id="ia"[\s\S]*?<\/section>/)?.[0] ?? '';
-    assert.match(ia, route ? /href="\/en\/security"/ : /href="\/securite"/);
+    assert.match(ia, route ? /href="\/en\/security\/"/ : /href="\/securite\/"/);
   });
 
   test(`/${route} : les données manquantes sont signalées par un marqueur visible`, () => {

@@ -9,8 +9,8 @@ const dict: Record<Locale, unknown> = { fr, en };
 
 const paths: Record<RouteId, Record<Locale, string>> = {
   home: { fr: '/', en: '/en/' },
-  security: { fr: '/securite', en: '/en/security' },
-  thanks: { fr: '/merci', en: '/en/thanks' },
+  security: { fr: '/securite/', en: '/en/security/' },
+  thanks: { fr: '/merci/', en: '/en/thanks/' },
 };
 
 /** Valeur brute d'une clé pointée ("nav.contact") ; lève une erreur si elle manque. */

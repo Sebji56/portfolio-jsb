@@ -18,12 +18,13 @@
     "ai": "AI",
     "contact": "Contact me",
     "langLabel": "Français",
-    "themeLight": "Light theme"
+    "themeLight": "Light theme",
+    "menu": "Menu"
   },
   "hero": {
     "name": "Jean-Sébastien Bisson",
     "title": "Business Development | Consultative Sales of Technology Solutions | Needs Analysis • Solution Demos • Partnerships",
-    "value": "A developer turned VP of Technology, I brought a virtual reality solution to market in four countries. Next step: AI, automation and cybersecurity.",
+    "value": "A developer turned VP of Technology, I pitched a virtual reality solution to school districts in four countries. Next step: AI, automation and cybersecurity.",
     "ctaContact": "Contact me",
     "ctaCv": "Download my résumé (PDF)",
     "scroll": "Scroll",
@@ -42,7 +43,7 @@
       "text": "SXSW EDU, NSTA, ISTE, OCTE, BCEDL, Collision: first alongside the president, then running the booth alone, then on stage."
     },
     "countries": {
-      "when": "Canada · United States · Singapore · South Korea",
+      "when": "Prospecting: Canada · United States · Singapore · South Korea",
       "title": "In four countries.",
       "text": "Today I bring that dual perspective, technology and the customer, to AI, automation and cybersecurity."
     }

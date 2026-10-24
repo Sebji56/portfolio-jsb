@@ -64,7 +64,6 @@ export function initAisle(section: HTMLElement): () => void {
     meter?.style.setProperty('--p', String(pS));
     end?.style.setProperty('--e', String(endP));
     sign?.style.setProperty('--s', String(1 - clamp01((pS - 0.88) / 0.06)));
-    if (end) end.inert = endP < 0.5;
     if (Math.abs(target - pS) > 0.0005) raf = requestAnimationFrame(frame);
     else last = 0;
   };
@@ -72,10 +71,11 @@ export function initAisle(section: HTMLElement): () => void {
 
   // Clavier : un kiosque qui reçoit le focus est amené devant la caméra
   const onFocus = (e: FocusEvent) => {
-    const i = booths.findIndex((b) => b.contains(e.target as Node));
-    if (i < 0) return;
     const max = stage.offsetHeight - innerHeight;
     const top = stage.getBoundingClientRect().top + scrollY;
+    if (end?.contains(e.target as Node)) { scrollTo({ top: top + max, behavior: 'instant' }); return; } // fin de l'allée
+    const i = booths.findIndex((b) => b.contains(e.target as Node));
+    if (i < 0) return;
     scrollTo({ top: top + progressFor(i, n, gap) * max, behavior: 'instant' });
   };
   section.addEventListener('focusin', onFocus);

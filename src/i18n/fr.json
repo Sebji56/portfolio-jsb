@@ -18,12 +18,13 @@
     "ai": "IA",
     "contact": "Me joindre",
     "langLabel": "English",
-    "themeLight": "Thème clair"
+    "themeLight": "Thème clair",
+    "menu": "Menu"
   },
   "hero": {
     "name": "Jean-Sébastien Bisson",
     "title": "Développement des affaires | Vente-conseil en solutions technologiques | Analyse des besoins • Démonstration de solutions • Partenariats",
-    "value": "Développeur devenu vice-président de la technologie, j'ai commercialisé une solution de réalité virtuelle dans quatre pays. Prochaine étape : l'IA, l'automatisation et la cybersécurité.",
+    "value": "Développeur devenu vice-président de la technologie, j'ai présenté une solution de réalité virtuelle à des districts scolaires dans quatre pays. Prochaine étape : l'IA, l'automatisation et la cybersécurité.",
     "ctaContact": "Me joindre",
     "ctaCv": "Télécharger mon CV (PDF)",
     "scroll": "Défiler",
@@ -42,7 +43,7 @@
       "text": "SXSW EDU, NSTA, ISTE, OCTE, BCEDL, Collision : d'abord avec le président, puis seul au kiosque, puis sur scène."
     },
     "countries": {
-      "when": "Canada · États-Unis · Singapour · Corée du Sud",
+      "when": "Démarchage : Canada · États-Unis · Singapour · Corée du Sud",
       "title": "Dans quatre pays.",
       "text": "Aujourd'hui, j'apporte ce double regard, la technologie et le client, à l'IA, à l'automatisation et à la cybersécurité."
     }

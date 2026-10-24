@@ -71,10 +71,10 @@ export function startSignal(canvas: HTMLCanvasElement, opts: Options): () => voi
     last = now;
     pS += (opts.getProgress() - pS) * (1 - Math.exp(-dt * 5.6)); // lissage fondé sur le temps : rattrape aussi à faible cadence
     const { m1, m2, lon0 } = stages(pS), time = (now - t0) / 1000;
-    const pBox = mobile ? { cx: W / 2, cy: H * 0.3, s: Math.min(W * 0.78, H * 0.44) } : { cx: W * 0.7, cy: H * 0.52, s: Math.min(H * 0.82, W * 0.44) };
-    const cBox = mobile ? { cx: W / 2, cy: H * 0.32 } : { cx: W * 0.66, cy: H * 0.5 };
-    const hw = mobile ? W * 0.82 : Math.min(W * 0.46, 640);
-    const R = mobile ? Math.min(W * 0.4, H * 0.23) : Math.min(W * 0.25, H * 0.36);
+    const pBox = mobile ? { cx: W / 2, cy: H * 0.24, s: Math.min(W * 0.62, H * 0.32) } : { cx: W * 0.7, cy: H * 0.52, s: Math.min(H * 0.82, W * 0.44) };
+    const cBox = mobile ? { cx: W / 2, cy: H * 0.26 } : { cx: W * 0.66, cy: H * 0.5 };
+    const hw = mobile ? W * 0.72 : Math.min(W * 0.46, 640);
+    const R = mobile ? Math.min(W * 0.36, H * 0.19) : Math.min(W * 0.25, H * 0.36);
     const scatter = Math.sin(Math.PI * (m2 > 0 ? m2 : m1)) * (mobile ? 40 : 90);
     const size = mobile ? 1.3 : 1.6;
 

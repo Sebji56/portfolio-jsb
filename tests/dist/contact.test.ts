@@ -8,7 +8,7 @@ test('l’adresse courriel n’apparaît en clair dans aucune page', () => {
   }
 });
 
-for (const [route, action] of [['', '/merci'], ['en', '/en/thanks']] as const) {
+for (const [route, action] of [['', '/merci/'], ['en', '/en/thanks/']] as const) {
   const form = () => readPage(route).match(/<form[\s\S]*?<\/form>/)?.[0] ?? '';
 
   test(`/${route} : formulaire Netlify avec pot de miel`, () => {
