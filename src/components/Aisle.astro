@@ -1,0 +1,130 @@
+---
+import { getCollection } from 'astro:content';
+import { Picture } from 'astro:assets';
+import { t, type Locale } from '../i18n/index.ts';
+import { photo } from '../lib/photo-assets.ts';
+import { photoMeta, type PhotoId } from '../lib/photos.ts';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const salons = (await getCollection('salons')).sort((a, b) => a.data.order - b.data.order);
+const proteus = salons.filter((s) => s.data.group === 'proteus');
+const ardoisiere = salons.filter((s) => s.data.group === 'ardoisiere');
+---
+<section id="salons" class="aisle" data-aisle aria-labelledby="salons-title">
+  <div class="intro wrap section-top">
+    <h2 id="salons-title" class="h2" data-reveal>{t(locale, 'salons.title')}</h2>
+    <div class="intro-text">
+      <p class="lead" data-reveal>{t(locale, 'salons.intro')}</p>
+      <p class="progression" data-reveal>{t(locale, 'salons.progression')}</p>
+    </div>
+  </div>
+
+  <div class="stage">
+   <div class="scene">
+    <div class="floor" data-floor aria-hidden="true"></div>
+    <p class="sign" data-sign aria-hidden="true"></p>
+    <div class="stage-head wrap">
+      <h3>{t(locale, 'salons.withProteus')}</h3>
+      <p class="hint" aria-hidden="true">{t(locale, 'salons.hint')}</p>
+    </div>
+    <ol class="world" data-world>
+      {proteus.map((s) => (
+        <li class="booth" data-booth data-sign={s.data.name}>
+          <article>
+            {s.data.photo
+              ? <Picture src={photo(s.data.photo as PhotoId)} formats={['avif', 'webp']} alt={photoMeta[s.data.photo as PhotoId].alt[locale]} widths={[480, 800]} sizes="(max-width: 52rem) 76vw, 40vw" />
+              : <div class="type" aria-hidden="true"><span>{s.data.name}</span><span>{s.data.city[locale].split(',')[0]}</span></div>}
+            <div class="cap">
+              <h4>{s.data.name}</h4>
+              <p class="where">{s.data.city[locale]}{s.data.date && ` · ${s.data.date[locale]}`}</p>
+              <p class="desc">{s.data.description[locale]}</p>
+              <div class="links">
+                {s.data.stage && <span class="tag">{t(locale, 'salons.stage')}</span>}
+                {s.data.url && <a href={s.data.url} target="_blank" rel="noopener noreferrer">{t(locale, 'salons.official')}<span class="sr-only"> {s.data.name} {t(locale, 'experiences.newTab')}</span></a>}
+              </div>
+            </div>
+          </article>
+        </li>
+      ))}
+    </ol>
+    <div class="end" data-end>
+      <p class="end-title">{t(locale, 'salons.nextTitle')}</p>
+      <p class="end-text">{t(locale, 'salons.nextText')}</p>
+      <a class="btn btn-primary" href="#contact">{t(locale, 'nav.contact')}</a>
+    </div>
+    <div class="meter" aria-hidden="true"><i data-meter></i></div>
+   </div>
+  </div>
+
+  <div class="wrap ardoisiere">
+    <h3 data-reveal>{t(locale, 'salons.withArdoisiere')}</h3>
+    <ul>
+      {ardoisiere.map((s) => (
+        <li data-reveal>
+          <a href={s.data.url} target="_blank" rel="noopener noreferrer"><strong>{s.data.name}</strong><span class="sr-only"> {t(locale, 'experiences.newTab')}</span></a>
+          <span class="where">{s.data.city[locale]}</span>
+          <span class="desc">{s.data.description[locale]}</span>
+        </li>
+      ))}
+    </ul>
+    <p class="others" data-reveal>{t(locale, 'salons.others')}.</p>
+  </div>
+</section>
+
+<script>
+  import { initAisle } from '../lib/aisle.ts';
+  const section = document.querySelector<HTMLElement>('[data-aisle]');
+  if (section && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    section.classList.add('aisle-on');
+    initAisle(section);
+  }
+</script>
+
+<style>
+  .section-top { padding-top: clamp(5rem, 12vw, 9rem); }
+  .intro { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 5rem); align-items: end; }
+  .intro-text { display: grid; gap: 1rem; }
+  .progression { color: var(--mute); }
+
+  /* Mode statique : grille de cartes */
+  .stage { padding: 3rem clamp(1rem, 4vw, 3.5rem) 0; max-width: 80rem; margin: 0 auto; }
+  .floor, .sign, .meter, .hint, .end { display: none; }
+  .stage-head h3, .ardoisiere h3 { font-size: 1.25rem; letter-spacing: -0.02em; }
+  .world { list-style: none; padding: 0; margin: 1.5rem 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr)); gap: 1rem; }
+  .booth article { height: 100%; background: var(--surface); border: 1px solid var(--line); border-radius: 1rem; padding: 0.6rem 0.6rem 1.1rem; display: grid; gap: 0.9rem; align-content: start; }
+  .booth :global(img), .type { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 0.6rem; }
+  .type { display: grid; place-content: center; text-align: center; background: var(--surface-2); font-family: var(--font-sign); font-weight: 800; text-transform: uppercase; color: var(--acc); font-size: clamp(2.5rem, 4.5vw, 4.5rem); line-height: 0.9; }
+  .type span + span { font-size: 0.45em; color: var(--ink); }
+  .cap { padding-inline: 0.5rem; display: grid; gap: 0.45rem; }
+  .cap h4 { font-family: var(--font-sign); font-weight: 800; text-transform: uppercase; font-size: 1.75rem; line-height: 1; letter-spacing: 0.01em; }
+  .where { color: var(--mute); font-size: 0.875rem; }
+  .desc { font-size: 0.9375rem; }
+  .links { display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; margin-top: 0.25rem; }
+  .links a { color: var(--ink); font-weight: 600; font-size: 0.875rem; text-decoration-color: var(--acc); }
+  .tag { font-size: 0.75rem; font-weight: 700; background: var(--acc); color: var(--acc-ink); padding: 0.2rem 0.55rem; border-radius: 999px; }
+
+  /* Mode allée : la scène reste figée pendant qu'on avance entre les kiosques */
+  .aisle-on .stage { height: calc(var(--n, 7) * 90vh + 100vh); max-width: none; padding: 0; }
+  .aisle-on .scene { position: sticky; top: 0; height: 100svh; overflow: hidden; perspective: 900px; perspective-origin: 50% 46%; }
+  .aisle-on .floor { display: block; position: absolute; left: -50%; right: -50%; top: 58%; height: 120%; transform-origin: top; transform: rotateX(78deg);
+    background: repeating-linear-gradient(0deg, var(--line) 0 2px, transparent 2px 160px), repeating-linear-gradient(90deg, var(--line) 0 2px, transparent 2px 160px);
+    background-position: 0 var(--fy, 0); -webkit-mask-image: linear-gradient(#000, transparent 70%); mask-image: linear-gradient(#000, transparent 70%); }
+  .aisle-on .sign { display: block; position: absolute; inset: auto 0 52% 0; text-align: center; font-family: var(--font-sign); font-weight: 800; text-transform: uppercase; font-size: clamp(5rem, 16vw, 16rem); line-height: 0.8; color: color-mix(in oklab, var(--ink) 6%, transparent); white-space: nowrap; opacity: var(--s, 1); }
+  .aisle-on .stage-head { position: absolute; inset: 5.5rem 0 auto; display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; z-index: 2; }
+  .aisle-on .hint { display: block; color: var(--mute); font-size: 0.875rem; }
+  .aisle-on .world { position: absolute; left: 50%; top: 50%; margin: 0; display: block; transform-style: preserve-3d; }
+  .aisle-on .booth { position: absolute; left: 0; top: 0; width: min(36rem, 40vw); transform-style: preserve-3d; will-change: transform, opacity; }
+  .aisle-on .end { display: grid; position: absolute; inset: 0; place-content: center; justify-items: center; text-align: center; gap: 1.1rem; padding: 1rem; opacity: var(--e, 0); z-index: 3; }
+  .end-title { font-family: var(--font-sign); font-weight: 800; text-transform: uppercase; font-size: clamp(3.5rem, 9vw, 8rem); line-height: 0.85; }
+  .end-text { color: var(--mute); max-width: 46ch; }
+  .aisle-on .meter { display: block; position: absolute; left: clamp(1rem, 4vw, 3.5rem); right: clamp(1rem, 4vw, 3.5rem); bottom: 1.75rem; height: 2px; background: var(--line); }
+  .meter i { position: absolute; inset: 0; background: var(--acc); transform-origin: left; transform: scaleX(var(--p, 0)); }
+  @media (max-width: 52rem) { .aisle-on .booth { width: 76vw; } .aisle-on .hint { display: none; } }
+  .ardoisiere { padding-block: 4rem clamp(5rem, 12vw, 9rem); display: grid; gap: 1.25rem; }
+  .ardoisiere ul { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .ardoisiere li { display: grid; gap: 0.35rem; align-content: start; padding-top: 1rem; border-top: 1px solid var(--line); }
+  .ardoisiere a { color: var(--ink); }
+  .others { color: var(--mute); }
+  @media (max-width: 52rem) { .intro, .ardoisiere ul { grid-template-columns: 1fr; } }
+</style>

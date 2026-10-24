@@ -11,6 +11,7 @@ import Education from './Education.astro';
 import Projects from './Projects.astro';
 import Contact from './Contact.astro';
 import Experiences from './Experiences.astro';
+import Aisle from './Aisle.astro';
 
 interface Props { locale: Locale }
 const { locale } = Astro.props;
@@ -21,6 +22,7 @@ const { locale } = Astro.props;
   <About locale={locale} />
   <Pillars locale={locale} />
   <Experiences locale={locale} />
+  <Aisle locale={locale} />
   <Skills locale={locale} />
   <Emerging locale={locale} />
   <Education locale={locale} />

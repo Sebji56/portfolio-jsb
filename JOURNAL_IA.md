@@ -67,3 +67,8 @@ Ce site a été conçu avec Claude Code (Anthropic). Ce journal note, à chaque 
 
 - **Fait :** script de préparation qui recadre les visages de tiers et les éléments distrayants (auditoire BCEDL, passants NSTA, exposant voisin, écran d'erreur) ; images servies en AVIF et WebP avec textes alternatifs FR/EN.
 - **Correction :** un premier floutage laissait un rectangle visible sur la photo SXSW ; remplacé par un recadrage.
+
+## 2026-10-24 — Tâche 10 : allée des salons
+
+- **Fait :** au défilement, on marche dans un hall d'exposition en 3D : EduTECH Asia, SXSW EDU, NSTA, BCEDL (sur scène), OCTE, ISTE et Collision, jusqu'à « Prochain kiosque ? ». Au clavier, chaque kiosque qui reçoit le focus est amené devant soi. Sans animation : une grille de cartes. Salons de L'Ardoisière listés en dessous.
+- **Débogage :** la progression était calculée sur toute la section au lieu de la scène, et les kiosques masqués n'étaient plus atteignables au clavier ; les deux sont corrigés.
