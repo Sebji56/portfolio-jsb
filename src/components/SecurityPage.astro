@@ -1,0 +1,60 @@
+---
+import Base from '../layouts/Base.astro';
+import { localizePath, t, type Locale } from '../i18n/index.ts';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+
+// Contenu rédigé ici (texte long) plutôt que dans les fichiers de traduction d'interface
+const content = {
+  fr: {
+    title: 'Sécurité de ce site',
+    intro: 'Un portfolio n’a rien à cacher, mais il doit protéger ses visiteurs. Voici, en langage simple, ce que fait ce site.',
+    sections: [
+      ['Aucun traceur, aucun cookie', 'Pas de Google Analytics, pas de pixel publicitaire, pas de témoin (cookie). Le site ne charge aucun script d’une autre entreprise. Seul un choix de thème clair ou sombre peut être mémorisé dans votre navigateur, et il n’en sort jamais.'],
+      ['Content-Security-Policy (CSP)', 'Une liste stricte de ce que le navigateur a le droit de charger : uniquement des fichiers venant de ce site. Si quelqu’un tentait d’injecter un script malveillant, le navigateur refuserait de l’exécuter.'],
+      ['Strict-Transport-Security (HSTS)', 'Oblige le navigateur à toujours utiliser une connexion chiffrée (HTTPS) avec ce site, même si on tape l’adresse sans « https ».'],
+      ['X-Content-Type-Options', 'Empêche le navigateur de « deviner » le type d’un fichier, une technique parfois utilisée pour faire passer un fichier piégé pour une image.'],
+      ['Referrer-Policy', 'Limite ce que les autres sites apprennent quand vous cliquez sur un lien sortant : ils voient le nom du site, pas la page exacte.'],
+      ['Permissions-Policy', 'Interdit l’accès à la caméra, au micro, à la géolocalisation et aux paiements. Ce site n’en a pas besoin, donc personne ne peut s’en servir à travers lui.'],
+      ['Protection contre l’intégration (frame-ancestors)', 'Le site ne peut pas être affiché à l’intérieur d’un autre site, ce qui bloque les tentatives de faux clics (« clickjacking »).'],
+      ['Formulaire de contact', 'Les messages sont reçus par Netlify, l’hébergeur du site, et ne servent qu’à me joindre. Un champ invisible piège les robots qui envoient du pourriel. L’adresse courriel n’est pas écrite en clair dans le code, pour échapper aux robots qui récoltent les adresses.'],
+      ['Signaler un problème', 'Le fichier /.well-known/security.txt indique comment me signaler une faille de sécurité.'],
+    ],
+    back: 'Retour à l’accueil',
+  },
+  en: {
+    title: 'Security of this site',
+    intro: 'A portfolio has nothing to hide, but it should still protect its visitors. Here is, in plain language, what this site does.',
+    sections: [
+      ['No trackers, no cookies', 'No Google Analytics, no advertising pixel, no cookies. The site loads no script from any other company. Only your light or dark theme choice may be remembered in your browser, and it never leaves it.'],
+      ['Content-Security-Policy (CSP)', 'A strict list of what the browser is allowed to load: only files from this site. If someone tried to inject a malicious script, the browser would refuse to run it.'],
+      ['Strict-Transport-Security (HSTS)', 'Forces the browser to always use an encrypted connection (HTTPS) with this site, even if you type the address without “https”.'],
+      ['X-Content-Type-Options', 'Stops the browser from “guessing” a file’s type, a trick sometimes used to pass off a booby-trapped file as an image.'],
+      ['Referrer-Policy', 'Limits what other sites learn when you click an outbound link: they see the site name, not the exact page.'],
+      ['Permissions-Policy', 'Blocks access to the camera, microphone, geolocation and payments. This site does not need them, so no one can use them through it.'],
+      ['Framing protection (frame-ancestors)', 'The site cannot be displayed inside another site, which blocks fake-click attempts (“clickjacking”).'],
+      ['Contact form', 'Messages are received by Netlify, the site’s host, and are only used to reach me. An invisible field traps spam bots. The email address is not written in plain text in the code, to avoid address-harvesting bots.'],
+      ['Reporting an issue', 'The /.well-known/security.txt file explains how to report a security issue to me.'],
+    ],
+    back: 'Back to home',
+  },
+}[locale];
+---
+<Base locale={locale} route="security" title={t(locale, 'meta.securityTitle')} description={t(locale, 'meta.securityDescription')}>
+  <article class="wrap page">
+    <h1>{content.title}</h1>
+    <p class="lead">{content.intro}</p>
+    <dl>
+      {content.sections.map(([term, desc]) => (<div><dt>{term}</dt><dd>{desc}</dd></div>))}
+    </dl>
+    <a class="btn btn-primary" href={localizePath('home', locale)}>{content.back}</a>
+  </article>
+</Base>
+
+<style>
+  .page { padding-block: 8rem 5rem; display: grid; gap: 1.75rem; justify-items: start; max-width: 52rem; }
+  h1 { font-size: clamp(2.25rem, 5vw, 3.75rem); }
+  dl { display: grid; gap: 1.5rem; margin: 1rem 0; }
+  dt { font-weight: 700; font-size: 1.125rem; letter-spacing: -0.02em; }
+  dd { margin: 0.35rem 0 0; max-width: 65ch; }
+</style>

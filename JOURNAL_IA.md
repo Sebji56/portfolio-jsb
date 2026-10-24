@@ -72,3 +72,8 @@ Ce site a été conçu avec Claude Code (Anthropic). Ce journal note, à chaque 
 
 - **Fait :** au défilement, on marche dans un hall d'exposition en 3D : EduTECH Asia, SXSW EDU, NSTA, BCEDL (sur scène), OCTE, ISTE et Collision, jusqu'à « Prochain kiosque ? ». Au clavier, chaque kiosque qui reçoit le focus est amené devant soi. Sans animation : une grille de cartes. Salons de L'Ardoisière listés en dessous.
 - **Débogage :** la progression était calculée sur toute la section au lieu de la scène, et les kiosques masqués n'étaient plus atteignables au clavier ; les deux sont corrigés.
+
+## 2026-10-24 — Tâche 11 : sécurité
+
+- **Fait :** en-têtes HTTP (CSP stricte, HSTS, nosniff, Referrer-Policy, Permissions-Policy, COOP), fichier security.txt, page « Sécurité de ce site » en langage simple, configuration Netlify.
+- **Vérifié :** la CSP réelle a été injectée dans le navigateur de test sur 4 pages : aucune ressource bloquée, toutes les fonctions marchent.
