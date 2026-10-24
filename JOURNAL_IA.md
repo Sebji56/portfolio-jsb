@@ -58,3 +58,7 @@ Ce site a été conçu avec Claude Code (Anthropic). Ce journal note, à chaque 
 ## 2026-10-24 — Tâche 7 : contact
 
 - **Fait :** formulaire Netlify avec champ « pot de miel » contre les robots, validation native et messages d'aide, courriel reconstitué en JavaScript (absent du HTML), pages de remerciement non indexées.
+
+## 2026-10-24 — Tâche 8 : expériences
+
+- **Fait :** cartes ALBI, Proteus-VR (progression de développeur à vice-président), L'Ardoisière, encadré Projet PIXEL, recommandation citée mot pour mot en anglais avec traduction française et marqueur d'accord, Jack Flat BBQ en une ligne. Tous les liens externes s'ouvrent en toute sécurité dans un nouvel onglet (vérifié par test).

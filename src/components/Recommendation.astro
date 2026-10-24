@@ -1,0 +1,35 @@
+---
+import { t, type Locale } from '../i18n/index.ts';
+import Todo from './Todo.astro';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const linkedin = 'https://www.linkedin.com/in/jean-sébastien-bisson-a13b4b23b';
+const consent = locale === 'fr' ? '[À COMPLÉTER : accord de Joséphine Bories-Rao pour afficher son nom]' : '[TO COMPLETE: Joséphine Bories-Rao’s consent to display her name]';
+---
+<figure class="reco" aria-labelledby="reco-title" data-reveal>
+  <h3 id="reco-title">{t(locale, 'experiences.quoteTitle')}</h3>
+  <blockquote lang="en">
+    <p>« I highly recommend Seb Ji for his skills at managing a Virtual Live Production Show/Event. Seb was our technical partner for the show PIXEL at EXCLAM Festival (Montréal), produced by Grégoire Furrer (Montreux Comedy Festival). Seb has shown all his technical and soft skills to make this project a success. I would hire him for the next projects I will produce in Canada. »</p>
+  </blockquote>
+  {locale === 'fr' && (
+    <p class="translation"><span>{t(locale, 'experiences.translationLabel')} :</span> {t(locale, 'experiences.translation')}</p>
+  )}
+  <figcaption>
+    <strong>Joséphine Bories-Rao</strong>, {t(locale, 'experiences.quoteContext')}
+    <span class="consent"><Todo text={consent} /></span>
+  </figcaption>
+  <a class="li" href={linkedin} target="_blank" rel="noopener noreferrer">{t(locale, 'experiences.seeLinkedin')}<span class="sr-only"> {t(locale, 'experiences.newTab')}</span></a>
+</figure>
+
+<style>
+  .reco { margin: 0; padding: clamp(1.5rem, 3vw, 2.5rem); border-radius: 1rem; background: linear-gradient(135deg, color-mix(in oklab, var(--acc) 10%, var(--surface)), var(--surface) 55%); border: 1px solid var(--line); display: grid; gap: 1.25rem; }
+  h3 { font-size: 1rem; font-weight: 600; color: var(--mute); letter-spacing: -0.01em; }
+  blockquote { margin: 0; }
+  blockquote p { font-size: clamp(1.25rem, 2.2vw, 1.75rem); line-height: 1.35; letter-spacing: -0.02em; font-weight: 500; max-width: 60ch; }
+  .translation { color: var(--mute); font-size: 0.9375rem; max-width: 75ch; }
+  .translation span { font-weight: 600; color: var(--ink); }
+  figcaption { font-size: 0.9375rem; color: var(--mute); }
+  figcaption strong { color: var(--ink); }
+  .consent { display: block; margin-top: 0.5rem; }
+  .li { justify-self: start; color: var(--ink); font-weight: 600; text-decoration-color: var(--acc); }
+</style>

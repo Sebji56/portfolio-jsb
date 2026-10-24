@@ -1,0 +1,47 @@
+---
+import { getCollection } from 'astro:content';
+import { t, type Locale } from '../i18n/index.ts';
+import ExperienceCard from './ExperienceCard.astro';
+import Recommendation from './Recommendation.astro';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const all = (await getCollection('experiences')).sort((a, b) => a.data.order - b.data.order);
+const main = all.filter((e) => e.data.kind === 'main');
+const projects = all.filter((e) => e.data.kind === 'project');
+const compact = all.filter((e) => e.data.kind === 'compact');
+const span = (s: string, e: string) => (s === e ? s : `${s} – ${e}`);
+---
+<section id="experiences" class="section" aria-labelledby="exp-title">
+  <div class="wrap">
+    <h2 id="exp-title" class="h2" data-reveal>{t(locale, 'experiences.title')}</h2>
+    <div class="list">
+      {main.map((e) => <ExperienceCard entry={e} locale={locale} />)}
+    </div>
+
+    <div class="extra">
+      {projects.map((e) => (
+        <div class="project" data-reveal>
+          <p class="label">{t(locale, 'experiences.project')}</p>
+          <ExperienceCard entry={e} locale={locale} />
+        </div>
+      ))}
+      <Recommendation locale={locale} />
+    </div>
+
+    {compact.map((e) => (
+      <p class="compact" data-reveal>
+        <span class="label">{t(locale, 'experiences.complementary')}</span>
+        <span><strong>{e.data.roles[0].title[locale]}</strong>, {e.data.company} ({e.data.location[locale]}, {span(e.data.roles[0].start, e.data.roles[0].end)}) : {e.data.highlights[locale][0]}.</span>
+      </p>
+    ))}
+  </div>
+</section>
+
+<style>
+  .list { display: grid; gap: 1rem; margin-top: 2.5rem; }
+  .extra { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 1rem; margin-top: 1rem; align-items: start; }
+  .project { display: grid; gap: 0.6rem; }
+  .label { font-size: 0.875rem; font-weight: 600; color: var(--mute); }
+  .compact { margin-top: 2rem; display: grid; gap: 0.3rem; padding-top: 1.5rem; border-top: 1px solid var(--line); max-width: 80ch; }
+  @media (max-width: 60rem) { .extra { grid-template-columns: 1fr; } }
+</style>
