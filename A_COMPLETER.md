@@ -13,3 +13,4 @@
 | 7 | Droits d'utilisation et crédit de `sxsw-edu-austin-2024-demo-casque.jpg` (photographe de l'événement) | Crédit photo | À vérifier |
 | 8 | Année de la participation à NSTA (Atlanta) | Salons | Non fournie |
 | 9 | Adresse définitive du site (provisoire : `https://portfolio-jsb.netlify.app`, dans `astro.config.mjs`) | Configuration | Après la création du site Netlify |
+| 10 | Ce que Seb veut apprendre après la PL-900 (non précisé dans le brief) | Technologies émergentes | À fournir |

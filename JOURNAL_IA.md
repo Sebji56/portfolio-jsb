@@ -29,3 +29,8 @@ Ce site a été conçu avec Claude Code (Anthropic). Ce journal note, à chaque 
 
 - **Fait :** projet Astro 7 + Tailwind v4, configuration bilingue, compilation sans CSS inline, premiers tests sur le site compilé (langue des pages, absence de script inline).
 - **Choix technique :** les tests utilisent l'outil intégré à Node, sans dépendance supplémentaire.
+
+## 2026-10-24 — Tâche 2 : traductions
+
+- **Fait :** tous les textes d'interface en français et en anglais, avec un test qui vérifie que les deux langues ont exactement les mêmes clés, et des chemins traduits (/securite ↔ /en/security).
+- **Vigilance honnêteté :** « ce que je veux apprendre ensuite » n'était pas précisé dans le brief ; un marqueur [À COMPLÉTER] le remplace plutôt qu'une invention.

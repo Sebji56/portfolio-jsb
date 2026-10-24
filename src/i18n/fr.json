@@ -1,0 +1,163 @@
+{
+  "meta": {
+    "homeTitle": "Jean-Sébastien Bisson (Seb Ji) · Développement des affaires et vente-conseil",
+    "homeDescription": "Seb Ji, développement des affaires et vente-conseil en solutions technologiques. De développeur VR à VP technologie, aujourd'hui tourné vers l'IA.",
+    "securityTitle": "Sécurité de ce site · Seb Ji",
+    "securityDescription": "Comment ce portfolio protège ses visiteurs : en-têtes HTTP, politique de sécurité du contenu, aucun traceur ni cookie.",
+    "thanksTitle": "Message envoyé · Seb Ji",
+    "thanksDescription": "Merci pour votre message. Jean-Sébastien Bisson vous répondra rapidement.",
+    "notFoundTitle": "Page introuvable · Seb Ji",
+    "notFoundDescription": "Cette page n'existe pas. Retournez à l'accueil du portfolio de Jean-Sébastien Bisson."
+  },
+  "nav": {
+    "skip": "Aller au contenu",
+    "home": "Accueil",
+    "journey": "Parcours",
+    "salons": "Salons",
+    "skills": "Compétences",
+    "ai": "IA",
+    "contact": "Me joindre",
+    "themeToLight": "Passer au thème clair",
+    "themeToDark": "Passer au thème sombre",
+    "langLabel": "English",
+    "langName": "Voir le site en anglais"
+  },
+  "hero": {
+    "name": "Jean-Sébastien Bisson",
+    "title": "Développement des affaires | Vente-conseil en solutions technologiques | Analyse des besoins • Démonstration de solutions • Partenariats",
+    "value": "Développeur devenu vice-président de la technologie, j'ai commercialisé une solution de réalité virtuelle dans quatre pays. Prochaine étape : l'IA, l'automatisation et la cybersécurité.",
+    "ctaContact": "Me joindre",
+    "ctaCv": "Télécharger mon CV (PDF)",
+    "scroll": "Défiler",
+    "portraitAlt": "Portrait de Jean-Sébastien Bisson, souriant, en veston bleu marine sur fond bleu",
+    "storyLabel": "Mon parcours en trois temps"
+  },
+  "signal": {
+    "built": { "when": "2023 – 2024 · Proteus-VR", "title": "J'ai bâti le produit de l'intérieur.", "text": "Développeur Unreal Engine : objets interactifs, systèmes de particules, moteur de simulation chimique des laboratoires VR." },
+    "sold": { "when": "2024 · Vice-président de la technologie", "title": "Puis je l'ai vendu, en personne.", "text": "SXSW EDU, NSTA, ISTE, OCTE, BCEDL, Collision : d'abord avec le président, puis seul au kiosque, puis sur scène." },
+    "countries": { "when": "Canada · États-Unis · Singapour · Corée du Sud", "title": "Dans quatre pays.", "text": "Aujourd'hui, j'apporte ce double regard, la technologie et le client, à l'IA, à l'automatisation et à la cybersécurité." }
+  },
+  "figures": {
+    "title": "Chiffres clés",
+    "items": [
+      { "value": "10+ ans", "label": "en service et en vente" },
+      { "value": "~25 / mois", "label": "véhicules vendus chez ALBI" },
+      { "value": "4 pays", "label": "démarchés : Canada, États-Unis, Singapour, Corée du Sud" },
+      { "value": "7 salons", "label": "grands salons et conférences en éducation et en technologie" },
+      { "value": "Dév. → VP", "label": "de développeur à vice-président de la technologie" }
+    ]
+  },
+  "about": {
+    "title": "À propos",
+    "paragraphs": [
+      "J'ai appris la vente dans l'entreprise familiale, L'Ardoisière : dix ans à conseiller des architectes, des designers, des particuliers et des distributeurs, et à ouvrir de nouveaux comptes.",
+      "En 2020, en pleine pandémie, j'ai aussi travaillé comme préposé aux bénéficiaires en CHSLD. Cette expérience a renforcé ce qui guide encore ma façon de vendre : écouter avant de proposer.",
+      "J'ai ensuite suivi une formation en réalité virtuelle et augmentée, puis rejoint Proteus-VR comme développeur. J'y ai bâti le produit de l'intérieur avant de le présenter, comme vice-président de la technologie, à des districts scolaires dans quatre pays.",
+      "Depuis, j'ai retrouvé le terrain : le service en restauration, puis la vente automobile chez ALBI Occasion.",
+      "Aujourd'hui, je me tourne vers l'IA, l'automatisation et la cybersécurité. Ce qui relie tout ce parcours ne change pas : comprendre les besoins des gens et leur proposer la bonne solution."
+    ],
+    "photoAlt": "Jean-Sébastien, chapeau de cowboy noir, devant le kiosque Proteus Labs et ses casques de réalité virtuelle au symposium BCEDL à Vancouver"
+  },
+  "pillars": {
+    "title": "Mes trois piliers",
+    "intro": "Trois forces d'égale importance, prouvées sur le terrain.",
+    "proofLabel": "Prouvé chez",
+    "service": { "name": "Service", "skills": ["Écoute et découverte des besoins", "Service personnalisé", "Fidélisation", "Vente suggestive"], "proof": "ALBI Occasion · L'Ardoisière · Jack Flat BBQ" },
+    "sales": { "name": "Vente-conseil, développement des affaires et partenariats", "skills": ["Cycle de vente complet B2B et B2C", "Prospection et négociation", "Ouverture de comptes distributeurs", "Partenariats au Canada, aux États-Unis et à Singapour"], "proof": "Proteus-VR · L'Ardoisière · ALBI Occasion" },
+    "tech": { "name": "Technologies émergentes", "skills": ["Démonstration de solutions technologiques", "IA au quotidien : ChatGPT, Claude, Claude Code", "PL-900 Power Platform (en cours)", "Bagage VR/AR : Unreal Engine, Unity"], "proof": "Proteus-VR · Institut Grasset · ce site" }
+  },
+  "experiences": {
+    "title": "Expériences",
+    "details": "Voir le détail",
+    "skillsLabel": "Compétences démontrées",
+    "visit": "Site de l'entreprise",
+    "newTab": "(nouvel onglet)",
+    "project": "Projet",
+    "complementary": "Expérience complémentaire",
+    "quoteTitle": "Ce qu'on dit de moi",
+    "quoteContext": "sur le spectacle PIXEL au Festival EXCLAM",
+    "translationLabel": "Traduction",
+    "translation": "« Je recommande vivement Seb Ji pour ses compétences en gestion d'un spectacle ou d'un événement de production virtuelle en direct. Seb était notre partenaire technique pour le spectacle PIXEL au Festival EXCLAM (Montréal), produit par Grégoire Furrer (Montreux Comedy Festival). Seb a démontré toutes ses compétences techniques et humaines pour faire de ce projet un succès. Je l'engagerais pour les prochains projets que je produirai au Canada. »",
+    "seeLinkedin": "Voir sur LinkedIn"
+  },
+  "salons": {
+    "title": "Sur le terrain : salons et événements",
+    "intro": "Présenter une solution devant des décideurs et des éducateurs, prospecter en personne, faire des démonstrations en anglais à l'international, prendre la parole devant public.",
+    "progression": "D'abord accompagné du président, puis responsable seul du kiosque, puis conférencier sur scène.",
+    "hint": "Faites défiler pour parcourir l'allée.",
+    "withProteus": "Avec Proteus-VR : éducation et technologie",
+    "withArdoisiere": "Avec L'Ardoisière : habitation et rénovation",
+    "others": "et plusieurs autres salons de l'habitation et de la rénovation au Québec",
+    "official": "Site officiel",
+    "stage": "Sur scène",
+    "nextTitle": "Prochain kiosque ?",
+    "nextText": "Je cherche une entreprise en IA, en automatisation ou en cybersécurité où présenter, démontrer et vendre des solutions."
+  },
+  "skills": {
+    "title": "Compétences et outils",
+    "keyTitle": "Compétences clés",
+    "toolsTitle": "Outils",
+    "languagesTitle": "Langues"
+  },
+  "emerging": {
+    "title": "Technologies émergentes : où j'en suis",
+    "intro": "Je n'arrive pas en expert de l'IA, de l'automatisation ou de la cybersécurité. J'arrive avec un intérêt sérieux, une utilisation concrète des outils et un apprentissage en cours.",
+    "usesTitle": "Ce que je fais déjà",
+    "uses": [
+      "ChatGPT et Claude au quotidien, avec des skills et des plugins",
+      "Claude Code pour bâtir ce site, du brief à la mise en ligne",
+      "Certification Microsoft PL-900 – Power Platform Fundamentals en cours : Power Apps, Power Automate, Power BI, Copilot Studio"
+    ],
+    "nextTitle": "Ce que je veux apprendre ensuite",
+    "next": "[À COMPLÉTER : ce que tu veux apprendre après la PL-900]",
+    "rolesTitle": "Le poste que je vise",
+    "roles": "Représentant ou conseiller avant-vente en solutions technologiques, développement des affaires dans une entreprise d'IA, ou customer success. En présentiel, en hybride ou en télétravail, dans le Grand Montréal.",
+    "builtTitle": "Ce site a été conçu avec l'IA",
+    "builtSteps": [
+      "Le brief : un cahier des charges précis, avec une règle d'honnêteté absolue : rien d'inventé.",
+      "La démarche : directions visuelles, recherche sur des sites primés d'Awwwards, spec, plan en 12 étapes, puis construction avec Claude Code.",
+      "Les vérifications : tests automatiques avant chaque fonctionnalité, audits d'accessibilité et de performance, revue de code finale."
+    ],
+    "builtLesson": "Ce que j'en retiens : l'IA va vite, mais ce sont la précision du brief et la rigueur des vérifications qui font la qualité.",
+    "securityLink": "Comment ce site protège ses visiteurs"
+  },
+  "education": {
+    "title": "Formation",
+    "inProgress": "En cours",
+    "othersTitle": "Autres formations"
+  },
+  "contact": {
+    "title": "Me joindre",
+    "intro": "Ouvert à un poste en présentiel, en hybride ou en télétravail dans le Grand Montréal.",
+    "emailLabel": "Courriel",
+    "emailFallback": "sebji56 [at] gmail.com",
+    "linkedinLabel": "LinkedIn",
+    "formTitle": "Écrivez-moi",
+    "name": "Nom",
+    "email": "Courriel",
+    "message": "Message",
+    "send": "Envoyer le message",
+    "honeypot": "Ne remplissez pas ce champ",
+    "required": "(obligatoire)",
+    "hintEmail": "Format : nom@exemple.com",
+    "hintMessage": "Au moins 10 caractères."
+  },
+  "thanks": {
+    "title": "Merci, votre message est envoyé.",
+    "text": "Je vous réponds dès que possible.",
+    "back": "Retour à l'accueil"
+  },
+  "notFound": {
+    "title": "Cette page n'existe pas.",
+    "text": "Le lien est peut-être erroné ou la page a été déplacée.",
+    "back": "Retour à l'accueil"
+  },
+  "projects": {
+    "title": "Projets"
+  },
+  "footer": {
+    "built": "Conçu et construit avec Claude Code. Aucun traceur, aucun cookie.",
+    "security": "Sécurité de ce site",
+    "cv": "CV (PDF)"
+  }
+}
