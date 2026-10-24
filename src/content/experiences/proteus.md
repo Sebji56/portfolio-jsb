@@ -5,6 +5,7 @@ company: Proteus-VR
 url: https://proteus-vr.com/
 location: { fr: "Montréal", en: "Montréal, Quebec" }
 mode: { fr: "Temps plein, hybride", en: "Full-time, hybrid" }
+photo: bcedl-vancouver-conference
 roles:
   - title: { fr: "Vice-président de la technologie", en: "VP of Technology" }
     start: "02/2024"

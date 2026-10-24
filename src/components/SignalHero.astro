@@ -1,5 +1,5 @@
 ---
-import { Image, getImage } from 'astro:assets';
+import { Picture, getImage } from 'astro:assets';
 import portrait from '../assets/photos/portrait-professionnel.jpg';
 import { t, type Locale } from '../i18n/index.ts';
 
@@ -12,7 +12,7 @@ const words = (s: string) => s.split(' ');
 <section id="accueil" class="signal" data-signal data-portrait={sampler.src} data-locale={locale} aria-labelledby="hero-title">
   <div class="stage">
     <canvas class="canvas" aria-hidden="true"></canvas>
-    <Image class="fallback" src={portrait} alt={t(locale, 'hero.portraitAlt')} widths={[360, 640, 960]} sizes="(max-width: 52rem) 80vw, 40vw" loading="eager" fetchpriority="high" />
+    <Picture class="fallback" pictureAttributes={{ class: "fallback-pic" }} formats={['avif', 'webp']} src={portrait} alt={t(locale, 'hero.portraitAlt')} widths={[360, 640, 960]} sizes="(max-width: 52rem) 80vw, 40vw" loading="eager" fetchpriority="high" />
 
     <div class="copy wrap">
       <div class="copy-inner" data-hero-copy>
@@ -49,7 +49,7 @@ const words = (s: string) => s.split(' ');
   const section = document.querySelector<HTMLElement>('[data-signal]');
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const canvas = section?.querySelector('canvas');
-  if (section && canvas && !reduce && canvas.getContext) {
+  if (section && canvas && !reduce) {
     section.classList.add('signal-on');
     const progress = () => {
       const max = section.offsetHeight - innerHeight;
@@ -92,7 +92,8 @@ const words = (s: string) => s.split(' ');
   .signal { position: relative; }
   .stage { position: relative; display: grid; grid-template-columns: 1.15fr 0.85fr; align-items: center; gap: 2rem; min-height: 100svh; padding-top: 5rem; }
   .canvas, .progress, .hint { display: none; }
-  .fallback { grid-column: 2; grid-row: 1; width: 100%; max-width: 30rem; aspect-ratio: 1; object-fit: cover; border-radius: 1rem; justify-self: center; }
+  .signal :global(.fallback-pic) { grid-column: 2; grid-row: 1; width: 100%; max-width: 30rem; justify-self: center; }
+  .signal :global(.fallback) { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; border-radius: 1rem; }
   .copy { grid-column: 1; grid-row: 1; }
   .captions { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; list-style: none; padding-block: 3rem 5rem; margin: 0; }
 
@@ -109,7 +110,7 @@ const words = (s: string) => s.split(' ');
   .signal-on { height: 520vh; }
   .signal-on .stage { position: sticky; top: 0; height: 100svh; min-height: 0; display: block; overflow: hidden; padding: 0; }
   .signal-on .canvas { display: block; position: absolute; inset: 0; width: 100%; height: 100%; }
-  .signal-on .fallback { display: none; }
+  .signal-on :global(.fallback-pic) { display: none; }
   .signal-on .copy { position: absolute; inset: auto 0 clamp(2.5rem, 12vh, 8.75rem) 0; }
   .signal-on .copy-inner { max-width: min(40rem, 52vw); opacity: calc(1 - var(--out, 0)); transform: translateY(calc(var(--out, 0) * -30px)); }
   .signal-on .captions { position: absolute; inset: 50% 0 auto 0; transform: translateY(-50%); display: block; padding: 0; pointer-events: none; }
@@ -126,7 +127,7 @@ const words = (s: string) => s.split(' ');
 
   @media (max-width: 52rem) {
     .stage { grid-template-columns: 1fr; padding-top: 5.5rem; }
-    .fallback { grid-column: 1; grid-row: 1; max-width: 18rem; }
+    .signal :global(.fallback-pic) { grid-column: 1; grid-row: 1; max-width: 18rem; }
     .copy { grid-row: 2; }
     .captions { grid-template-columns: 1fr; }
     .signal-on .progress { display: none; }

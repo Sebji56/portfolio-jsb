@@ -1,6 +1,7 @@
 ---
-import { Image } from 'astro:assets';
-import photo from '../assets/photos/bcedl-vancouver-kiosque.jpg';
+import { Picture } from 'astro:assets';
+import { photo } from '../lib/photo-assets.ts';
+import { photoMeta } from '../lib/photos.ts';
 import { t, tx, type Locale } from '../i18n/index.ts';
 interface Props { locale: Locale }
 const { locale } = Astro.props;
@@ -13,7 +14,7 @@ const paragraphs = tx<string[]>(locale, 'about.paragraphs');
       {paragraphs.map((p, i) => <p class={i === 0 ? 'lead first' : 'para'} data-reveal>{p}</p>)}
     </div>
     <figure data-reveal>
-      <Image src={photo} alt={t(locale, 'about.photoAlt')} widths={[480, 800, 1200]} sizes="(max-width: 52rem) 92vw, 40vw" />
+      <Picture src={photo('bcedl-vancouver-kiosque')} formats={['avif', 'webp']} alt={photoMeta['bcedl-vancouver-kiosque'].alt[locale]} widths={[480, 800, 1200]} sizes="(max-width: 52rem) 92vw, 40vw" />
     </figure>
   </div>
 </section>

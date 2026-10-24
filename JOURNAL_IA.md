@@ -62,3 +62,8 @@ Ce site a été conçu avec Claude Code (Anthropic). Ce journal note, à chaque 
 ## 2026-10-24 — Tâche 8 : expériences
 
 - **Fait :** cartes ALBI, Proteus-VR (progression de développeur à vice-président), L'Ardoisière, encadré Projet PIXEL, recommandation citée mot pour mot en anglais avec traduction française et marqueur d'accord, Jack Flat BBQ en une ligne. Tous les liens externes s'ouvrent en toute sécurité dans un nouvel onglet (vérifié par test).
+
+## 2026-10-24 — Tâche 9 : photos
+
+- **Fait :** script de préparation qui recadre les visages de tiers et les éléments distrayants (auditoire BCEDL, passants NSTA, exposant voisin, écran d'erreur) ; images servies en AVIF et WebP avec textes alternatifs FR/EN.
+- **Correction :** un premier floutage laissait un rectangle visible sur la photo SXSW ; remplacé par un recadrage.

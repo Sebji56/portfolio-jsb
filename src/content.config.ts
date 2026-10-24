@@ -21,6 +21,7 @@ const experiences = defineCollection({
     highlights: i18nList,
     details: i18nList.optional(),
     skills: z.array(z.object({ label: i18n, pillar })),
+    photo: z.string().optional(),
   }),
 });
 
