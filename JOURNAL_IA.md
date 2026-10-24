@@ -93,3 +93,8 @@ Ce site a été conçu avec Claude Code (Anthropic). Ce journal note, à chaque 
 ## 2026-10-24 — Fusion
 
 - **Décision de Seb :** validation des outils de développement @astrojs/check et typescript ; fusion de la branche de travail dans main, prête à publier avec GitHub Desktop.
+
+## 2026-10-24 — Données fournies par Seb
+
+- **Fourni :** l'objectif après la PL-900, intégré en français et en anglais (le titre devient « Mon objectif après la PL-900 »). Message envoyé à Joséphine pour son accord.
+- **Décision :** les deux photos de photographes d'événement restent hors du site, faute de pouvoir les créditer.

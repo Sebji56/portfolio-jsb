@@ -28,3 +28,11 @@ for (const route of ['', 'en']) {
     assert.match(readPage(route), /class="todo"/);
   });
 }
+
+for (const [route, phrase] of [['', 'technologies émergentes : intelligence artificielle, automatisation et cybersécurité'], ['en', 'emerging technologies: artificial intelligence, automation and cybersecurity']] as const) {
+  test(`/${route} : l’objectif après la PL-900 est rempli (plus de marqueur)`, () => {
+    const ia = readPage(route).match(/<section[^>]*id="ia"[\s\S]*?<\/section>/)?.[0] ?? '';
+    assert.ok(ia.includes(phrase), 'objectif absent');
+    assert.doesNotMatch(ia, /class="todo"/);
+  });
+}
