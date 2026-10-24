@@ -1,5 +1,8 @@
-<!doctype html>
-<html lang="en-CA">
-  <head><meta charset="utf-8" /><title>Jean-Sébastien Bisson</title></head>
-  <body><h1>Jean-Sébastien Bisson</h1></body>
-</html>
+---
+import Base from '../../layouts/Base.astro';
+import { t } from '../../i18n/index.ts';
+const locale = 'en';
+---
+<Base locale={locale} route="home" title={t(locale, 'meta.homeTitle')} description={t(locale, 'meta.homeDescription')}>
+  <section class="wrap section"><h1 class="h2">{t(locale, 'hero.name')}</h1></section>
+</Base>

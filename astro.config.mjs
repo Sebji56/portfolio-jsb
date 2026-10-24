@@ -20,5 +20,6 @@ export default defineConfig({
       filter: (page) => !/\/(merci|thanks)\/?$/.test(page),
     }),
   ],
-  vite: { plugins: [tailwindcss()] },
+  // assetsInlineLimit 0 : aucun script intégré au HTML (CSP script-src 'self')
+  vite: { plugins: [tailwindcss()], build: { assetsInlineLimit: 0 } },
 });

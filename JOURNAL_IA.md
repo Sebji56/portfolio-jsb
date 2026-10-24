@@ -34,3 +34,8 @@ Ce site a été conçu avec Claude Code (Anthropic). Ce journal note, à chaque 
 
 - **Fait :** tous les textes d'interface en français et en anglais, avec un test qui vérifie que les deux langues ont exactement les mêmes clés, et des chemins traduits (/securite ↔ /en/security).
 - **Vigilance honnêteté :** « ce que je veux apprendre ensuite » n'était pas précisé dans le brief ; un marqueur [À COMPLÉTER] le remplace plutôt qu'une invention.
+
+## 2026-10-24 — Tâche 3 : système visuel
+
+- **Fait :** couleurs, polices auto-hébergées, thème clair/sombre (sombre par défaut), en-tête, pied de page, sélecteur de langue, lien d'évitement. Contrastes vérifiés par des tests.
+- **Correction en cours de route :** Astro intégrait les petits scripts directement dans le HTML, ce que la politique de sécurité interdit ; ils sont maintenant servis en fichiers séparés.

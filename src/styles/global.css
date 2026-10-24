@@ -1,0 +1,121 @@
+@import "@fontsource-variable/schibsted-grotesk";
+@import "@fontsource/big-shoulders-display/800";
+@import "tailwindcss";
+
+/* Jetons : valeurs de la spec, section 4. Le thème sombre est le défaut. */
+:root,
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #070a10;
+  --surface: #0f141c;
+  --surface-2: #151b26;
+  --line: rgb(255 255 255 / 0.08);
+  --line-strong: rgb(255 255 255 / 0.16);
+  --ink: #eef2f8;
+  --mute: #8f99aa;
+  --acc: #4da3ff;
+  --acc-ink: #04121f;
+  --pillar-service: #f2b880;
+  --pillar-sales: #4da3ff;
+  --pillar-tech: #5fd6b0;
+  --particle: #d6e6ff;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --surface-2: #eef1f5;
+  --line: rgb(11 18 32 / 0.1);
+  --line-strong: rgb(11 18 32 / 0.2);
+  --ink: #0b1220;
+  --mute: #4a5568;
+  --acc: #1f6fd1;
+  --acc-ink: #ffffff;
+  --pillar-service: #b8691f;
+  --pillar-sales: #1f6fd1;
+  --pillar-tech: #1a8a68;
+  --particle: #1f3b66;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-ink: var(--ink);
+  --color-mute: var(--mute);
+  --color-acc: var(--acc);
+  --color-acc-ink: var(--acc-ink);
+  --color-service: var(--pillar-service);
+  --color-sales: var(--pillar-sales);
+  --color-tech: var(--pillar-tech);
+  --font-sans: "Schibsted Grotesk Variable", system-ui, sans-serif;
+  --font-sign: "Big Shoulders Display", "Schibsted Grotesk Variable", sans-serif;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+@layer base {
+  html {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 100%;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    scroll-padding-top: 5rem;
+  }
+  body {
+    font-size: 1.0625rem;
+    line-height: 1.55;
+    overflow-x: clip;
+  }
+  h1, h2, h3 {
+    letter-spacing: -0.035em;
+    line-height: 1;
+    text-wrap: balance;
+    font-weight: 700;
+  }
+  p { text-wrap: pretty; }
+  a { text-underline-offset: 0.2em; text-decoration-thickness: 1px; }
+  ::selection { background: var(--acc); color: var(--acc-ink); }
+  :focus-visible { outline: 2px solid var(--acc); outline-offset: 3px; border-radius: 4px; }
+  input, textarea { caret-color: var(--acc); }
+  html { scrollbar-color: var(--line-strong) var(--bg); }
+}
+
+@layer components {
+  .wrap { width: 100%; max-width: 80rem; margin-inline: auto; padding-inline: clamp(1rem, 4vw, 3.5rem); }
+  .section { padding-block: clamp(5rem, 12vw, 9rem); }
+  .h2 { font-size: clamp(2rem, 4.2vw, 3.6rem); }
+  .lead { font-size: clamp(1.0625rem, 1.4vw, 1.25rem); color: var(--ink); max-width: 60ch; }
+  .note { color: var(--mute); }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+    min-height: 2.875rem; padding: 0.75rem 1.25rem; border-radius: 999px;
+    font-weight: 600; font-size: 0.9375rem; text-decoration: none;
+    transition: transform 160ms var(--ease-out), background-color 200ms ease, box-shadow 200ms ease;
+  }
+  .btn:active { transform: scale(0.97); }
+  .btn-primary { background: var(--ink); color: var(--bg); }
+  .btn-ghost { background: color-mix(in oklab, var(--ink) 6%, transparent); color: var(--ink); box-shadow: inset 0 0 0 1px var(--line-strong); }
+  @media (hover: hover) and (pointer: fine) {
+    .btn-ghost:hover { background: color-mix(in oklab, var(--ink) 11%, transparent); }
+    .btn-primary:hover { box-shadow: 0 0 0 4px color-mix(in oklab, var(--acc) 35%, transparent); }
+  }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 1rem; }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+  .todo { background: color-mix(in oklab, var(--pillar-service) 18%, transparent); color: var(--ink); padding: 0.05em 0.35em; border-radius: 4px; font-weight: 600; }
+}
+
+@layer utilities {
+  /* Apparitions : rien n'est masqué sans JavaScript ou avec mouvement réduit */
+  html.js-reveal [data-reveal] { opacity: 0; transform: translateY(20px); transition: opacity 500ms var(--ease-out), transform 600ms var(--ease-out); transition-delay: var(--reveal-delay, 0ms); }
+  html.js-reveal [data-reveal].is-in { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}

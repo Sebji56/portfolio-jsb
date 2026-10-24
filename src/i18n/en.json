@@ -17,10 +17,9 @@
     "skills": "Skills",
     "ai": "AI",
     "contact": "Contact me",
-    "themeToLight": "Switch to light theme",
-    "themeToDark": "Switch to dark theme",
     "langLabel": "Français",
-    "langName": "View the site in French"
+    "langName": "View the site in French",
+    "themeLight": "Light theme"
   },
   "hero": {
     "name": "Jean-Sébastien Bisson",
@@ -33,18 +32,45 @@
     "storyLabel": "My journey in three steps"
   },
   "signal": {
-    "built": { "when": "2023 – 2024 · Proteus-VR", "title": "I built the product from the inside.", "text": "Unreal Engine developer: interactive objects, particle systems, the chemistry simulation engine of the VR labs." },
-    "sold": { "when": "2024 · VP of Technology", "title": "Then I sold it, in person.", "text": "SXSW EDU, NSTA, ISTE, OCTE, BCEDL, Collision: first alongside the president, then running the booth alone, then on stage." },
-    "countries": { "when": "Canada · United States · Singapore · South Korea", "title": "In four countries.", "text": "Today I bring that dual perspective, technology and the customer, to AI, automation and cybersecurity." }
+    "built": {
+      "when": "2023 – 2024 · Proteus-VR",
+      "title": "I built the product from the inside.",
+      "text": "Unreal Engine developer: interactive objects, particle systems, the chemistry simulation engine of the VR labs."
+    },
+    "sold": {
+      "when": "2024 · VP of Technology",
+      "title": "Then I sold it, in person.",
+      "text": "SXSW EDU, NSTA, ISTE, OCTE, BCEDL, Collision: first alongside the president, then running the booth alone, then on stage."
+    },
+    "countries": {
+      "when": "Canada · United States · Singapore · South Korea",
+      "title": "In four countries.",
+      "text": "Today I bring that dual perspective, technology and the customer, to AI, automation and cybersecurity."
+    }
   },
   "figures": {
     "title": "Key figures",
     "items": [
-      { "value": "10+ years", "label": "in customer service and sales" },
-      { "value": "~25 / month", "label": "vehicles sold at ALBI" },
-      { "value": "4 countries", "label": "prospected: Canada, United States, Singapore, South Korea" },
-      { "value": "7 shows", "label": "major education and technology trade shows and conferences" },
-      { "value": "Dev → VP", "label": "from developer to VP of Technology" }
+      {
+        "value": "10+ years",
+        "label": "in customer service and sales"
+      },
+      {
+        "value": "~25 / month",
+        "label": "vehicles sold at ALBI"
+      },
+      {
+        "value": "4 countries",
+        "label": "prospected: Canada, United States, Singapore, South Korea"
+      },
+      {
+        "value": "7 shows",
+        "label": "major education and technology trade shows and conferences"
+      },
+      {
+        "value": "Dev → VP",
+        "label": "from developer to VP of Technology"
+      }
     ]
   },
   "about": {
@@ -62,9 +88,36 @@
     "title": "My three pillars",
     "intro": "Three strengths of equal weight, proven in the field.",
     "proofLabel": "Proven at",
-    "service": { "name": "Service", "skills": ["Active listening and needs discovery", "Personalized service", "Customer loyalty", "Suggestive selling"], "proof": "ALBI Occasion · L'Ardoisière · Jack Flat BBQ" },
-    "sales": { "name": "Consultative sales, business development and partnerships", "skills": ["Full B2B and B2C sales cycle", "Prospecting and negotiation", "Opening distributor accounts", "Partnerships in Canada, the United States and Singapore"], "proof": "Proteus-VR · L'Ardoisière · ALBI Occasion" },
-    "tech": { "name": "Emerging technologies", "skills": ["Technology solution demos", "Daily AI use: ChatGPT, Claude, Claude Code", "PL-900 Power Platform (in progress)", "VR/AR background: Unreal Engine, Unity"], "proof": "Proteus-VR · Institut Grasset · this site" }
+    "service": {
+      "name": "Service",
+      "skills": [
+        "Active listening and needs discovery",
+        "Personalized service",
+        "Customer loyalty",
+        "Suggestive selling"
+      ],
+      "proof": "ALBI Occasion · L'Ardoisière · Jack Flat BBQ"
+    },
+    "sales": {
+      "name": "Consultative sales, business development and partnerships",
+      "skills": [
+        "Full B2B and B2C sales cycle",
+        "Prospecting and negotiation",
+        "Opening distributor accounts",
+        "Partnerships in Canada, the United States and Singapore"
+      ],
+      "proof": "Proteus-VR · L'Ardoisière · ALBI Occasion"
+    },
+    "tech": {
+      "name": "Emerging technologies",
+      "skills": [
+        "Technology solution demos",
+        "Daily AI use: ChatGPT, Claude, Claude Code",
+        "PL-900 Power Platform (in progress)",
+        "VR/AR background: Unreal Engine, Unity"
+      ],
+      "proof": "Proteus-VR · Institut Grasset · this site"
+    }
   },
   "experiences": {
     "title": "Experience",

@@ -1,0 +1,24 @@
+---
+import { localizePath, t, type Locale } from '../i18n/index.ts';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+---
+<footer class="site-footer">
+  <div class="wrap row">
+    <p class="name">Jean-Sébastien Bisson</p>
+    <p class="note">{t(locale, 'footer.built')}</p>
+    <ul>
+      <li><a href={localizePath('security', locale)}>{t(locale, 'footer.security')}</a></li>
+      <li><a href="/cv-jean-sebastien-bisson.pdf" download>{t(locale, 'footer.cv')}</a></li>
+    </ul>
+  </div>
+</footer>
+
+<style>
+  .site-footer { border-top: 1px solid var(--line); padding-block: 3rem 4rem; }
+  .row { display: grid; gap: 1rem 2rem; grid-template-columns: auto 1fr auto; align-items: baseline; }
+  .name { font-weight: 700; letter-spacing: -0.02em; }
+  ul { display: flex; gap: 1.5rem; list-style: none; margin: 0; padding: 0; }
+  a { color: var(--ink); font-size: 0.9375rem; }
+  @media (max-width: 48rem) { .row { grid-template-columns: 1fr; } }
+</style>

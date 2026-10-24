@@ -1,0 +1,14 @@
+---
+import { localizePath, t, type Locale, type RouteId } from '../i18n/index.ts';
+interface Props { locale: Locale; route: RouteId }
+const { locale, route } = Astro.props;
+const other: Locale = locale === 'fr' ? 'en' : 'fr';
+---
+<a class="lang" data-lang-switch href={localizePath(route, other)} hreflang={`${other}-CA`} lang={`${other}-CA`} aria-label={t(locale, 'nav.langName')}>
+  {t(locale, 'nav.langLabel')}
+</a>
+
+<style>
+  .lang { font-size: 0.875rem; font-weight: 600; color: var(--mute); text-decoration: none; padding: 0.5rem 0.25rem; transition: color 200ms ease; }
+  @media (hover: hover) and (pointer: fine) { .lang:hover { color: var(--ink); } }
+</style>
