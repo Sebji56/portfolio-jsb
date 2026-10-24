@@ -98,3 +98,8 @@ Ce site a été conçu avec Claude Code (Anthropic). Ce journal note, à chaque 
 
 - **Fourni :** l'objectif après la PL-900, intégré en français et en anglais (le titre devient « Mon objectif après la PL-900 »). Message envoyé à Joséphine pour son accord.
 - **Décision :** les deux photos de photographes d'événement restent hors du site, faute de pouvoir les créditer.
+
+## 2026-10-24 — Photos OCTE et ISTE
+
+- **Fourni :** Seb a identifié les deux photos de kiosques ; elles correspondaient aux hypothèses faites au départ (ISTE : stand B-43 à Denver ; OCTE : exposant en enseignement technologique). Les 7 salons de l'allée ont maintenant une photo.
+- **Débogage :** le nouveau test échouait d'abord pour une mauvaise raison (barre oblique inverse perdue dans une expression régulière) ; corrigé, puis vérifié qu'il échoue bien sans la photo.

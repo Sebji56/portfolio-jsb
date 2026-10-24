@@ -19,8 +19,8 @@ export const photoMeta = {
   'sxsw-edu-austin-2024-demo-casque': { alt: { fr: 'Jean-Sébastien portant un casque de réalité virtuelle, badge SXSW EDU 2024 au cou, dans le hall d’exposition', en: 'Jean-Sébastien wearing a virtual reality headset, with his SXSW EDU 2024 badge, in the exhibit hall' }, credit: creditTodo },
   'kiosque-proteus-quebec-a-identifier-1': { alt: { fr: 'Kiosque Proteus Labs avec deux casques de réalité virtuelle et un écran, dans un salon au Québec', en: 'Proteus Labs booth with two virtual reality headsets and a screen, at a show in Quebec' } },
   'kiosque-proteus-quebec-a-identifier-2': { alt: { fr: 'Kiosque Proteus Labs avec casques de réalité virtuelle et tablette, dans un salon au Québec', en: 'Proteus Labs booth with virtual reality headsets and a tablet, at a show in Quebec' } },
-  'kiosque-proteus-salon-a-identifier-1': { alt: { fr: 'Jean-Sébastien, chapeau de cowboy noir, devant le kiosque Proteus Labs dans un grand hall d’exposition', en: 'Jean-Sébastien, in a black cowboy hat, in front of the Proteus Labs booth in a large exhibit hall' } },
-  'kiosque-proteus-salon-a-identifier-2': { alt: { fr: 'Jean-Sébastien, casque de réalité virtuelle en main, à côté du kiosque Proteus Labs', en: 'Jean-Sébastien holding a virtual reality headset next to the Proteus Labs booth' } },
+  'iste-denver-2024': { alt: { fr: 'Jean-Sébastien, chapeau de cowboy noir, devant le kiosque Proteus Labs au salon ISTE à Denver', en: 'Jean-Sébastien, in a black cowboy hat, in front of the Proteus Labs booth at ISTE in Denver' } },
+  'octe-london-2024': { alt: { fr: 'Jean-Sébastien, casque de réalité virtuelle en main, à côté du kiosque Proteus Labs à la conférence OCTE à London, en Ontario', en: 'Jean-Sébastien holding a virtual reality headset next to the Proteus Labs booth at the OCTE conference in London, Ontario' } },
 } satisfies Record<string, PhotoMeta>;
 
 export type PhotoId = keyof typeof photoMeta;

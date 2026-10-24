@@ -29,3 +29,13 @@ test('la page Sécurité ne prétend pas que le courriel est absent de tout le c
   assert.doesNotMatch(readPage('securite'), /n’est pas écrite en clair dans le code/);
   assert.doesNotMatch(readPage('en/security'), /not written in plain text in the code/);
 });
+
+test('les kiosques OCTE et ISTE montrent une vraie photo', () => {
+  const html = readPage('');
+  for (const name of ['OCTE', 'ISTE']) {
+    const booth = html.match(new RegExp(`<li[^>]*data-booth[^>]*data-sign="${name}"[\\s\\S]*?</li>`))?.[0] ?? '';
+    assert.ok(booth, `kiosque ${name} absent`);
+    assert.match(booth, /<img\b/, `${name} sans photo`);
+    assert.doesNotMatch(booth, /class="type"/, `${name} encore en typographie`);
+  }
+});

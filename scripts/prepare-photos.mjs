@@ -16,7 +16,7 @@ const CROPS = {
   // Passants retirés à gauche et à droite de l'enseigne NSTA
   'nsta-atlanta': { x: 0.12, y: 0, w: 0.83, h: 1 },
   // Exposant voisin (à gauche) et affiche avec visages (à droite) retirés
-  'kiosque-proteus-salon-a-identifier-1': { x: 0.25, y: 0.12, w: 0.5, h: 0.88 },
+  'iste-denver-2024': { x: 0.25, y: 0.12, w: 0.5, h: 0.88 },
   // Écran « Check internet connection » (à gauche) et personne de dos (à droite) retirés
   'kiosque-proteus-quebec-a-identifier-2': { x: 0.28, y: 0.08, w: 0.58, h: 0.92 },
   // Personnes en arrière-plan à droite retirées (un flou laissait un rectangle visible)
