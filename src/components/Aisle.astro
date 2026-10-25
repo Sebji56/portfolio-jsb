@@ -16,6 +16,15 @@ const ardoisiere = salons.filter((s) => s.data.group === 'ardoisiere');
     <h2 id="salons-title" class="h2" data-reveal>{t(locale, 'salons.title')}</h2>
     <div class="intro-text">
       <p class="lead" data-reveal>{t(locale, 'salons.intro')}</p>
+      <div class="ardoisiere" data-reveal>
+        <h3>{t(locale, 'salons.withArdoisiere')}</h3>
+        <p class="line">
+          {ardoisiere.map((s, i) => (
+            <Fragment>{i > 0 && ' · '}<a href={s.data.url} target="_blank" rel="noopener noreferrer">{s.data.name}<span class="sr-only"> {t(locale, 'experiences.newTab')}</span></a></Fragment>
+          ))}
+          <span class="others"> · {t(locale, 'salons.others')}.</span>
+        </p>
+      </div>
     </div>
   </div>
 
@@ -48,15 +57,6 @@ const ardoisiere = salons.filter((s) => s.data.group === 'ardoisiere');
       ))}
     </ol>
     <div class="end" data-end>
-      <div class="ardoisiere">
-        <h3>{t(locale, 'salons.withArdoisiere')}</h3>
-        <p class="line">
-          {ardoisiere.map((s, i) => (
-            <Fragment>{i > 0 && ' · '}<a href={s.data.url} target="_blank" rel="noopener noreferrer">{s.data.name}<span class="sr-only"> {t(locale, 'experiences.newTab')}</span></a></Fragment>
-          ))}
-          <span class="others"> · {t(locale, 'salons.others')}.</span>
-        </p>
-      </div>
       <p class="end-title">{t(locale, 'salons.nextTitle')}</p>
       <p class="end-text">{t(locale, 'salons.nextText')}</p>
       <a class="btn btn-primary" href="#contact">{t(locale, 'nav.contact')}</a>
@@ -83,8 +83,7 @@ const ardoisiere = salons.filter((s) => s.data.group === 'ardoisiere');
 
   /* Mode statique : grille de cartes */
   .stage { padding: 3rem clamp(1rem, 4vw, 3.5rem) 0; max-width: 80rem; margin: 0 auto; }
-  .floor, .sign, .meter, .hint { display: none; }
-  .end { display: grid; gap: 1.1rem; justify-items: start; padding-block: 3rem var(--section-space); }
+  .floor, .sign, .meter, .hint, .end { display: none; }
   .stage-head h3, .ardoisiere h3 { font-size: 1.25rem; letter-spacing: -0.02em; }
   .world { list-style: none; padding: 0; margin: 1.5rem 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr)); gap: 1rem; }
   .booth article { height: 100%; background: var(--surface); border: 1px solid var(--line); border-radius: 1rem; padding: 0.6rem 0.6rem 1.1rem; display: grid; gap: 0.9rem; align-content: start; }
@@ -110,16 +109,15 @@ const ardoisiere = salons.filter((s) => s.data.group === 'ardoisiere');
   .aisle-on .hint { display: block; color: var(--mute); font-size: 0.875rem; }
   .aisle-on .world { position: absolute; left: 50%; top: 50%; margin: 0; display: block; transform-style: preserve-3d; }
   .aisle-on .booth { position: absolute; left: 0; top: 0; width: min(36rem, 40vw); transform-style: preserve-3d; will-change: transform, opacity; }
-  .aisle-on .end { position: absolute; inset: 0; place-content: center; justify-items: center; text-align: center; padding: 1rem; opacity: var(--e, 0); z-index: 3; }
+  .aisle-on .end { display: grid; position: absolute; inset: 0; place-content: center; justify-items: center; text-align: center; gap: 1.1rem; padding: 1rem; opacity: var(--e, 0); z-index: 3; }
   .aisle-on .stage-head { opacity: calc(1 - var(--e, 0)); }
-  .aisle-on .ardoisiere { margin-bottom: 1.5rem; justify-items: center; }
   .end-title { font-family: var(--font-sign); font-weight: 800; text-transform: uppercase; font-size: clamp(3.5rem, 9vw, 8rem); line-height: 0.85; }
   .end-text { color: var(--mute); max-width: 46ch; }
   .aisle-on .meter { display: block; position: absolute; left: clamp(1rem, 4vw, 3.5rem); right: clamp(1rem, 4vw, 3.5rem); bottom: 1.75rem; height: 2px; background: var(--line); }
   .meter i { position: absolute; inset: 0; background: var(--acc); transform-origin: left; transform: scaleX(var(--p, 0)); }
   @media (max-width: 52rem) { .aisle-on .booth { width: 76vw; } .aisle-on .hint { display: none; } }
-  .ardoisiere { display: grid; gap: 0.75rem; }
-  .line { max-width: 60ch; }
+  .ardoisiere { display: grid; gap: 0.5rem; margin-top: 0.75rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+  .line { max-width: 60ch; color: var(--mute); }
   .ardoisiere a { color: var(--ink); }
   .others { color: var(--mute); }
   @media (max-width: 52rem) { .intro { grid-template-columns: 1fr; } }
