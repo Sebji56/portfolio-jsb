@@ -114,3 +114,9 @@ Ce site a été conçu avec Claude Code (Anthropic). Ce journal note, à chaque 
 - **Fait :** dépôt public créé sur GitHub (Sebji56/portfolio-jsb) et code envoyé ; projet Netlify branché sur le dépôt, adresse portfolio-jsb.netlify.app, formulaire détecté, projet rendu public. Seb a fait lui-même les connexions et l'autorisation GitHub.
 - **Avant de publier :** la photo SXSW aux droits inconnus a été retirée du dépôt et de son historique.
 - **Trouvé en ligne :** Netlify injectait un script de badge que la CSP bloquait (erreurs dans la console) ; badge désactivé, plus aucune erreur sur les pages vérifiées.
+
+## 2026-10-25 — Itération : synthèse du contenu
+
+- **Demande de Seb :** le site est très chargé, s'en tenir à l'essentiel ; réduire l'espacement entre l'animation et le texte sur mobile ; ne rien mettre en ligne. Accord de Joséphine reçu.
+- **Fait (branche iteration/synthese, non publiée) :** piliers fusionnés dans Compétences, À propos réduit à deux phrases, 4 chiffres clés au lieu de 5, cartes d'expérience sans étiquettes, introduction des salons en une phrase, encadré IA résumé, marqueur de Joséphine retiré.
+- **Mobile :** le portrait en particules se pose maintenant juste au-dessus du texte, quelle que soit la hauteur de l'écran (il était placé à une hauteur fixe, d'où un vide sur les grands téléphones).

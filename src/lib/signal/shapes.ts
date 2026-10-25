@@ -30,3 +30,9 @@ export function sampleOpaque(data: Uint8ClampedArray, w: number, h: number, step
   }
   return pts;
 }
+
+/** Boîte carrée du portrait sur mobile : le plus grande possible entre top et bottom, posée sur bottom (aucun vide avant le texte). */
+export function fitBox(W: number, top: number, bottom: number, maxRatio = 0.7): { cx: number; cy: number; s: number } {
+  const s = Math.max(0, Math.min(W * maxRatio, bottom - top));
+  return { cx: W / 2, cy: bottom - s / 2, s };
+}

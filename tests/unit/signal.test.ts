@@ -65,3 +65,19 @@ test('wordOpacity : mot entièrement visible, invisible, puis effacé à la sort
   assert.equal(wordOpacity(0, 0, 5, 0), 0);
   assert.equal(wordOpacity(1, 0, 5, 1), 0);
 });
+
+test('fitBox cale le portrait juste au-dessus du texte, sans le chevaucher', async () => {
+  const { fitBox } = await import('../../src/lib/signal/shapes.ts');
+  const b = fitBox(430, 72, 457, 0.7);
+  assert.ok(b.cy + b.s / 2 <= 457 + 1e-9, 'déborde sur le texte');
+  assert.ok(b.cy - b.s / 2 >= 72 - 1e-9, 'passe sous l’en-tête');
+  assert.ok(Math.abs(b.cy + b.s / 2 - 457) < 1e-9, 'le bas du portrait touche la limite (pas de vide)');
+  assert.ok(b.s <= 430 * 0.7 + 1e-9);
+  assert.equal(b.cx, 215);
+});
+
+test('fitBox reste utilisable sur un très petit écran', async () => {
+  const { fitBox } = await import('../../src/lib/signal/shapes.ts');
+  const b = fitBox(320, 72, 120, 0.7);
+  assert.ok(b.s >= 0 && b.s <= 48);
+});

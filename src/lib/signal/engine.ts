@@ -1,5 +1,5 @@
 import type { City } from './cities.ts';
-import { graticule, isPortraitBackground, project, sampleOpaque } from './shapes.ts';
+import { fitBox, graticule, isPortraitBackground, project, sampleOpaque } from './shapes.ts';
 import { stages } from './timeline.ts';
 
 interface Options {
@@ -9,6 +9,8 @@ interface Options {
   /** Progression brute 0..1 du défilement de la section. */
   getProgress: () => number;
   onFail: () => void;
+  /** Mobile : ordonnée (dans le canvas) du haut du texte du héros, pour y poser le portrait. */
+  fitAbove?: () => number;
 }
 
 type Pt = [number, number, number];
@@ -57,11 +59,14 @@ export function startSignal(canvas: HTMLCanvasElement, opts: Options): () => voi
     ink = cs.getPropertyValue('--particle').trim() || ink;
     acc = cs.getPropertyValue('--acc').trim() || acc;
   };
+  let textTop = 0; // mesuré au redimensionnement, pas à chaque image
+  const measure = () => { if (opts.fitAbove) textTop = opts.fitAbove(); };
   const resize = () => {
     const dpr = Math.min(devicePixelRatio || 1, 2);
     W = canvas.clientWidth; H = canvas.clientHeight; mobile = W < 820;
     canvas.width = W * dpr; canvas.height = H * dpr;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    measure();
   };
 
   const frame = (now: number) => {
@@ -71,7 +76,7 @@ export function startSignal(canvas: HTMLCanvasElement, opts: Options): () => voi
     last = now;
     pS += (opts.getProgress() - pS) * (1 - Math.exp(-dt * 5.6)); // lissage fondé sur le temps : rattrape aussi à faible cadence
     const { m1, m2, lon0 } = stages(pS), time = (now - t0) / 1000;
-    const pBox = mobile ? { cx: W / 2, cy: H * 0.24, s: Math.min(W * 0.62, H * 0.32) } : { cx: W * 0.7, cy: H * 0.52, s: Math.min(H * 0.82, W * 0.44) };
+    const pBox = mobile ? (textTop > 0 ? fitBox(W, 76, textTop - 14, 0.8) : { cx: W / 2, cy: H * 0.24, s: Math.min(W * 0.62, H * 0.32) }) : { cx: W * 0.7, cy: H * 0.52, s: Math.min(H * 0.82, W * 0.44) };
     const cBox = mobile ? { cx: W / 2, cy: H * 0.26 } : { cx: W * 0.66, cy: H * 0.5 };
     const hw = mobile ? W * 0.72 : Math.min(W * 0.46, 640);
     const R = mobile ? Math.min(W * 0.36, H * 0.19) : Math.min(W * 0.25, H * 0.36);
@@ -125,6 +130,7 @@ export function startSignal(canvas: HTMLCanvasElement, opts: Options): () => voi
     if (stopped) return;
     const portrait = portraitPoints(img), headset = headsetPoints(), grid = graticule();
     resize(); readColors();
+    document.fonts?.ready.then(measure);
     const n = mobile ? 2400 : 5200;
     const pick = <T,>(arr: T[]): T => arr[Math.floor(Math.random() * arr.length)]; // tirage aléatoire : pas de rayures
     particles = Array.from({ length: n }, (_, i) => ({

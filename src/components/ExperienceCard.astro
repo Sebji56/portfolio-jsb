@@ -1,7 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { t, type Locale } from '../i18n/index.ts';
-import PillarTag from './PillarTag.astro';
 import { Picture } from 'astro:assets';
 import { photo } from '../lib/photo-assets.ts';
 import { photoMeta, type PhotoId, type PhotoMeta } from '../lib/photos.ts';
@@ -49,9 +48,6 @@ const host = d.url ? new URL(d.url).hostname.replace(/^www\./, '') : '';
       ))}
     </ol>
     <ul class="wins">{d.highlights[locale].map((h) => <li>{h}</li>)}</ul>
-    <div class="skills" aria-label={t(locale, 'experiences.skillsLabel')}>
-      {d.skills.map((s) => <PillarTag pillar={s.pillar} label={s.label[locale]} />)}
-    </div>
     {d.details && (
       <details>
         <summary>{t(locale, 'experiences.details')}</summary>
@@ -83,7 +79,6 @@ const host = d.url ? new URL(d.url).hostname.replace(/^www\./, '') : '';
   .progression li.current::before { background: var(--acc); box-shadow: 0 0 0 4px color-mix(in oklab, var(--acc) 25%, transparent); }
   .wins { display: grid; gap: 0.7rem; padding-left: 1.1rem; margin: 0; }
   .wins li::marker { color: var(--acc); }
-  .skills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
   details { border-top: 1px solid var(--line); padding-top: 1rem; }
   summary { cursor: pointer; font-weight: 600; width: fit-content; list-style: none; display: inline-flex; align-items: center; gap: 0.5rem; }
   summary::-webkit-details-marker { display: none; }
