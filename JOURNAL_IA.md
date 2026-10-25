@@ -131,3 +131,9 @@ Ce site a été conçu avec Claude Code (Anthropic). Ce journal note, à chaque 
 - **Demande de Seb :** le CV téléchargeable est chargé ; le détail des expériences aussi, surtout Proteus-VR ; mettre Jack Flat BBQ avec les autres expériences.
 - **Fait :** CV réécrit sur une seule page (au lieu de deux) à partir d'une source HTML (`docs/cv/cv-fr.html`) imprimée en PDF par Chrome ; mêmes postes, dates et résultats que le CV d'origine, rien d'ajouté, téléphone conservé dans le PDF seulement. Détail de Proteus-VR ramené à 4 points ; Jack Flat BBQ devient une carte d'expérience comme les autres.
 - **Vérifié :** chaque affirmation du nouveau CV retrouvée dans l'ancien ; PDF d'une page ; tests à jour.
+
+## 2026-10-25 — CV aéré
+
+- **Demande :** le CV d'une page restait trop chargé (avis de l'entourage de Seb) ; garder le « Profil professionnel » du CV d'origine, qui le résume bien.
+- **Fait :** profil d'origine remis mot pour mot ; retirés : « Compétences clés » (redite des expériences), la puce de Jack Flat et de PIXEL, la ligne AEP/ASP, le détail des outils ; une puce de moins pour Proteus-VR et L'Ardoisière. Texte remonté à 10 pt, interligne et marges plus généreux, toujours une page.
+- **Leçon :** pour faire tenir sur une page, couper du contenu plutôt que rapetisser le texte.
