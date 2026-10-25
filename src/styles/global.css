@@ -19,7 +19,7 @@
   --pillar-sales: #4da3ff;
   --pillar-tech: #5fd6b0;
   --particle: #d6e6ff;
-  --section-space: clamp(5rem, 7vw, 6rem);
+  --section-space: 5rem;
 }
 
 :root[data-theme="light"] {
@@ -90,7 +90,7 @@
 
 @layer components {
   .wrap { width: 100%; max-width: 80rem; margin-inline: auto; padding-inline: clamp(1rem, 4vw, 3.5rem); }
-  /* Espace entre les sections : inchangé sur mobile (5rem), plafonné à 6rem sur ordinateur (au lieu de 9rem) */
+  /* Espace entre les sections : 5rem partout, comme sur mobile (était jusqu’à 9rem sur ordinateur) */
   .section { padding-block: var(--section-space); }
   .h2 { font-size: clamp(2rem, 4.2vw, 3.6rem); }
   .lead { font-size: clamp(1.0625rem, 1.4vw, 1.25rem); color: var(--ink); max-width: 60ch; }

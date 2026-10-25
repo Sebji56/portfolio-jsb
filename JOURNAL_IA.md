@@ -170,3 +170,4 @@ Ce site a été conçu avec Claude Code (Anthropic). Ce journal note, à chaque 
 - **Demande :** sur ordinateur, trop d'espace avant les titres de section (Expériences, Salons, Compétences, Technologies émergentes, Formation, Me joindre) ; sur mobile, ça va.
 - **Cause :** chaque section avait jusqu'à 9rem (144 px) d'espace en haut et en bas, soit près de 290 px entre deux sections sur grand écran.
 - **Fait :** un seul réglage partagé, `--section-space`, plafonné à 6rem (96 px) : environ 180 px entre deux sections sur ordinateur ; inchangé sur mobile (5rem). Branche iteration/espacements, non publiée.
+- **Retour de Seb :** resserrer encore un peu sur ordinateur. `--section-space` passe à 5rem partout, la même valeur que sur mobile : environ 160 px entre deux sections sur grand écran (contre près de 290 px au départ).
