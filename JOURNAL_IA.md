@@ -191,3 +191,4 @@ Ce site a été conçu avec Claude Code (Anthropic). Ce journal note, à chaque 
 - **Contexte Jack Flat (fourni par Seb) :** emploi de rebond après Proteus-VR, pendant sa recherche d'un poste en technologie (la réalité virtuelle offrait peu de débouchés). Formulé ainsi dans la ligne complémentaire.
 - **CV :** sections « Expérience technologique et commerciale » et « Expérience complémentaire » (Jack Flat, CHSLD) ; toujours une page.
 - **Précision de Seb :** pendant Jack Flat, il continuait d'apprendre les technologies par lui-même (pas de formation officielle). Ligne complémentaire ajustée : « en parallèle, après Proteus-VR, recherche d'un poste en technologie et apprentissage en autodidacte ».
+- **Précision de Seb :** son poste chez ALBI Occasion était à Mascouche ; la mention de la succursale de L'Île-Perrot est retirée du contexte de la carte.
