@@ -1,10 +1,8 @@
 ---
 import { t, type Locale } from '../i18n/index.ts';
-import Todo from './Todo.astro';
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 const linkedin = 'https://www.linkedin.com/in/jean-sébastien-bisson-a13b4b23b';
-const consent = locale === 'fr' ? '[À COMPLÉTER : accord de Joséphine Bories-Rao pour afficher son nom]' : '[TO COMPLETE: Joséphine Bories-Rao’s consent to display her name]';
 ---
 <figure class="reco" aria-labelledby="reco-title" data-reveal>
   <h3 id="reco-title">{t(locale, 'experiences.quoteTitle')}</h3>
@@ -16,7 +14,6 @@ const consent = locale === 'fr' ? '[À COMPLÉTER : accord de Joséphine Bories-
   )}
   <figcaption>
     <strong>Joséphine Bories-Rao</strong>, {t(locale, 'experiences.quoteContext')}
-    <span class="consent"><Todo text={consent} /></span>
   </figcaption>
   <a class="li" href={linkedin} target="_blank" rel="noopener noreferrer">{t(locale, 'experiences.seeLinkedin')}<span class="sr-only"> {t(locale, 'experiences.newTab')}</span></a>
 </figure>
@@ -30,6 +27,5 @@ const consent = locale === 'fr' ? '[À COMPLÉTER : accord de Joséphine Bories-
   .translation span { font-weight: 600; color: var(--ink); }
   figcaption { font-size: 0.9375rem; color: var(--mute); }
   figcaption strong { color: var(--ink); }
-  .consent { display: block; margin-top: 0.5rem; }
   .li { justify-self: start; color: var(--ink); font-weight: 600; text-decoration-color: var(--acc); }
 </style>

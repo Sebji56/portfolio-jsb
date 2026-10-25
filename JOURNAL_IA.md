@@ -114,3 +114,40 @@ Ce site a été conçu avec Claude Code (Anthropic). Ce journal note, à chaque 
 - **Fait :** dépôt public créé sur GitHub (Sebji56/portfolio-jsb) et code envoyé ; projet Netlify branché sur le dépôt, adresse portfolio-jsb.netlify.app, formulaire détecté, projet rendu public. Seb a fait lui-même les connexions et l'autorisation GitHub.
 - **Avant de publier :** la photo SXSW aux droits inconnus a été retirée du dépôt et de son historique.
 - **Trouvé en ligne :** Netlify injectait un script de badge que la CSP bloquait (erreurs dans la console) ; badge désactivé, plus aucune erreur sur les pages vérifiées.
+
+## 2026-10-25 — Itération : synthèse du contenu
+
+- **Demande de Seb :** le site est très chargé, s'en tenir à l'essentiel ; réduire l'espacement entre l'animation et le texte sur mobile ; ne rien mettre en ligne. Accord de Joséphine reçu.
+- **Fait (branche iteration/synthese, non publiée) :** piliers fusionnés dans Compétences, À propos réduit à deux phrases, 4 chiffres clés au lieu de 5, cartes d'expérience sans étiquettes, introduction des salons en une phrase, encadré IA résumé, marqueur de Joséphine retiré.
+- **Mobile :** le portrait en particules se pose maintenant juste au-dessus du texte, quelle que soit la hauteur de l'écran (il était placé à une hauteur fixe, d'où un vide sur les grands téléphones).
+
+## 2026-10-25 — Retours de Seb sur cellulaire
+
+- **Demande :** captures à l'appui, trop d'espace entre le casque ou le globe et leur légende ; remettre les pastilles de compétences sur chaque expérience.
+- **Fait :** sur mobile, la forme se pose juste au-dessus de sa légende et le bloc est centré à l'écran ; pastilles rétablies (pilier en couleur).
+
+## 2026-10-25 — Synthèse du CV et du détail des expériences
+
+- **Demande de Seb :** le CV téléchargeable est chargé ; le détail des expériences aussi, surtout Proteus-VR ; mettre Jack Flat BBQ avec les autres expériences.
+- **Fait :** CV réécrit sur une seule page (au lieu de deux) à partir d'une source HTML (`docs/cv/cv-fr.html`) imprimée en PDF par Chrome ; mêmes postes, dates et résultats que le CV d'origine, rien d'ajouté, téléphone conservé dans le PDF seulement. Détail de Proteus-VR ramené à 4 points ; Jack Flat BBQ devient une carte d'expérience comme les autres.
+- **Vérifié :** chaque affirmation du nouveau CV retrouvée dans l'ancien ; PDF d'une page ; tests à jour.
+
+## 2026-10-25 — CV aéré
+
+- **Demande :** le CV d'une page restait trop chargé (avis de l'entourage de Seb) ; garder le « Profil professionnel » du CV d'origine, qui le résume bien.
+- **Fait :** profil d'origine remis mot pour mot ; retirés : « Compétences clés » (redite des expériences), la puce de Jack Flat et de PIXEL, la ligne AEP/ASP, le détail des outils ; une puce de moins pour Proteus-VR et L'Ardoisière. Texte remonté à 10 pt, interligne et marges plus généreux, toujours une page.
+- **Leçon :** pour faire tenir sur une page, couper du contenu plutôt que rapetisser le texte.
+
+## 2026-10-25 — CV « entre-deux »
+
+- **Demande :** un juste milieu entre le CV dense et le CV aéré : synthétiser, garder un message clair sur les objectifs, et utiliser l'espace gagné pour bonifier.
+- **Fait :** profil d'origine resserré (mêmes idées, objectif intact) ; « Compétences clés » rétablies en deux lignes (mots-clés lus par les recruteurs et les logiciels de tri) ; ajouts tirés du CV d'origine : chiffres ALBI suivis de la méthode de vente, une phrase de contexte Proteus-VR (premiers contacts jusqu'à la conclusion d'ententes avec la direction), Demo Slam du BCEDL, puce Jack Flat, deux puces pour les dix ans à L'Ardoisière, « Claude (skills et plugins) ». Toujours une page, texte à 9,6 pt.
+
+## 2026-10-25 — Animation du héros : jamais à mi-chemin
+
+- **Demande :** captures à l'appui, l'animation de particules pouvait rester figée entre deux formes (nuage de points, légende à moitié écrite) quand on arrête de défiler.
+- **Fait :** quand le défilement s'arrête entre deux scènes, la page glisse d'elle-même jusqu'à la scène suivante dans le sens du défilement (casque, globe, Asie), forme complète et légende lisible. Rien ne bouge tant que le doigt est sur l'écran, et la fin du récit laisse descendre librement vers la suite du site. Logique dans `restTarget` (`src/lib/signal/timeline.ts`), testée.
+- **Vérifié :** en navigateur à taille de cellulaire, un arrêt à 15 %, 50 % ou 80 % du récit se pose sur la bonne scène.
+- **Retour de Seb (cellulaire) :** l'aimantation hésitait, comme si elle ne savait pas où aller. Cause : on attendait la fin complète de l'élan du doigt, plus 160 ms, avant de lancer un second mouvement. Correctif : au toucher, la scène visée est choisie dès que le doigt se lève, selon le sens du geste, et le glissement part aussitôt (un seul mouvement). La souris et le clavier gardent l'ancien comportement.
+- **Retour suivant :** « beaucoup plus fluide », mais bascule un peu trop rapide. Le défilement doux du navigateur n'a pas de vitesse réglable : remplacé par un glissement maison de 0,9 s (puis 1,2 s à la demande de Seb) (départ vif dans l'élan du doigt, arrivée douce), interrompu dès qu'on touche l'écran ou la molette.
+- **Précision de Seb :** ce n'est pas le glissement qui est trop rapide, mais la transformation des particules (portrait → casque) : on n'a pas le temps de les voir voyager. Cause : la transformation suivait le défilement, qui franchit sa zone en environ 0,35 s au début du glissement. Correctif : chaque transformation a maintenant une durée minimale (1,8 s pour portrait → casque et casque → globe, 2,4 s pour la rotation du globe vers l'Asie), quelle que soit la vitesse du défilement (`approach` dans `timeline.ts`, testée).

@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { readPage } from './helpers.ts';
 
 // Ancres partagées FR/EN ; chaque tâche ajoute la sienne (expériences, salons, contact)
-export const ANCHORS = ['parcours', 'piliers', 'competences', 'ia', 'formation', 'contact', 'experiences', 'salons'];
+export const ANCHORS = ['parcours', 'competences', 'ia', 'formation', 'contact', 'experiences', 'salons'];
 
 for (const route of ['', 'en']) {
   test(`/${route} : chaque section attendue existe et porte un titre h2`, () => {
@@ -24,8 +24,8 @@ for (const route of ['', 'en']) {
     assert.match(ia, route ? /href="\/en\/security\/"/ : /href="\/securite\/"/);
   });
 
-  test(`/${route} : les données manquantes sont signalées par un marqueur visible`, () => {
-    assert.match(readPage(route), /class="todo"/);
+  test(`/${route} : plus aucun marqueur « à compléter » (toutes les données sont fournies)`, () => {
+    assert.doesNotMatch(readPage(route), /class="todo"|À COMPLÉTER|TO COMPLETE/);
   });
 }
 

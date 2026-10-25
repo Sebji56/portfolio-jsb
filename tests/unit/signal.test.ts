@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { graticule, isPortraitBackground, project } from '../../src/lib/signal/shapes.ts';
-import { easeInOutCubic, seg, stages, wordOpacity } from '../../src/lib/signal/timeline.ts';
+import { RESTS, approach, easeInOutCubic, restTarget, seg, stages, wordOpacity } from '../../src/lib/signal/timeline.ts';
 
 test('le fond bleu du portrait est retiré', () => {
   assert.equal(isPortraitBackground(95, 135, 200), true);
@@ -64,4 +64,59 @@ test('wordOpacity : mot entièrement visible, invisible, puis effacé à la sort
   assert.equal(wordOpacity(1, 0, 5, 0), 1);
   assert.equal(wordOpacity(0, 0, 5, 0), 0);
   assert.equal(wordOpacity(1, 0, 5, 1), 0);
+});
+
+test('fitBox cale le portrait juste au-dessus du texte, sans le chevaucher', async () => {
+  const { fitBox } = await import('../../src/lib/signal/shapes.ts');
+  const b = fitBox(430, 72, 457, 0.7);
+  assert.ok(b.cy + b.s / 2 <= 457 + 1e-9, 'déborde sur le texte');
+  assert.ok(b.cy - b.s / 2 >= 72 - 1e-9, 'passe sous l’en-tête');
+  assert.ok(Math.abs(b.cy + b.s / 2 - 457) < 1e-9, 'le bas du portrait touche la limite (pas de vide)');
+  assert.ok(b.s <= 430 * 0.7 + 1e-9);
+  assert.equal(b.cx, 215);
+});
+
+test('fitBox reste utilisable sur un très petit écran', async () => {
+  const { fitBox } = await import('../../src/lib/signal/shapes.ts');
+  const b = fitBox(320, 72, 120, 0.7);
+  assert.ok(b.s >= 0 && b.s <= 48);
+});
+
+test('storyBoxes : sur mobile, casque et globe se posent juste au-dessus de la légende', async () => {
+  const { storyBoxes, CAPTION_TOP } = await import('../../src/lib/signal/shapes.ts');
+  for (const [W, H] of [[375, 667], [390, 844], [430, 932]]) {
+    const { headset, globe } = storyBoxes(W, H);
+    const capTop = H * CAPTION_TOP;
+    assert.ok(Math.abs(headset.cy + headset.h / 2 - (capTop - 24)) < 1e-9, `casque mal posé à ${W}x${H}`);
+    assert.ok(Math.abs(globe.cy + globe.R - (capTop - 24)) < 1e-9, `globe mal posé à ${W}x${H}`);
+    assert.ok(globe.cy - globe.R >= 72, `globe sous l’en-tête à ${W}x${H}`);
+  }
+});
+
+test('chaque scène de repos montre une forme complète', () => {
+  assert.equal(stages(RESTS[1]).m1, 1);
+  assert.equal(stages(RESTS[1]).m2, 0);
+  assert.equal(stages(RESTS[2]).m2, 1);
+  assert.ok(stages(RESTS[3]).lon0 > 114);
+});
+
+test('restTarget : entre deux scènes, on se pose sur la suivante dans le sens du défilement', () => {
+  assert.equal(restTarget(0.2, 1), RESTS[1]);
+  assert.equal(restTarget(0.2, -1), RESTS[0]);
+  assert.equal(restTarget(0.6, 1), RESTS[2]);
+  assert.equal(restTarget(0.6, -1), RESTS[1]);
+  assert.equal(restTarget(0.5, 0), RESTS[1]);
+});
+
+test('restTarget : rien à faire sur une scène ou hors du récit', () => {
+  assert.equal(restTarget(RESTS[1] + 0.005, 1), null);
+  assert.equal(restTarget(0, 1), null);
+  assert.equal(restTarget(0.97, -1), null);
+  assert.equal(restTarget(1.2, 1), null);
+});
+
+test('approach : avance vers la cible sans dépasser le pas permis, dans les deux sens', () => {
+  assert.equal(approach(0, 1, 0.1), 0.1);
+  assert.equal(approach(1, 0, 0.1), 0.9);
+  assert.equal(approach(0.95, 1, 0.1), 1);
 });

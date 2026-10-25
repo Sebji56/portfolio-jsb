@@ -24,7 +24,7 @@
   "hero": {
     "name": "Jean-Sébastien Bisson",
     "title": "Business Development | Consultative Sales of Technology Solutions | Needs Analysis • Solution Demos • Partnerships",
-    "value": "A developer turned VP of Technology, I pitched a virtual reality solution to school districts in four countries. Next step: AI, automation and cybersecurity.",
+    "value": "A developer turned VP of Technology, I pitched a virtual reality solution in four countries. Now heading into AI, automation and cybersecurity.",
     "ctaContact": "Contact me",
     "ctaCv": "Download my résumé (PDF)",
     "scroll": "Scroll",
@@ -66,28 +66,18 @@
       {
         "value": "7 shows",
         "label": "major education and technology trade shows and conferences"
-      },
-      {
-        "value": "Dev → VP",
-        "label": "from developer to VP of Technology"
       }
     ]
   },
   "about": {
     "title": "About",
     "paragraphs": [
-      "I learned sales in the family business, L'Ardoisière: ten years advising architects, designers, homeowners and distributors, and opening new accounts.",
-      "In 2020, in the middle of the pandemic, I also worked as a care attendant in a long-term care home (CHSLD). That experience strengthened what still guides the way I sell: listen before proposing.",
-      "I then trained in virtual and augmented reality and joined Proteus-VR as a developer. I built the product from the inside before presenting it, as VP of Technology, to school districts in four countries.",
-      "Since then, I went back to the field: restaurant service, then car sales at ALBI Occasion.",
-      "Today I am turning to AI, automation and cybersecurity. What ties this whole journey together does not change: understanding people's needs and offering them the right solution."
+      "Family business, virtual reality, car sales: for more than ten years, I have done the same job in different forms. Understand what people need, then offer them the right solution.",
+      "In 2020, in the middle of the pandemic, I also worked as a care attendant in a long-term care home (CHSLD). That experience strengthened what still guides the way I sell: listen before proposing."
     ],
     "photoAlt": "Jean-Sébastien, wearing a black cowboy hat, beside the Proteus Labs booth and its virtual reality headsets at the BCEDL symposium in Vancouver"
   },
   "pillars": {
-    "title": "My three pillars",
-    "intro": "Three strengths of equal weight, proven in the field.",
-    "proofLabel": "Proven at",
     "service": {
       "name": "Service",
       "skills": [
@@ -95,8 +85,7 @@
         "Personalized service",
         "Customer loyalty",
         "Suggestive selling"
-      ],
-      "proof": "ALBI Occasion · L'Ardoisière · Jack Flat BBQ"
+      ]
     },
     "sales": {
       "name": "Consultative sales, business development and partnerships",
@@ -105,8 +94,7 @@
         "Prospecting and negotiation",
         "Opening distributor accounts",
         "Partnerships in Canada, the United States and Singapore"
-      ],
-      "proof": "Proteus-VR · L'Ardoisière · ALBI Occasion"
+      ]
     },
     "tech": {
       "name": "Emerging technologies",
@@ -115,8 +103,7 @@
         "Daily AI use: ChatGPT, Claude, Claude Code",
         "PL-900 Power Platform (in progress)",
         "VR/AR background: Unreal Engine, Unity"
-      ],
-      "proof": "Proteus-VR · Institut Grasset · this site"
+      ]
     }
   },
   "experiences": {
@@ -126,7 +113,6 @@
     "visit": "Company website",
     "newTab": "(new tab)",
     "project": "Project",
-    "complementary": "Additional experience",
     "quoteTitle": "What people say",
     "quoteContext": "on the PIXEL show at the EXCLAM Festival",
     "translationLabel": "Translation",
@@ -135,8 +121,7 @@
   },
   "salons": {
     "title": "In the field: trade shows and events",
-    "intro": "Presenting a solution to decision-makers and educators, prospecting in person, giving demos in English internationally, speaking in front of an audience.",
-    "progression": "First alongside the president, then running the booth alone, then speaking on stage.",
+    "intro": "Demos in English for decision-makers and educators, internationally: first alongside the president, then running the booth alone, then on stage.",
     "hint": "Scroll to walk down the aisle.",
     "withProteus": "With Proteus-VR: education and technology",
     "withArdoisiere": "With L'Ardoisière: home building and renovation",
@@ -148,7 +133,6 @@
   },
   "skills": {
     "title": "Skills and tools",
-    "keyTitle": "Key skills",
     "toolsTitle": "Tools",
     "languagesTitle": "Languages"
   },
@@ -163,16 +147,9 @@
     ],
     "nextTitle": "My goal after the PL-900",
     "next": "Put my experience in business development, customer service, sales and consulting to work at a company where I can build my expertise in emerging technologies: artificial intelligence, automation and cybersecurity.",
-    "rolesTitle": "The role I am looking for",
-    "roles": "Technology solutions sales or pre-sales representative, business development at an AI company, or customer success. On-site, hybrid or remote, in Greater Montréal.",
     "builtTitle": "This site was built with AI",
-    "builtSteps": [
-      "The brief: a precise specification with an absolute honesty rule: nothing made up.",
-      "The process: visual directions, research on award-winning Awwwards sites, a spec, a 12-step plan, then building with Claude Code.",
-      "The checks: automated tests before every feature, accessibility and performance audits, a final code review."
-    ],
-    "builtLesson": "What I take away: AI moves fast, but quality comes from a precise brief and rigorous checks.",
-    "securityLink": "How this site protects its visitors"
+    "securityLink": "How this site protects its visitors",
+    "builtSummary": "A precise brief with an honesty rule, mockups, a 12-step plan, automated tests and an independent code review. Every step is documented."
   },
   "education": {
     "title": "Education",

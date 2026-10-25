@@ -1,5 +1,5 @@
 ---
-order: 4
+order: 5
 kind: project
 company: "Spectacle PIXEL, Festival EXCLAM"
 location: { fr: "Montréal", en: "Montréal, Quebec" }

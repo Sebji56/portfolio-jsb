@@ -24,7 +24,7 @@
   "hero": {
     "name": "Jean-Sébastien Bisson",
     "title": "Développement des affaires | Vente-conseil en solutions technologiques | Analyse des besoins • Démonstration de solutions • Partenariats",
-    "value": "Développeur devenu vice-président de la technologie, j'ai présenté une solution de réalité virtuelle à des districts scolaires dans quatre pays. Prochaine étape : l'IA, l'automatisation et la cybersécurité.",
+    "value": "Développeur devenu vice-président de la technologie, j'ai présenté une solution de réalité virtuelle dans quatre pays. Cap sur l'IA, l'automatisation et la cybersécurité.",
     "ctaContact": "Me joindre",
     "ctaCv": "Télécharger mon CV (PDF)",
     "scroll": "Défiler",
@@ -66,28 +66,18 @@
       {
         "value": "7 salons",
         "label": "grands salons et conférences en éducation et en technologie"
-      },
-      {
-        "value": "Dév. → VP",
-        "label": "de développeur à vice-président de la technologie"
       }
     ]
   },
   "about": {
     "title": "À propos",
     "paragraphs": [
-      "J'ai appris la vente dans l'entreprise familiale, L'Ardoisière : dix ans à conseiller des architectes, des designers, des particuliers et des distributeurs, et à ouvrir de nouveaux comptes.",
-      "En 2020, en pleine pandémie, j'ai aussi travaillé comme préposé aux bénéficiaires en CHSLD. Cette expérience a renforcé ce qui guide encore ma façon de vendre : écouter avant de proposer.",
-      "J'ai ensuite suivi une formation en réalité virtuelle et augmentée, puis rejoint Proteus-VR comme développeur. J'y ai bâti le produit de l'intérieur avant de le présenter, comme vice-président de la technologie, à des districts scolaires dans quatre pays.",
-      "Depuis, j'ai retrouvé le terrain : le service en restauration, puis la vente automobile chez ALBI Occasion.",
-      "Aujourd'hui, je me tourne vers l'IA, l'automatisation et la cybersécurité. Ce qui relie tout ce parcours ne change pas : comprendre les besoins des gens et leur proposer la bonne solution."
+      "Entreprise familiale, réalité virtuelle, vente automobile : depuis plus de dix ans, je fais le même métier sous différentes formes. Comprendre ce dont les gens ont besoin, puis leur proposer la bonne solution.",
+      "En 2020, en pleine pandémie, j'ai aussi travaillé comme préposé aux bénéficiaires en CHSLD. Cette expérience a renforcé ce qui guide encore ma façon de vendre : écouter avant de proposer."
     ],
     "photoAlt": "Jean-Sébastien, chapeau de cowboy noir, devant le kiosque Proteus Labs et ses casques de réalité virtuelle au symposium BCEDL à Vancouver"
   },
   "pillars": {
-    "title": "Mes trois piliers",
-    "intro": "Trois forces d'égale importance, prouvées sur le terrain.",
-    "proofLabel": "Prouvé chez",
     "service": {
       "name": "Service",
       "skills": [
@@ -95,8 +85,7 @@
         "Service personnalisé",
         "Fidélisation",
         "Vente suggestive"
-      ],
-      "proof": "ALBI Occasion · L'Ardoisière · Jack Flat BBQ"
+      ]
     },
     "sales": {
       "name": "Vente-conseil, développement des affaires et partenariats",
@@ -105,8 +94,7 @@
         "Prospection et négociation",
         "Ouverture de comptes distributeurs",
         "Partenariats au Canada, aux États-Unis et à Singapour"
-      ],
-      "proof": "Proteus-VR · L'Ardoisière · ALBI Occasion"
+      ]
     },
     "tech": {
       "name": "Technologies émergentes",
@@ -115,8 +103,7 @@
         "IA au quotidien : ChatGPT, Claude, Claude Code",
         "PL-900 Power Platform (en cours)",
         "Bagage VR/AR : Unreal Engine, Unity"
-      ],
-      "proof": "Proteus-VR · Institut Grasset · ce site"
+      ]
     }
   },
   "experiences": {
@@ -126,7 +113,6 @@
     "visit": "Site de l'entreprise",
     "newTab": "(nouvel onglet)",
     "project": "Projet",
-    "complementary": "Expérience complémentaire",
     "quoteTitle": "Ce qu'on dit de moi",
     "quoteContext": "sur le spectacle PIXEL au Festival EXCLAM",
     "translationLabel": "Traduction",
@@ -135,8 +121,7 @@
   },
   "salons": {
     "title": "Sur le terrain : salons et événements",
-    "intro": "Présenter une solution devant des décideurs et des éducateurs, prospecter en personne, faire des démonstrations en anglais à l'international, prendre la parole devant public.",
-    "progression": "D'abord accompagné du président, puis responsable seul du kiosque, puis conférencier sur scène.",
+    "intro": "Démonstrations en anglais devant des décideurs et des éducateurs, à l'international : d'abord avec le président, puis seul au kiosque, puis sur scène.",
     "hint": "Faites défiler pour parcourir l'allée.",
     "withProteus": "Avec Proteus-VR : éducation et technologie",
     "withArdoisiere": "Avec L'Ardoisière : habitation et rénovation",
@@ -148,7 +133,6 @@
   },
   "skills": {
     "title": "Compétences et outils",
-    "keyTitle": "Compétences clés",
     "toolsTitle": "Outils",
     "languagesTitle": "Langues"
   },
@@ -163,16 +147,9 @@
     ],
     "nextTitle": "Mon objectif après la PL-900",
     "next": "Mettre à profit mon expérience en développement des affaires, en service, en vente et en conseil au sein d’une entreprise qui me permettra de développer mon expertise en technologies émergentes : intelligence artificielle, automatisation et cybersécurité.",
-    "rolesTitle": "Le poste que je vise",
-    "roles": "Représentant ou conseiller avant-vente en solutions technologiques, développement des affaires dans une entreprise d'IA, ou customer success. En présentiel, en hybride ou en télétravail, dans le Grand Montréal.",
     "builtTitle": "Ce site a été conçu avec l'IA",
-    "builtSteps": [
-      "Le brief : un cahier des charges précis, avec une règle d'honnêteté absolue : rien d'inventé.",
-      "La démarche : directions visuelles, recherche sur des sites primés d'Awwwards, spec, plan en 12 étapes, puis construction avec Claude Code.",
-      "Les vérifications : tests automatiques avant chaque fonctionnalité, audits d'accessibilité et de performance, revue de code finale."
-    ],
-    "builtLesson": "Ce que j'en retiens : l'IA va vite, mais ce sont la précision du brief et la rigueur des vérifications qui font la qualité.",
-    "securityLink": "Comment ce site protège ses visiteurs"
+    "securityLink": "Comment ce site protège ses visiteurs",
+    "builtSummary": "Brief précis avec une règle d'honnêteté, maquettes, plan en 12 étapes, tests automatiques et revue de code indépendante. Chaque étape est documentée."
   },
   "education": {
     "title": "Formation",

@@ -44,7 +44,7 @@ const words = (s: string) => s.split(' ');
 <script>
   import { startSignal } from '../lib/signal/engine.ts';
   import { cities } from '../lib/signal/cities.ts';
-  import { seg, stages, wordOpacity } from '../lib/signal/timeline.ts';
+  import { restTarget, seg, stages, wordOpacity } from '../lib/signal/timeline.ts';
 
   const section = document.querySelector<HTMLElement>('[data-signal]');
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -77,12 +77,46 @@ const words = (s: string) => s.split(' ');
     addEventListener('scroll', paint, { passive: true });
     paint();
 
+    // Quand le défilement s'arrête entre deux scènes, on termine la transition pour ne jamais rester à mi-chemin
+    let lastY = scrollY, dir = 0, timer = 0, glideId = 0, touchY: number | null = null;
+    // Glissement maison : le défilement doux du navigateur est trop rapide et sa vitesse n'est pas réglable
+    const GLIDE_MS = 1200;
+    const glide = (top: number) => {
+      cancelAnimationFrame(glideId);
+      const y0 = scrollY, t0 = performance.now();
+      const step = (now: number) => {
+        const k = Math.min(1, (now - t0) / GLIDE_MS);
+        scrollTo(0, y0 + (top - y0) * (1 - (1 - k) ** 3)); // départ vif (dans l'élan du doigt), arrivée douce
+        if (k < 1) glideId = requestAnimationFrame(step);
+      };
+      glideId = requestAnimationFrame(step);
+    };
+    const settle = (d = dir) => {
+      const t = restTarget(progress(), d);
+      if (t !== null) glide(scrollY + section.getBoundingClientRect().top + t * (section.offsetHeight - innerHeight));
+    };
+    const schedule = () => { clearTimeout(timer); if (touchY === null) timer = window.setTimeout(settle, 160); };
+    const onScroll = () => { dir = Math.sign(scrollY - lastY) || dir; lastY = scrollY; schedule(); };
+    const onTouchStart = (e: TouchEvent) => { touchY = e.touches[0].clientY; clearTimeout(timer); cancelAnimationFrame(glideId); };
+    // Au toucher, on décide dès que le doigt se lève, sans attendre la fin de l'élan : un seul mouvement continu
+    const onTouchEnd = (e: TouchEvent) => {
+      const dy = touchY === null ? 0 : touchY - e.changedTouches[0].clientY;
+      touchY = null;
+      if (Math.abs(dy) > 10) settle(Math.sign(dy)); else schedule();
+    };
+    addEventListener('scroll', onScroll, { passive: true });
+    addEventListener('touchstart', onTouchStart, { passive: true });
+    addEventListener('touchend', onTouchEnd, { passive: true });
+    addEventListener('touchcancel', onTouchEnd, { passive: true });
+    addEventListener('wheel', () => cancelAnimationFrame(glideId), { passive: true }); // la main reprend toujours le dessus
+
     startSignal(canvas, {
       portraitSrc: section.dataset.portrait!,
       cities,
       locale: section.dataset.locale === 'en' ? 'en' : 'fr',
       getProgress: progress,
-      onFail: () => { section.classList.remove('signal-on'); removeEventListener('scroll', paint); },
+      fitAbove: () => copy.getBoundingClientRect().top - canvas.getBoundingClientRect().top,
+      onFail: () => { section.classList.remove('signal-on'); removeEventListener('scroll', paint); removeEventListener('scroll', onScroll); clearTimeout(timer); cancelAnimationFrame(glideId); },
     });
   }
 </script>
@@ -133,7 +167,13 @@ const words = (s: string) => s.split(' ');
     .signal-on .progress { display: none; }
     .signal-on .copy-inner { max-width: none; }
     .signal-on .value { font-size: 0.9375rem; margin-top: 0.6rem; }
-    .signal-on .cap { inset: auto 1rem 2.5rem 1rem; max-width: none; transform: none; }
+    /* le texte reste près du bas pour laisser au portrait toute la hauteur disponible */
+    .signal-on .copy { inset: auto 0 clamp(1.25rem, 7svh, 4.5rem) 0; }
+    .signal-on .hint { display: none; }
+    .title { margin-top: 1rem; font-size: 0.9375rem; }
+    .actions { margin-top: 1.25rem; gap: 0.5rem; }
+    .actions .btn { min-height: 2.625rem; padding: 0.6rem 1rem; font-size: 0.875rem; }
+    .signal-on .cap { inset: 58% 1rem auto 1rem; max-width: none; transform: none; } /* 58 % = CAPTION_TOP (shapes.ts) */
     .signal-on .captions { inset: 0; transform: none; }
   }
 </style>

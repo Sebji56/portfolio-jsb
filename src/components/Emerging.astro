@@ -14,13 +14,10 @@ const { locale } = Astro.props;
       <ul class="uses" data-reveal>{tx<string[]>(locale, 'emerging.uses').map((u) => <li>{u}</li>)}</ul>
       <h3 class="sub" data-reveal>{t(locale, 'emerging.nextTitle')}</h3>
       <p data-reveal><Todo text={t(locale, 'emerging.next')} /></p>
-      <h3 class="sub" data-reveal>{t(locale, 'emerging.rolesTitle')}</h3>
-      <p data-reveal>{t(locale, 'emerging.roles')}</p>
     </div>
     <aside class="card built" aria-labelledby="built-title" data-reveal>
       <h3 id="built-title">{t(locale, 'emerging.builtTitle')}</h3>
-      <ol>{tx<string[]>(locale, 'emerging.builtSteps').map((s) => <li>{s}</li>)}</ol>
-      <p class="lesson">{t(locale, 'emerging.builtLesson')}</p>
+      <p class="lesson">{t(locale, 'emerging.builtSummary')}</p>
       <a class="btn btn-ghost" href={localizePath('security', locale)}>{t(locale, 'emerging.securityLink')}</a>
     </aside>
     </div>
@@ -38,8 +35,6 @@ const { locale } = Astro.props;
   .uses li::marker { color: var(--acc); }
   .built { padding: 2rem; display: grid; gap: 1.25rem; position: sticky; top: 6rem; background: linear-gradient(180deg, color-mix(in oklab, var(--acc) 7%, var(--surface)), var(--surface) 60%); }
   .built h3 { font-size: 1.5rem; }
-  .built ol { display: grid; gap: 0.9rem; padding-left: 1.25rem; margin: 0; }
-  .built ol li::marker { color: var(--acc); font-weight: 700; }
   .lesson { color: var(--mute); }
   .built .btn { justify-self: start; }
   @media (max-width: 52rem) { .grid { grid-template-columns: 1fr; } .built { position: static; } }
