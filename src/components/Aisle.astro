@@ -16,15 +16,6 @@ const ardoisiere = salons.filter((s) => s.data.group === 'ardoisiere');
     <h2 id="salons-title" class="h2" data-reveal>{t(locale, 'salons.title')}</h2>
     <div class="intro-text">
       <p class="lead" data-reveal>{t(locale, 'salons.intro')}</p>
-      <div class="ardoisiere" data-reveal>
-        <h3>{t(locale, 'salons.withArdoisiere')}</h3>
-        <p class="line">
-          {ardoisiere.map((s, i) => (
-            <Fragment>{i > 0 && ' · '}<a href={s.data.url} target="_blank" rel="noopener noreferrer">{s.data.name}<span class="sr-only"> {t(locale, 'experiences.newTab')}</span></a></Fragment>
-          ))}
-          <span class="others"> · {t(locale, 'salons.others')}.</span>
-        </p>
-      </div>
     </div>
   </div>
 
@@ -33,12 +24,28 @@ const ardoisiere = salons.filter((s) => s.data.group === 'ardoisiere');
     <div class="floor" data-floor aria-hidden="true"></div>
     <p class="sign" data-sign aria-hidden="true"></p>
     <div class="stage-head wrap">
-      <h3>{t(locale, 'salons.withProteus')}</h3>
+      <h3 data-head>{t(locale, 'salons.withProteus')}</h3>
       <p class="hint" aria-hidden="true">{t(locale, 'salons.hint')}</p>
     </div>
     <ol class="world" data-world>
+      {/* Kiosque d'ouverture : les salons de L'Ardoisière (2010-2020), avant ceux de Proteus-VR */}
+      <li class="booth" data-booth data-sign="L'Ardoisière" data-head={t(locale, 'salons.withArdoisiere')}>
+        <article tabindex="0" aria-labelledby="booth-ardoisiere">
+          <div class="type" aria-hidden="true"><span>L'Ardoisière</span><span>{locale === 'en' ? 'Quebec' : 'Québec'}</span></div>
+          <div class="cap">
+            <h4 id="booth-ardoisiere">L'Ardoisière</h4>
+            <p class="where">{t(locale, 'salons.ardoisiereWhere')}</p>
+            <p class="desc">
+              {ardoisiere.map((s, i) => (
+                <Fragment>{i > 0 && ' · '}<a href={s.data.url} target="_blank" rel="noopener noreferrer">{s.data.name}<span class="sr-only"> {t(locale, 'experiences.newTab')}</span></a></Fragment>
+              ))}
+              <span class="others"> · {t(locale, 'salons.others')}.</span>
+            </p>
+          </div>
+        </article>
+      </li>
       {proteus.map((s) => (
-        <li class="booth" data-booth data-sign={s.data.name}>
+        <li class="booth" data-booth data-sign={s.data.name} data-head={t(locale, 'salons.withProteus')}>
           <article tabindex="0" aria-labelledby={`booth-${s.id}`}>
             {s.data.photo
               ? <Picture src={photo(s.data.photo as PhotoId)} formats={['avif', 'webp']} alt={photoMeta[s.data.photo as PhotoId].alt[locale]} widths={[480, 800]} sizes="(max-width: 52rem) 76vw, 40vw" />
@@ -84,7 +91,7 @@ const ardoisiere = salons.filter((s) => s.data.group === 'ardoisiere');
   /* Mode statique : grille de cartes */
   .stage { padding: 3rem clamp(1rem, 4vw, 3.5rem) 0; max-width: 80rem; margin: 0 auto; }
   .floor, .sign, .meter, .hint, .end { display: none; }
-  .stage-head h3, .ardoisiere h3 { font-size: 1.25rem; letter-spacing: -0.02em; }
+  .stage-head h3 { font-size: 1.25rem; letter-spacing: -0.02em; }
   .world { list-style: none; padding: 0; margin: 1.5rem 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr)); gap: 1rem; }
   .booth article { height: 100%; background: var(--surface); border: 1px solid var(--line); border-radius: 1rem; padding: 0.6rem 0.6rem 1.1rem; display: grid; gap: 0.9rem; align-content: start; }
   .booth :global(img), .type { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 0.6rem; }
@@ -116,9 +123,7 @@ const ardoisiere = salons.filter((s) => s.data.group === 'ardoisiere');
   .aisle-on .meter { display: block; position: absolute; left: clamp(1rem, 4vw, 3.5rem); right: clamp(1rem, 4vw, 3.5rem); bottom: 1.75rem; height: 2px; background: var(--line); }
   .meter i { position: absolute; inset: 0; background: var(--acc); transform-origin: left; transform: scaleX(var(--p, 0)); }
   @media (max-width: 52rem) { .aisle-on .booth { width: 76vw; } .aisle-on .hint { display: none; } }
-  .ardoisiere { display: grid; gap: 0.5rem; margin-top: 0.75rem; padding-top: 1rem; border-top: 1px solid var(--line); }
-  .line { max-width: 60ch; color: var(--mute); }
-  .ardoisiere a { color: var(--ink); }
+  .desc a { color: var(--ink); font-weight: 600; text-decoration-color: var(--acc); }
   .others { color: var(--mute); }
   @media (max-width: 52rem) { .intro { grid-template-columns: 1fr; } }
 </style>

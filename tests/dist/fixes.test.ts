@@ -9,7 +9,7 @@ const css = () => readdirSync(join(DIST, '_astro')).filter((f) => f.endsWith('.c
 for (const route of ['', 'en']) {
   test(`/${route} : chaque kiosque de l’allée est atteignable au clavier`, () => {
     const booths = [...readPage(route).matchAll(/<li[^>]*data-booth[\s\S]*?<\/li>/g)].map((m) => m[0]);
-    assert.equal(booths.length, 7);
+    assert.equal(booths.length, 8); // L'Ardoisière + 7 salons Proteus-VR
     for (const b of booths) assert.match(b, /<article[^>]*tabindex="0"[^>]*aria-labelledby="[^"]+"/, b.slice(0, 120));
   });
 
@@ -53,5 +53,15 @@ for (const route of ['', 'en']) {
     assert.match(card, /Ramsey Cardy \/ Collision via Sportsfile/);
     assert.match(card, /<a[^>]*href="https:\/\/www\.flickr\.com\/photos\/collisionconf\/53802395183\/"[^>]*rel="noopener noreferrer"/);
     assert.match(card, /<a[^>]*href="https:\/\/creativecommons\.org\/licenses\/by\/2\.0\/"/);
+  });
+}
+
+for (const route of ['', 'en']) {
+  test(`/${route} : l’allée s’ouvre sur un kiosque L’Ardoisière qui liste ses salons`, () => {
+    const booths = [...readPage(route).matchAll(/<li[^>]*data-booth[\s\S]*?<\/li>/g)].map((m) => m[0]);
+    assert.match(booths[0], /data-sign="L'Ardoisière"/);
+    for (const url of ['salonnationalhabitation.com', 'expohabitatquebec.com', 'ecohabitation.com']) assert.match(booths[0], new RegExp(url));
+    for (const b of booths) assert.match(b, /data-head="[^"]+"/, 'chaque kiosque donne le titre de son parcours');
+    assert.doesNotMatch(readPage(route), /class="wrap ardoisiere"|class="ardoisiere"/, 'plus de bloc L’Ardoisière séparé');
   });
 }

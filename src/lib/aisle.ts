@@ -33,7 +33,8 @@ export function initAisle(section: HTMLElement): () => void {
   const stage = section.querySelector<HTMLElement>('.stage');
   const world = section.querySelector<HTMLElement>('[data-world]');
   const booths = [...section.querySelectorAll<HTMLElement>('[data-booth]')];
-  const sign = section.querySelector<HTMLElement>('[data-sign]');
+  const sign = section.querySelector<HTMLElement>('p[data-sign]');
+  const head = section.querySelector<HTMLElement>('[data-head]:not([data-booth])');
   const floor = section.querySelector<HTMLElement>('[data-floor]');
   const meter = section.querySelector<HTMLElement>('[data-meter]');
   const end = section.querySelector<HTMLElement>('[data-end]');
@@ -63,7 +64,11 @@ export function initAisle(section: HTMLElement): () => void {
       b.style.pointerEvents = s.opacity < 0.5 ? 'none' : ''; // reste focusable au clavier
     });
     const near = nearestBooth(cam, n, gap);
-    if (sign && near !== lastSign) { sign.textContent = booths[near].dataset.sign ?? ''; lastSign = near; }
+    if (near !== lastSign) {
+      if (sign) sign.textContent = booths[near].dataset.sign ?? '';
+      if (head && booths[near].dataset.head) head.textContent = booths[near].dataset.head; // titre du parcours : L'Ardoisière, puis Proteus-VR
+      lastSign = near;
+    }
     const endP = clamp01((pS - 0.9) / 0.08);
     floor?.style.setProperty('--fy', `${cam * 0.6}px`);
     meter?.style.setProperty('--p', String(pS));
