@@ -13,9 +13,9 @@ context:
   en: "Texas-style smokehouse restaurant with an arcade room."
 highlights:
   fr:
-    - "service personnalisé, ventes suggestives et fidélisation, pendant ma recherche d'un poste dans le secteur des technologies après Proteus-VR"
+    - "service personnalisé, ventes suggestives et fidélisation ; en parallèle, après Proteus-VR, recherche d'un poste en technologie et apprentissage en autodidacte"
   en:
-    - "personalized service, suggestive selling and customer loyalty, while looking for a technology role after Proteus-VR"
+    - "personalized service, suggestive selling and customer loyalty; alongside, after Proteus-VR, a search for a technology role and self-directed learning"
 skills:
   - { label: { fr: "Vente suggestive", en: "Suggestive selling" }, pillar: service }
 ---
