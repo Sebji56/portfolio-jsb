@@ -80,7 +80,7 @@ const words = (s: string) => s.split(' ');
     // Quand le défilement s'arrête entre deux scènes, on termine la transition pour ne jamais rester à mi-chemin
     let lastY = scrollY, dir = 0, timer = 0, glideId = 0, touchY: number | null = null;
     // Glissement maison : le défilement doux du navigateur est trop rapide et sa vitesse n'est pas réglable
-    const GLIDE_MS = 900;
+    const GLIDE_MS = 1200;
     const glide = (top: number) => {
       cancelAnimationFrame(glideId);
       const y0 = scrollY, t0 = performance.now();
