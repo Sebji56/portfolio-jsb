@@ -16,9 +16,9 @@ test('tout lien externe s’ouvre dans un nouvel onglet en toute sécurité', ()
 });
 
 for (const route of ['', 'en']) {
-  test(`/${route} : expériences principales en ordre chronologique inverse`, () => {
+  test(`/${route} : expériences principales, Proteus-VR (vente de technologie) d’abord`, () => {
     const s = text(section(route));
-    const order = ['ALBI', 'Proteus-VR', "L'Ardoisière"].map((c) => s.indexOf(c));
+    const order = ['Proteus-VR', 'ALBI', "L'Ardoisière"].map((c) => s.indexOf(c));
     assert.ok(order.every((i) => i >= 0), `société absente : ${order}`);
     assert.deepEqual([...order].sort((a, b) => a - b), order);
   });

@@ -182,3 +182,11 @@ Ce site a été conçu avec Claude Code (Anthropic). Ce journal note, à chaque 
 - **Nouvel essai demandé par Seb :** L'Ardoisière intégrée à l'allée. L'allée s'ouvre maintenant sur un kiosque « L'Ardoisière » (habitation et rénovation, Québec) qui liste ses trois salons avec leurs liens, avant EduTECH Asia : ordre chronologique. Le titre de l'allée passe de « Avec L'Ardoisière » à « Avec Proteus-VR » au kiosque suivant ; l'aimantation compte ce kiosque de plus. Le bloc séparé est retiré. Tests mis à jour (8 kiosques, kiosque d'ouverture, titre par kiosque).
 - **Choix final :** Seb garde le kiosque d'ouverture L'Ardoisière.
 - **Introduction des salons réécrite (FR et EN)** pour couvrir les deux parcours. Fait nouveau fourni par Seb : il a commencé les salons de l'habitation vers 13 ans, à l'entreprise familiale. Formulé « dès l'adolescence » (il a dit « je pense » pour l'âge exact) ; aucun chiffre ajouté.
+
+## 2026-10-25 — Moins d'emphase sur les emplois courts
+
+- **Demande :** conseil du père de Seb, entrepreneur : moins mettre en avant ALBI et Jack Flat BBQ (courte durée), avec peut-être une note sur des emplois temporaires.
+- **Recommandation retenue :** garder ALBI en carte (seul résultat de vente chiffré, à mettre en valeur selon le brief) mais placer Proteus-VR en premier ; Jack Flat en « Expérience complémentaire » ; pas de note d'excuse.
+- **Correction factuelle (fournie par Seb) :** ALBI était un poste permanent, pas un contrat à durée déterminée ; le poste a été aboli lors d'une restructuration. Le site disait « contrat à durée déterminée » : corrigé en « temps plein, sur site · poste aboli lors d'une restructuration ». Le congé de paternité n'est pas mentionné (vie privée).
+- **Contexte Jack Flat (fourni par Seb) :** emploi de rebond après Proteus-VR, pendant sa recherche d'un poste en technologie (la réalité virtuelle offrait peu de débouchés). Formulé ainsi dans la ligne complémentaire.
+- **CV :** sections « Expérience technologique et commerciale » et « Expérience complémentaire » (Jack Flat, CHSLD) ; toujours une page.

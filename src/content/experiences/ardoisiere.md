@@ -1,5 +1,5 @@
 ---
-order: 4
+order: 3
 kind: main
 company: L'Ardoisière
 url: https://www.ardoisiere.ca/
