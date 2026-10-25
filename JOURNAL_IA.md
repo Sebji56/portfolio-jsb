@@ -158,3 +158,9 @@ Ce site a été conçu avec Claude Code (Anthropic). Ce journal note, à chaque 
 - **Demande suivante :** appliquer la même logique à l'allée des salons.
 - **Fait (branche iteration/salons, non publiée) :** l'aimantation est sortie du héros dans un module commun (`src/lib/snap.ts`) et branchée sur l'allée : on se pose toujours avec un kiosque bien devant soi, ou sur l'écran de fin ; au-delà, défilement libre. Pas de durée minimale à ajouter ici : le mouvement de caméra s'étale déjà sur tout le glissement de 1,2 s.
 - **Vérifié :** arrêts entre deux kiosques → kiosque suivant ou précédent selon le sens ; après le dernier kiosque → écran de fin ; le héros fonctionne toujours.
+
+## 2026-10-25 — Mode jour « Brume »
+
+- **Demande :** le fond blanc du mode jour est trop intense ; voir des alternatives.
+- **Proposé :** quatre palettes (Papier, Brume, Pierre, Aube), présentées côte à côte avec l'actuelle ; contrastes vérifiés pour chacune.
+- **Choix de Seb :** Brume, un gris bleuté doux, fidèle au mode nuit. Fond `#E8ECF1` au lieu de `#F6F7F9`, cartes `#F2F5F8` au lieu du blanc pur, contraste du texte ramené de 17,5 à 14,7 (toujours bien au-dessus du seuil de 7) ; accent et pastilles foncés pour rester lisibles. Branche iteration/salons, non publiée.

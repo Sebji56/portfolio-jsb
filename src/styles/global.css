@@ -23,18 +23,19 @@
 
 :root[data-theme="light"] {
   color-scheme: light;
-  --bg: #f6f7f9;
-  --surface: #ffffff;
-  --surface-2: #eef1f5;
-  --line: rgb(11 18 32 / 0.1);
-  --line-strong: rgb(11 18 32 / 0.2);
-  --ink: #0b1220;
-  --mute: #4a5568;
-  --acc: #1f6fd1;
+  /* Palette « Brume » : gris bleuté doux plutôt que blanc pur, pour un mode jour moins éblouissant */
+  --bg: #e8ecf1;
+  --surface: #f2f5f8;
+  --surface-2: #dde3ea;
+  --line: rgb(16 26 41 / 0.1);
+  --line-strong: rgb(16 26 41 / 0.2);
+  --ink: #101a29;
+  --mute: #475264;
+  --acc: #1b5fb8;
   --acc-ink: #ffffff;
-  --pillar-service: #b8691f;
-  --pillar-sales: #1f6fd1;
-  --pillar-tech: #1a8a68;
+  --pillar-service: #9a5414;
+  --pillar-sales: #1b5fb8;
+  --pillar-tech: #13705a;
   --particle: #1f3b66;
 }
 

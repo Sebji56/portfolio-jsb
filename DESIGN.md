@@ -4,17 +4,17 @@ Direction : hybride **« Signal »** (héros en particules) + **« L'allée »**
 
 ## Jetons (`src/styles/global.css`)
 
-| Rôle | Sombre (défaut) | Clair |
+| Rôle | Sombre (défaut) | Clair (« Brume ») |
 |---|---|---|
-| `--bg` | `#070A10` | `#F6F7F9` |
-| `--surface` | `#0F141C` | `#FFFFFF` |
+| `--bg` | `#070A10` | `#E8ECF1` |
+| `--surface` | `#0F141C` | `#F2F5F8` |
 | `--line` | blanc 8 % | encre 10 % |
-| `--ink` | `#EEF2F8` | `#0B1220` |
-| `--mute` | `#8F99AA` | `#4A5568` |
-| `--acc` (bleu signal) | `#4DA3FF` | `#1F6FD1` |
-| Pilier Service | `#F2B880` | `#B8691F` |
-| Pilier Vente-conseil | `#4DA3FF` | `#1F6FD1` |
-| Pilier Tech | `#5FD6B0` | `#1A8A68` |
+| `--ink` | `#EEF2F8` | `#101A29` |
+| `--mute` | `#8F99AA` | `#475264` |
+| `--acc` (bleu signal) | `#4DA3FF` | `#1B5FB8` |
+| Pilier Service | `#F2B880` | `#9A5414` |
+| Pilier Vente-conseil | `#4DA3FF` | `#1B5FB8` |
+| Pilier Tech | `#5FD6B0` | `#13705A` |
 
 Les contrastes des paires principales sont vérifiés par `tests/unit/contrast.test.ts`.
 
