@@ -44,7 +44,7 @@ const words = (s: string) => s.split(' ');
 <script>
   import { startSignal } from '../lib/signal/engine.ts';
   import { cities } from '../lib/signal/cities.ts';
-  import { seg, stages, wordOpacity } from '../lib/signal/timeline.ts';
+  import { restTarget, seg, stages, wordOpacity } from '../lib/signal/timeline.ts';
 
   const section = document.querySelector<HTMLElement>('[data-signal]');
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -77,13 +77,26 @@ const words = (s: string) => s.split(' ');
     addEventListener('scroll', paint, { passive: true });
     paint();
 
+    // Quand le défilement s'arrête entre deux scènes, on termine la transition pour ne jamais rester à mi-chemin
+    let lastY = scrollY, dir = 0, timer = 0, touching = false;
+    const settle = () => {
+      const t = touching ? null : restTarget(progress(), dir);
+      if (t !== null) scrollTo({ top: scrollY + section.getBoundingClientRect().top + t * (section.offsetHeight - innerHeight), behavior: 'smooth' });
+    };
+    const schedule = () => { clearTimeout(timer); timer = window.setTimeout(settle, 160); };
+    const onScroll = () => { dir = Math.sign(scrollY - lastY) || dir; lastY = scrollY; schedule(); };
+    const onTouch = (e: TouchEvent) => { touching = e.type === 'touchstart'; if (!touching) schedule(); };
+    addEventListener('scroll', onScroll, { passive: true });
+    addEventListener('touchstart', onTouch, { passive: true });
+    addEventListener('touchend', onTouch, { passive: true });
+
     startSignal(canvas, {
       portraitSrc: section.dataset.portrait!,
       cities,
       locale: section.dataset.locale === 'en' ? 'en' : 'fr',
       getProgress: progress,
       fitAbove: () => copy.getBoundingClientRect().top - canvas.getBoundingClientRect().top,
-      onFail: () => { section.classList.remove('signal-on'); removeEventListener('scroll', paint); },
+      onFail: () => { section.classList.remove('signal-on'); removeEventListener('scroll', paint); removeEventListener('scroll', onScroll); clearTimeout(timer); },
     });
   }
 </script>

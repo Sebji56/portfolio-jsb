@@ -142,3 +142,9 @@ Ce site a été conçu avec Claude Code (Anthropic). Ce journal note, à chaque 
 
 - **Demande :** un juste milieu entre le CV dense et le CV aéré : synthétiser, garder un message clair sur les objectifs, et utiliser l'espace gagné pour bonifier.
 - **Fait :** profil d'origine resserré (mêmes idées, objectif intact) ; « Compétences clés » rétablies en deux lignes (mots-clés lus par les recruteurs et les logiciels de tri) ; ajouts tirés du CV d'origine : chiffres ALBI suivis de la méthode de vente, une phrase de contexte Proteus-VR (premiers contacts jusqu'à la conclusion d'ententes avec la direction), Demo Slam du BCEDL, puce Jack Flat, deux puces pour les dix ans à L'Ardoisière, « Claude (skills et plugins) ». Toujours une page, texte à 9,6 pt.
+
+## 2026-10-25 — Animation du héros : jamais à mi-chemin
+
+- **Demande :** captures à l'appui, l'animation de particules pouvait rester figée entre deux formes (nuage de points, légende à moitié écrite) quand on arrête de défiler.
+- **Fait :** quand le défilement s'arrête entre deux scènes, la page glisse d'elle-même jusqu'à la scène suivante dans le sens du défilement (casque, globe, Asie), forme complète et légende lisible. Rien ne bouge tant que le doigt est sur l'écran, et la fin du récit laisse descendre librement vers la suite du site. Logique dans `restTarget` (`src/lib/signal/timeline.ts`), testée.
+- **Vérifié :** en navigateur à taille de cellulaire, un arrêt à 15 %, 50 % ou 80 % du récit se pose sur la bonne scène.

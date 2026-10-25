@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { graticule, isPortraitBackground, project } from '../../src/lib/signal/shapes.ts';
-import { easeInOutCubic, seg, stages, wordOpacity } from '../../src/lib/signal/timeline.ts';
+import { RESTS, easeInOutCubic, restTarget, seg, stages, wordOpacity } from '../../src/lib/signal/timeline.ts';
 
 test('le fond bleu du portrait est retiré', () => {
   assert.equal(isPortraitBackground(95, 135, 200), true);
@@ -91,4 +91,26 @@ test('storyBoxes : sur mobile, casque et globe se posent juste au-dessus de la l
     assert.ok(Math.abs(globe.cy + globe.R - (capTop - 24)) < 1e-9, `globe mal posé à ${W}x${H}`);
     assert.ok(globe.cy - globe.R >= 72, `globe sous l’en-tête à ${W}x${H}`);
   }
+});
+
+test('chaque scène de repos montre une forme complète', () => {
+  assert.equal(stages(RESTS[1]).m1, 1);
+  assert.equal(stages(RESTS[1]).m2, 0);
+  assert.equal(stages(RESTS[2]).m2, 1);
+  assert.ok(stages(RESTS[3]).lon0 > 114);
+});
+
+test('restTarget : entre deux scènes, on se pose sur la suivante dans le sens du défilement', () => {
+  assert.equal(restTarget(0.2, 1), RESTS[1]);
+  assert.equal(restTarget(0.2, -1), RESTS[0]);
+  assert.equal(restTarget(0.6, 1), RESTS[2]);
+  assert.equal(restTarget(0.6, -1), RESTS[1]);
+  assert.equal(restTarget(0.5, 0), RESTS[1]);
+});
+
+test('restTarget : rien à faire sur une scène ou hors du récit', () => {
+  assert.equal(restTarget(RESTS[1] + 0.005, 1), null);
+  assert.equal(restTarget(0, 1), null);
+  assert.equal(restTarget(0.97, -1), null);
+  assert.equal(restTarget(1.2, 1), null);
 });
