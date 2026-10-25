@@ -27,11 +27,3 @@ export const wordOpacity = (tin: number, index: number, count: number, tout: num
 
 /** Progressions où une scène est complète (portrait, casque, globe, Asie) : formes en place, légende lisible (plages des légendes dans SignalHero). */
 export const RESTS = [0, 0.41, 0.72, 0.95];
-
-/** Scène où se poser quand le défilement s'arrête entre deux scènes : la suivante dans le sens du défilement (dir), la plus proche si dir = 0 ; null si déjà posé ou hors du récit. */
-export function restTarget(p: number, dir: number, rests = RESTS, eps = 0.01): number | null {
-  if (p <= rests[0] + eps || p >= rests[rests.length - 1] - eps || rests.some((r) => Math.abs(r - p) <= eps)) return null;
-  if (dir > 0) return rests.find((r) => r > p)!;
-  if (dir < 0) return rests.findLast((r) => r < p)!;
-  return rests.reduce((a, r) => (Math.abs(r - p) < Math.abs(a - p) ? r : a));
-}

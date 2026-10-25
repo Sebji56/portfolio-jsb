@@ -1,7 +1,10 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { graticule, isPortraitBackground, project } from '../../src/lib/signal/shapes.ts';
-import { RESTS, approach, easeInOutCubic, restTarget, seg, stages, wordOpacity } from '../../src/lib/signal/timeline.ts';
+import { RESTS, approach, easeInOutCubic, seg, stages, wordOpacity } from '../../src/lib/signal/timeline.ts';
+import { restTarget as snapTo } from '../../src/lib/snap.ts';
+
+const restTarget = (p: number, dir: number) => snapTo(p, dir, RESTS);
 
 test('le fond bleu du portrait est retiré', () => {
   assert.equal(isPortraitBackground(95, 135, 200), true);

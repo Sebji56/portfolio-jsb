@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { boothState, cameraAt, nearestBooth } from '../../src/lib/aisle.ts';
+import { aisleRests, boothState, cameraAt, nearestBooth } from '../../src/lib/aisle.ts';
 
 const o = { gap: 1500, side: 380 };
 
@@ -41,4 +41,13 @@ test('progressFor ramène le défilement sur un kiosque donné', async () => {
   const p = progressFor(4, 7, 1500);
   assert.equal(nearestBooth(cameraAt(p, 7, 1500), 7, 1500), 4);
   assert.ok(p >= 0 && p <= 1);
+});
+
+test('aisleRests : un arrêt par kiosque, bien devant soi, puis l’écran de fin', () => {
+  const rests = aisleRests(7, 1500);
+  assert.equal(rests.length, 8);
+  assert.equal(rests[0], 0);
+  assert.equal(rests.at(-1), 1);
+  rests.slice(1).forEach((r, i) => assert.ok(r > rests[i]));
+  rests.slice(0, -1).forEach((r, i) => assert.equal(nearestBooth(cameraAt(r, 7, 1500), 7, 1500), i));
 });

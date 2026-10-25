@@ -1,3 +1,5 @@
+import { initSnap } from './snap.ts';
+
 const clamp01 = (v: number) => Math.max(0, Math.min(1, v));
 const FOCUS_Z = -350; // profondeur où un kiosque est « devant soi »
 
@@ -22,6 +24,9 @@ export const nearestBooth = (cam: number, n: number, gap: number): number =>
 
 /** Progression qui amène le kiosque i au point de lecture (navigation au clavier). */
 export const progressFor = (i: number, n: number, gap: number): number => clamp01((FOCUS_Z + i * gap + 300) / (n * gap + 400));
+
+/** Scènes complètes de l'allée : chaque kiosque devant soi, puis l'écran de fin. */
+export const aisleRests = (n: number, gap: number): number[] => [...Array.from({ length: n }, (_, i) => progressFor(i, n, gap)), 1];
 
 /** Anime l'allée au défilement ; retourne la fonction d'arrêt. */
 export function initAisle(section: HTMLElement): () => void {
@@ -81,9 +86,11 @@ export function initAisle(section: HTMLElement): () => void {
   section.addEventListener('focusin', onFocus);
   addEventListener('scroll', kick, { passive: true });
   addEventListener('resize', kick);
+  // Comme le héros : on ne reste jamais entre deux kiosques
+  const stopSnap = initSnap(progress, aisleRests(n, gap), (t) => stage.getBoundingClientRect().top + scrollY + t * (stage.offsetHeight - innerHeight));
   kick();
   return () => {
-    running = false; cancelAnimationFrame(raf);
+    running = false; cancelAnimationFrame(raf); stopSnap();
     section.removeEventListener('focusin', onFocus);
     removeEventListener('scroll', kick); removeEventListener('resize', kick);
   };
