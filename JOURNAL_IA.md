@@ -137,3 +137,8 @@ Ce site a été conçu avec Claude Code (Anthropic). Ce journal note, à chaque 
 - **Demande :** le CV d'une page restait trop chargé (avis de l'entourage de Seb) ; garder le « Profil professionnel » du CV d'origine, qui le résume bien.
 - **Fait :** profil d'origine remis mot pour mot ; retirés : « Compétences clés » (redite des expériences), la puce de Jack Flat et de PIXEL, la ligne AEP/ASP, le détail des outils ; une puce de moins pour Proteus-VR et L'Ardoisière. Texte remonté à 10 pt, interligne et marges plus généreux, toujours une page.
 - **Leçon :** pour faire tenir sur une page, couper du contenu plutôt que rapetisser le texte.
+
+## 2026-10-25 — CV « entre-deux »
+
+- **Demande :** un juste milieu entre le CV dense et le CV aéré : synthétiser, garder un message clair sur les objectifs, et utiliser l'espace gagné pour bonifier.
+- **Fait :** profil d'origine resserré (mêmes idées, objectif intact) ; « Compétences clés » rétablies en deux lignes (mots-clés lus par les recruteurs et les logiciels de tri) ; ajouts tirés du CV d'origine : chiffres ALBI suivis de la méthode de vente, une phrase de contexte Proteus-VR (premiers contacts jusqu'à la conclusion d'ententes avec la direction), Demo Slam du BCEDL, puce Jack Flat, deux puces pour les dix ans à L'Ardoisière, « Claude (skills et plugins) ». Toujours une page, texte à 9,6 pt.
