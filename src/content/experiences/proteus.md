@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 3
 kind: main
 company: Proteus-VR
 url: https://proteus-vr.com/
@@ -27,23 +27,15 @@ highlights:
     - "Presented Proteus Labs on stage at the Demo Slam of the Digital Learning Symposium (BCEDL) in Vancouver"
 details:
   fr:
-    - "Vice-président : présentations et démonstrations adaptées aux besoins des interlocuteurs"
-    - "Vice-président : prospection, suivis, négociations et conclusion d'ententes avec la direction"
-    - "Vice-président : représentation dans de grands salons (NSTA, SXSW EDU, EduTECH Asia, ISTE, OCTE, BCEDL, Collision), d'abord avec le président, puis seul"
-    - "Vice-président : vulgarisation d'une solution technologique complexe auprès de décideurs du milieu de l'éducation"
-    - "Développeur : objets virtuels interactifs dans Unreal Engine, interactions programmées en Blueprints"
-    - "Développeur : systèmes de particules pour les effets visuels et contribution au moteur de simulation chimique"
-    - "Développeur : tests des expériences (interactions et exactitude des résultats), correction de bogues et vérification des correctifs"
-    - "Développeur : compilation des versions et validation sur différents casques de réalité virtuelle"
+    - "Vice-président : démonstrations adaptées à chaque interlocuteur, prospection, négociation et conclusion d'ententes avec la direction"
+    - "Vice-président : représentation dans 7 grands salons, d'abord avec le président, puis seul"
+    - "Développeur : objets interactifs en Blueprints, effets de particules et moteur de simulation chimique"
+    - "Développeur : tests, correction de bogues et validation sur plusieurs casques VR"
   en:
-    - "VP: presentations and demos tailored to each audience's needs"
-    - "VP: prospecting, follow-ups, negotiations and closing agreements with management"
-    - "VP: represented the company at major trade shows (NSTA, SXSW EDU, EduTECH Asia, ISTE, OCTE, BCEDL, Collision), first alongside the president, then alone"
-    - "VP: explained a complex technology solution to decision-makers in education"
-    - "Developer: interactive virtual objects in Unreal Engine, interactions programmed in Blueprints"
-    - "Developer: particle systems for visual effects and contributions to the chemistry simulation engine"
-    - "Developer: tested the experiences (interactions and accuracy of results), fixed bugs and verified fixes"
-    - "Developer: compiled builds and validated them on different VR headsets"
+    - "VP: demos tailored to each audience, prospecting, negotiating and closing agreements with management"
+    - "VP: represented the company at 7 major trade shows, first alongside the president, then alone"
+    - "Developer: interactive objects in Blueprints, particle effects and the chemistry simulation engine"
+    - "Developer: testing, bug fixing and validation on several VR headsets"
 skills:
   - { label: { fr: "Démonstration de solutions", en: "Solution demos" }, pillar: sales }
   - { label: { fr: "Partenariats", en: "Partnerships" }, pillar: sales }

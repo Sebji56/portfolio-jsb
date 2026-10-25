@@ -125,3 +125,9 @@ Ce site a été conçu avec Claude Code (Anthropic). Ce journal note, à chaque 
 
 - **Demande :** captures à l'appui, trop d'espace entre le casque ou le globe et leur légende ; remettre les pastilles de compétences sur chaque expérience.
 - **Fait :** sur mobile, la forme se pose juste au-dessus de sa légende et le bloc est centré à l'écran ; pastilles rétablies (pilier en couleur).
+
+## 2026-10-25 — Synthèse du CV et du détail des expériences
+
+- **Demande de Seb :** le CV téléchargeable est chargé ; le détail des expériences aussi, surtout Proteus-VR ; mettre Jack Flat BBQ avec les autres expériences.
+- **Fait :** CV réécrit sur une seule page (au lieu de deux) à partir d'une source HTML (`docs/cv/cv-fr.html`) imprimée en PDF par Chrome ; mêmes postes, dates et résultats que le CV d'origine, rien d'ajouté, téléphone conservé dans le PDF seulement. Détail de Proteus-VR ramené à 4 points ; Jack Flat BBQ devient une carte d'expérience comme les autres.
+- **Vérifié :** chaque affirmation du nouveau CV retrouvée dans l'ancien ; PDF d'une page ; tests à jour.

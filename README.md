@@ -14,6 +14,16 @@ npm test             # tests unitaires
 npm run test:dist    # tests sur le site compilé (après npm run build)
 ```
 
+## CV téléchargeable
+
+Le texte du CV se modifie dans `docs/cv/cv-fr.html` (une page Lettre). Pour régénérer le PDF publié sur le site :
+
+```powershell
+& 'C:\Program Files\Google\Chrome\Application\chrome.exe' --headless=new --no-pdf-header-footer --allow-file-access-from-files "--print-to-pdf=$PWD\public\cv-jean-sebastien-bisson.pdf" "file:///$($PWD -replace '\\','/')/docs/cv/cv-fr.html"
+```
+
+Vérifier ensuite que le PDF tient toujours sur une seule page.
+
 ## Site en ligne
 
 - Site : https://portfolio-jsb.netlify.app (projet Netlify « portfolio-jsb », équipe « SebJi Portfolio »)
