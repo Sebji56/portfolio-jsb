@@ -164,3 +164,36 @@ Ce site a été conçu avec Claude Code (Anthropic). Ce journal note, à chaque 
 - **Demande :** le fond blanc du mode jour est trop intense ; voir des alternatives.
 - **Proposé :** quatre palettes (Papier, Brume, Pierre, Aube), présentées côte à côte avec l'actuelle ; contrastes vérifiés pour chacune.
 - **Choix de Seb :** Brume, un gris bleuté doux, fidèle au mode nuit. Fond `#E8ECF1` au lieu de `#F6F7F9`, cartes `#F2F5F8` au lieu du blanc pur, contraste du texte ramené de 17,5 à 14,7 (toujours bien au-dessus du seuil de 7) ; accent et pastilles foncés pour rester lisibles. Branche iteration/salons, non publiée.
+
+## 2026-10-25 — Espacement entre les sections
+
+- **Demande :** sur ordinateur, trop d'espace avant les titres de section (Expériences, Salons, Compétences, Technologies émergentes, Formation, Me joindre) ; sur mobile, ça va.
+- **Cause :** chaque section avait jusqu'à 9rem (144 px) d'espace en haut et en bas, soit près de 290 px entre deux sections sur grand écran.
+- **Fait :** un seul réglage partagé, `--section-space`, plafonné à 6rem (96 px) : environ 180 px entre deux sections sur ordinateur ; inchangé sur mobile (5rem). Branche iteration/espacements, non publiée.
+- **Retour de Seb :** resserrer encore un peu sur ordinateur. `--section-space` passe à 5rem partout, la même valeur que sur mobile : environ 160 px entre deux sections sur grand écran (contre près de 290 px au départ).
+
+## 2026-10-25 — L'Ardoisière avant « Prochain kiosque ? »
+
+- **Demande :** remonter le bloc des salons de L'Ardoisière, qui arrivait après la fin de l'allée.
+- **Fait :** le bloc fait maintenant partie de l'écran de fin, juste au-dessus de « Prochain kiosque ? » ; le titre « Avec Proteus-VR » s'efface quand l'écran de fin apparaît. Sans animation (mouvement réduit), l'écran de fin s'affiche en fin de liste, avec le bloc.
+- **Bogue trouvé et corrigé :** l'écran de fin, invisible, recouvrait les kiosques et bloquait les liens « Site officiel » à la souris et au doigt ; il ne capte plus les clics tant qu'il n'est pas affiché.
+- **Vérifié :** liens des kiosques cliquables, liens de L'Ardoisière cliquables à la fin, écran de fin complet sur un petit cellulaire (375 × 667).
+- **Retour de Seb :** finalement, il n'aime pas le bloc dans l'écran de fin. Quatre dispositions proposées ; choix : dans l'introduction des salons, sous le texte d'introduction, avant l'allée (ordre chronologique, compact, et l'allée se termine sur « Prochain kiosque ? »). L'écran de fin redevient comme avant ; le correctif des liens des kiosques est conservé.
+- **Nouvel essai demandé par Seb :** L'Ardoisière intégrée à l'allée. L'allée s'ouvre maintenant sur un kiosque « L'Ardoisière » (habitation et rénovation, Québec) qui liste ses trois salons avec leurs liens, avant EduTECH Asia : ordre chronologique. Le titre de l'allée passe de « Avec L'Ardoisière » à « Avec Proteus-VR » au kiosque suivant ; l'aimantation compte ce kiosque de plus. Le bloc séparé est retiré. Tests mis à jour (8 kiosques, kiosque d'ouverture, titre par kiosque).
+- **Choix final :** Seb garde le kiosque d'ouverture L'Ardoisière.
+- **Introduction des salons réécrite (FR et EN)** pour couvrir les deux parcours. Fait nouveau fourni par Seb : il a commencé les salons de l'habitation vers 13 ans, à l'entreprise familiale. Formulé « dès l'adolescence » (il a dit « je pense » pour l'âge exact) ; aucun chiffre ajouté.
+
+## 2026-10-25 — Moins d'emphase sur les emplois courts
+
+- **Demande :** conseil du père de Seb, entrepreneur : moins mettre en avant ALBI et Jack Flat BBQ (courte durée), avec peut-être une note sur des emplois temporaires.
+- **Recommandation retenue :** garder ALBI en carte (seul résultat de vente chiffré, à mettre en valeur selon le brief) mais placer Proteus-VR en premier ; Jack Flat en « Expérience complémentaire » ; pas de note d'excuse.
+- **Correction factuelle (fournie par Seb) :** ALBI était un poste permanent, pas un contrat à durée déterminée ; le poste a été aboli lors d'une restructuration. Le site disait « contrat à durée déterminée » : corrigé en « temps plein, sur site · poste aboli lors d'une restructuration ». Le congé de paternité n'est pas mentionné (vie privée).
+- **Contexte Jack Flat (fourni par Seb) :** emploi de rebond après Proteus-VR, pendant sa recherche d'un poste en technologie (la réalité virtuelle offrait peu de débouchés). Formulé ainsi dans la ligne complémentaire.
+- **CV :** sections « Expérience technologique et commerciale » et « Expérience complémentaire » (Jack Flat, CHSLD) ; toujours une page.
+- **Précision de Seb :** pendant Jack Flat, il continuait d'apprendre les technologies par lui-même (pas de formation officielle). Ligne complémentaire ajustée : « en parallèle, après Proteus-VR, recherche d'un poste en technologie et apprentissage en autodidacte ».
+- **Précision de Seb :** son poste chez ALBI Occasion était à Mascouche ; la mention de la succursale de L'Île-Perrot est retirée du contexte de la carte.
+- **Photo du kiosque L'Ardoisière :** à la demande de Seb, son portrait professionnel (photo de profil LinkedIn, aussi la source du portrait en particules) sert de photo temporaire ; cadrage ajusté pour garder le visage. Ajouté à `A_COMPLETER.md` (#8) en attendant une photo en kiosque.
+- **Photo du kiosque L'Ardoisière fournie par Seb** (le kiosque en salon, sans lui) : remplace le portrait temporaire. Convertie en JPEG (`ardoisiere-kiosque-salon.jpg`), texte alternatif FR et EN. Aucun visage de tiers. Auteur de la photo à confirmer (`A_COMPLETER.md` #8).
+- **Source confirmée par Seb :** la photo du kiosque vient de l'entreprise familiale ; elle peut être publiée.
+- **Retour de Seb (cellulaire, captures) :** l'espace avant les titres reste grand sur mobile. `--section-space` devient `clamp(3.5rem, 6vw, 5rem)` : environ 110 px entre deux sections sur mobile (au lieu de 160), 5rem conservé sur ordinateur.
+- **Encore un peu plus serré sur mobile :** `clamp(2.75rem, 6vw, 5rem)`, environ 90 px entre deux sections sur cellulaire.

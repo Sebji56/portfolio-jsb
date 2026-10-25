@@ -1,6 +1,6 @@
 ---
-order: 2
-kind: main
+order: 5
+kind: compact
 company: Jack Flat BBQ
 url: https://jackflat.com/
 location: { fr: "Laval", en: "Laval, Quebec" }
@@ -13,13 +13,9 @@ context:
   en: "Texas-style smokehouse restaurant with an arcade room."
 highlights:
   fr:
-    - "Service rapide et personnalisé dans un environnement dynamique"
-    - "Ventes suggestives et fidélisation de la clientèle"
+    - "service personnalisé, ventes suggestives et fidélisation ; en parallèle, après Proteus-VR, recherche d'un poste en technologie et apprentissage en autodidacte"
   en:
-    - "Fast, personalized service in a busy environment"
-    - "Suggestive selling and customer loyalty"
+    - "personalized service, suggestive selling and customer loyalty; alongside, after Proteus-VR, a search for a technology role and self-directed learning"
 skills:
-  - { label: { fr: "Service personnalisé", en: "Personalized service" }, pillar: service }
   - { label: { fr: "Vente suggestive", en: "Suggestive selling" }, pillar: service }
-  - { label: { fr: "Fidélisation", en: "Customer loyalty" }, pillar: service }
 ---

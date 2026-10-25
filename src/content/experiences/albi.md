@@ -1,17 +1,17 @@
 ---
-order: 1
+order: 2
 kind: main
 company: ALBI le Géant (ALBI Occasion)
 url: https://www.albioccasion.com/fr
 location: { fr: "Mascouche", en: "Mascouche, Quebec" }
-mode: { fr: "Contrat à durée déterminée, temps plein, sur site", en: "Fixed-term contract, full-time, on-site" }
+mode: { fr: "Temps plein, sur site · poste aboli lors d'une restructuration", en: "Full-time, on-site · position eliminated in a restructuring" }
 roles:
   - title: { fr: "Représentant des ventes automobiles", en: "Automotive Sales Representative" }
     start: "01/2026"
     end: "09/2026"
 context:
-  fr: "Division de véhicules d'occasion du Groupe ALBI le Géant, un grand groupe automobile québécois, avec des succursales à Mascouche et à L'Île-Perrot."
-  en: "Used-vehicle division of Groupe ALBI le Géant, a major Quebec automotive group, with locations in Mascouche and L'Île-Perrot."
+  fr: "Division de véhicules d'occasion du Groupe ALBI le Géant, un grand groupe automobile québécois."
+  en: "Used-vehicle division of Groupe ALBI le Géant, a major Quebec automotive group."
 highlights:
   fr:
     - "Environ 25 véhicules vendus par mois pendant les deux premiers mois complets de vente active"

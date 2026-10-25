@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 1
 kind: main
 company: Proteus-VR
 url: https://proteus-vr.com/

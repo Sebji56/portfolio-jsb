@@ -23,7 +23,7 @@ for (const route of ['', 'en']) {
 
   test(`/${route} : chaque expérience principale affiche ses pastilles de compétences`, () => {
     const cards = section(html(), 'experiences').match(/<article[^>]*class="[^"]*exp-main[\s\S]*?<\/article>/g) ?? [];
-    assert.equal(cards.length, 4);
+    assert.equal(cards.length, 3); // Proteus-VR, ALBI, L'Ardoisière
     for (const c of cards) assert.match(c, /class="tag tag-(service|sales|tech)"/);
   });
 
@@ -42,8 +42,12 @@ for (const route of ['', 'en']) {
     assert.ok(n > 0 && n <= 4, `${n} points dans le détail`);
   });
 
-  test(`/${route} : Jack Flat BBQ est une carte d’expérience comme les autres`, () => {
-    assert.match(exp(), /<article[^>]*class="[^"]*exp-main[^"]*"[^>]*>(?:(?!<\/article>)[\s\S])*?Jack Flat BBQ/);
-    assert.doesNotMatch(exp(), /class="compact"/);
+  test(`/${route} : Jack Flat BBQ passe en expérience complémentaire, sans carte`, () => {
+    assert.doesNotMatch(exp(), /<article[^>]*class="[^"]*exp-main[^"]*"[^>]*>(?:(?!<\/article>)[\s\S])*?Jack Flat BBQ/);
+    assert.match(exp(), /class="compact"[\s\S]*?Jack Flat BBQ/);
+  });
+
+  test(`/${route} : ALBI n’était pas un contrat à durée déterminée`, () => {
+    assert.doesNotMatch(exp(), /durée déterminée|Fixed-term/i);
   });
 }

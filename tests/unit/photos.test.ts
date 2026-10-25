@@ -7,8 +7,8 @@ import { photoMeta } from '../../src/lib/photos.ts';
 const dir = join(import.meta.dirname, '..', '..', 'src', 'assets', 'photos');
 const files = readdirSync(dir).filter((f) => f.endsWith('.jpg')).map((f) => f.replace(/\.jpg$/, ''));
 
-test('les 12 photos préparées sont présentes', () => {
-  assert.equal(files.length, 12);
+test('les 13 photos préparées sont présentes', () => {
+  assert.equal(files.length, 13);
 });
 
 test('la photo SXSW aux droits inconnus n’est pas publiée', () => {
