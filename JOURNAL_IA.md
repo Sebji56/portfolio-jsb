@@ -194,3 +194,4 @@ Ce site a été conçu avec Claude Code (Anthropic). Ce journal note, à chaque 
 - **Précision de Seb :** son poste chez ALBI Occasion était à Mascouche ; la mention de la succursale de L'Île-Perrot est retirée du contexte de la carte.
 - **Photo du kiosque L'Ardoisière :** à la demande de Seb, son portrait professionnel (photo de profil LinkedIn, aussi la source du portrait en particules) sert de photo temporaire ; cadrage ajusté pour garder le visage. Ajouté à `A_COMPLETER.md` (#8) en attendant une photo en kiosque.
 - **Photo du kiosque L'Ardoisière fournie par Seb** (le kiosque en salon, sans lui) : remplace le portrait temporaire. Convertie en JPEG (`ardoisiere-kiosque-salon.jpg`), texte alternatif FR et EN. Aucun visage de tiers. Auteur de la photo à confirmer (`A_COMPLETER.md` #8).
+- **Source confirmée par Seb :** la photo du kiosque vient de l'entreprise familiale ; elle peut être publiée.
