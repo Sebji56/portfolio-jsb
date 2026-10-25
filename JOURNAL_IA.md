@@ -196,3 +196,4 @@ Ce site a été conçu avec Claude Code (Anthropic). Ce journal note, à chaque 
 - **Photo du kiosque L'Ardoisière fournie par Seb** (le kiosque en salon, sans lui) : remplace le portrait temporaire. Convertie en JPEG (`ardoisiere-kiosque-salon.jpg`), texte alternatif FR et EN. Aucun visage de tiers. Auteur de la photo à confirmer (`A_COMPLETER.md` #8).
 - **Source confirmée par Seb :** la photo du kiosque vient de l'entreprise familiale ; elle peut être publiée.
 - **Retour de Seb (cellulaire, captures) :** l'espace avant les titres reste grand sur mobile. `--section-space` devient `clamp(3.5rem, 6vw, 5rem)` : environ 110 px entre deux sections sur mobile (au lieu de 160), 5rem conservé sur ordinateur.
+- **Encore un peu plus serré sur mobile :** `clamp(2.75rem, 6vw, 5rem)`, environ 90 px entre deux sections sur cellulaire.
