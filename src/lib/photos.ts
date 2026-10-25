@@ -5,6 +5,7 @@ export interface PhotoMeta { alt: T; credit?: T; creditUrl?: string; licenseUrl?
 /** Texte alternatif et crédit de chaque photo de src/assets/photos (clé = nom de fichier sans extension). */
 export const photoMeta = {
   'portrait-professionnel': { alt: { fr: 'Portrait de Jean-Sébastien Bisson, souriant, en veston bleu marine sur fond bleu', en: 'Portrait of Jean-Sébastien Bisson, smiling, in a navy blazer against a blue background' } },
+  'ardoisiere-kiosque-salon': { alt: { fr: 'Kiosque de L’Ardoisière en salon : panneaux de revêtements d’ardoise en bois et pierre, sous une charpente de bois éclairée', en: 'L’Ardoisière booth at a show: slate cladding panels framed in wood, under a lit timber frame' } },
   'bcedl-vancouver-conference': { alt: { fr: 'Jean-Sébastien sur scène au podium, présentant Proteus Labs au Demo Slam du symposium BCEDL à Vancouver', en: 'Jean-Sébastien on stage at the podium, presenting Proteus Labs at the BCEDL symposium Demo Slam in Vancouver' } },
   'bcedl-vancouver-kiosque': { alt: { fr: 'Jean-Sébastien, chapeau de cowboy noir, devant le kiosque Proteus Labs et ses casques de réalité virtuelle au symposium BCEDL à Vancouver', en: 'Jean-Sébastien, wearing a black cowboy hat, beside the Proteus Labs booth and its virtual reality headsets at the BCEDL symposium in Vancouver' } },
   'collision-toronto-2024': { alt: { fr: 'Jean-Sébastien devant les grandes lettres rouges de l’enseigne Collision à Toronto', en: 'Jean-Sébastien in front of the large red letters of the Collision sign in Toronto' } },
