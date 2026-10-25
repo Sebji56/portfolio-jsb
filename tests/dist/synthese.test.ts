@@ -21,8 +21,10 @@ for (const route of ['', 'en']) {
     assert.equal((section(html(), 'parcours').match(/<p\b/g) ?? []).length, 2);
   });
 
-  test(`/${route} : les cartes d’expérience n’affichent plus d’étiquettes de compétences`, () => {
-    assert.doesNotMatch(section(html(), 'experiences'), /class="tag tag-/);
+  test(`/${route} : chaque expérience principale affiche ses pastilles de compétences`, () => {
+    const cards = section(html(), 'experiences').match(/<article[^>]*class="[^"]*exp-main[\s\S]*?<\/article>/g) ?? [];
+    assert.equal(cards.length, 3);
+    for (const c of cards) assert.match(c, /class="tag tag-(service|sales|tech)"/);
   });
 
   test(`/${route} : l’encadré IA est résumé (plus de liste d’étapes)`, () => {

@@ -120,3 +120,8 @@ Ce site a été conçu avec Claude Code (Anthropic). Ce journal note, à chaque 
 - **Demande de Seb :** le site est très chargé, s'en tenir à l'essentiel ; réduire l'espacement entre l'animation et le texte sur mobile ; ne rien mettre en ligne. Accord de Joséphine reçu.
 - **Fait (branche iteration/synthese, non publiée) :** piliers fusionnés dans Compétences, À propos réduit à deux phrases, 4 chiffres clés au lieu de 5, cartes d'expérience sans étiquettes, introduction des salons en une phrase, encadré IA résumé, marqueur de Joséphine retiré.
 - **Mobile :** le portrait en particules se pose maintenant juste au-dessus du texte, quelle que soit la hauteur de l'écran (il était placé à une hauteur fixe, d'où un vide sur les grands téléphones).
+
+## 2026-10-25 — Retours de Seb sur cellulaire
+
+- **Demande :** captures à l'appui, trop d'espace entre le casque ou le globe et leur légende ; remettre les pastilles de compétences sur chaque expérience.
+- **Fait :** sur mobile, la forme se pose juste au-dessus de sa légende et le bloc est centré à l'écran ; pastilles rétablies (pilier en couleur).

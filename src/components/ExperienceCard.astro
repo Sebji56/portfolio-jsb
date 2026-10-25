@@ -2,6 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 import { t, type Locale } from '../i18n/index.ts';
 import { Picture } from 'astro:assets';
+import PillarTag from './PillarTag.astro';
 import { photo } from '../lib/photo-assets.ts';
 import { photoMeta, type PhotoId, type PhotoMeta } from '../lib/photos.ts';
 
@@ -48,6 +49,9 @@ const host = d.url ? new URL(d.url).hostname.replace(/^www\./, '') : '';
       ))}
     </ol>
     <ul class="wins">{d.highlights[locale].map((h) => <li>{h}</li>)}</ul>
+    <div class="skills" aria-label={t(locale, 'experiences.skillsLabel')}>
+      {d.skills.map((s) => <PillarTag pillar={s.pillar} label={s.label[locale]} />)}
+    </div>
     {d.details && (
       <details>
         <summary>{t(locale, 'experiences.details')}</summary>
@@ -67,6 +71,7 @@ const host = d.url ? new URL(d.url).hostname.replace(/^www\./, '') : '';
   .side :global(.photo) { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: 50% 30%; border-radius: 0.75rem; }
   .credit { margin-top: 0.5rem; font-size: 0.75rem; color: var(--mute); }
   .credit a { color: inherit; }
+  .skills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
   .main { display: grid; gap: 1.5rem; align-content: start; }
   .roles { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; }
   .roles li { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; align-items: baseline; }

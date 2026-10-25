@@ -36,3 +36,17 @@ export function fitBox(W: number, top: number, bottom: number, maxRatio = 0.7): 
   const s = Math.max(0, Math.min(W * maxRatio, bottom - top));
   return { cx: W / 2, cy: bottom - s / 2, s };
 }
+
+/** Haut des légendes du récit sur mobile, en fraction de la hauteur (garder en phase avec `.signal-on .cap` dans SignalHero.astro). */
+export const CAPTION_TOP = 0.58;
+
+/** Mobile : casque et globe posés juste au-dessus de la légende, pour former un bloc unique (sans vide au milieu). */
+export function storyBoxes(W: number, H: number) {
+  const capTop = H * CAPTION_TOP, gap = 24, header = 72;
+  const w = W * 0.72, h = w * (130 / 220);
+  const R = Math.min(W * 0.36, (capTop - gap - header) / 2);
+  return {
+    headset: { cx: W / 2, cy: capTop - gap - h / 2, w, h },
+    globe: { cx: W / 2, cy: capTop - gap - R, R },
+  };
+}

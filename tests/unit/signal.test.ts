@@ -81,3 +81,14 @@ test('fitBox reste utilisable sur un très petit écran', async () => {
   const b = fitBox(320, 72, 120, 0.7);
   assert.ok(b.s >= 0 && b.s <= 48);
 });
+
+test('storyBoxes : sur mobile, casque et globe se posent juste au-dessus de la légende', async () => {
+  const { storyBoxes, CAPTION_TOP } = await import('../../src/lib/signal/shapes.ts');
+  for (const [W, H] of [[375, 667], [390, 844], [430, 932]]) {
+    const { headset, globe } = storyBoxes(W, H);
+    const capTop = H * CAPTION_TOP;
+    assert.ok(Math.abs(headset.cy + headset.h / 2 - (capTop - 24)) < 1e-9, `casque mal posé à ${W}x${H}`);
+    assert.ok(Math.abs(globe.cy + globe.R - (capTop - 24)) < 1e-9, `globe mal posé à ${W}x${H}`);
+    assert.ok(globe.cy - globe.R >= 72, `globe sous l’en-tête à ${W}x${H}`);
+  }
+});
