@@ -1,6 +1,9 @@
 import type { City } from './cities.ts';
 import { fitBox, storyBoxes, graticule, isPortraitBackground, project, sampleOpaque } from './shapes.ts';
-import { stages } from './timeline.ts';
+import { approach, morphs, shapesAt } from './timeline.ts';
+
+/** Durée minimale (s) de chaque transformation, pour laisser voir les particules voyager. */
+const MORPH_S = [1.8, 1.8, 2.4];
 
 interface Options {
   portraitSrc: string;
@@ -50,6 +53,7 @@ export function startSignal(canvas: HTMLCanvasElement, opts: Options): () => voi
   if (!ctx) { opts.onFail(); return () => {}; }
 
   let raf = 0, visible = true, stopped = false, pS = 0, last = 0;
+  const u = [0, 0, 0];
   let W = 0, H = 0, mobile = false, particles: Particle[] = [];
   let ink = '#d6e6ff', acc = '#4da3ff';
   const t0 = performance.now();
@@ -75,7 +79,8 @@ export function startSignal(canvas: HTMLCanvasElement, opts: Options): () => voi
     const dt = last ? Math.min((now - last) / 1000, 0.5) : 0;
     last = now;
     pS += (opts.getProgress() - pS) * (1 - Math.exp(-dt * 5.6)); // lissage fondé sur le temps : rattrape aussi à faible cadence
-    const { m1, m2, lon0 } = stages(pS), time = (now - t0) / 1000;
+    morphs(pS).forEach((target, i) => { u[i] = approach(u[i], target, dt / MORPH_S[i]); });
+    const { m1, m2, lon0 } = shapesAt(u), time = (now - t0) / 1000;
     const pBox = mobile ? (textTop > 0 ? fitBox(W, 76, textTop - 14, 0.8) : { cx: W / 2, cy: H * 0.24, s: Math.min(W * 0.62, H * 0.32) }) : { cx: W * 0.7, cy: H * 0.52, s: Math.min(H * 0.82, W * 0.44) };
     const story = mobile ? storyBoxes(W, H) : null;
     const hBox = story ? story.headset : { cx: W * 0.66, cy: H * 0.5 }; // casque

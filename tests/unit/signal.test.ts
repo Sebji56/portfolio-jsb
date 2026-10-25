@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { graticule, isPortraitBackground, project } from '../../src/lib/signal/shapes.ts';
-import { RESTS, easeInOutCubic, restTarget, seg, stages, wordOpacity } from '../../src/lib/signal/timeline.ts';
+import { RESTS, approach, easeInOutCubic, restTarget, seg, stages, wordOpacity } from '../../src/lib/signal/timeline.ts';
 
 test('le fond bleu du portrait est retiré', () => {
   assert.equal(isPortraitBackground(95, 135, 200), true);
@@ -113,4 +113,10 @@ test('restTarget : rien à faire sur une scène ou hors du récit', () => {
   assert.equal(restTarget(0, 1), null);
   assert.equal(restTarget(0.97, -1), null);
   assert.equal(restTarget(1.2, 1), null);
+});
+
+test('approach : avance vers la cible sans dépasser le pas permis, dans les deux sens', () => {
+  assert.equal(approach(0, 1, 0.1), 0.1);
+  assert.equal(approach(1, 0, 0.1), 0.9);
+  assert.equal(approach(0.95, 1, 0.1), 1);
 });
