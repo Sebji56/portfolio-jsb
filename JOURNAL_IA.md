@@ -192,3 +192,4 @@ Ce site a été conçu avec Claude Code (Anthropic). Ce journal note, à chaque 
 - **CV :** sections « Expérience technologique et commerciale » et « Expérience complémentaire » (Jack Flat, CHSLD) ; toujours une page.
 - **Précision de Seb :** pendant Jack Flat, il continuait d'apprendre les technologies par lui-même (pas de formation officielle). Ligne complémentaire ajustée : « en parallèle, après Proteus-VR, recherche d'un poste en technologie et apprentissage en autodidacte ».
 - **Précision de Seb :** son poste chez ALBI Occasion était à Mascouche ; la mention de la succursale de L'Île-Perrot est retirée du contexte de la carte.
+- **Photo du kiosque L'Ardoisière :** à la demande de Seb, son portrait professionnel (photo de profil LinkedIn, aussi la source du portrait en particules) sert de photo temporaire ; cadrage ajusté pour garder le visage. Ajouté à `A_COMPLETER.md` (#8) en attendant une photo en kiosque.

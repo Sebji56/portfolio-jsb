@@ -7,6 +7,7 @@
 | 4 | Nom du salon de `kiosque-proteus-quebec-a-identifier-1.jpg` | Photo non utilisée | À confirmer si on veut l'utiliser |
 | 5 | Nom du salon de `kiosque-proteus-quebec-a-identifier-2.jpg` | Photo non utilisée | À confirmer si on veut l'utiliser |
 | 7 | Crédit de `sxsw-edu-austin-2024-demo-casque.jpg` | Photo non utilisée | Photographe de l'événement introuvable : photo laissée de côté (pas de crédit possible) |
+| 8 | Photo de Seb en kiosque pour L'Ardoisière | Allée des salons, kiosque L'Ardoisière (`src/components/Aisle.astro`) | Portrait professionnel en place temporairement ; à remplacer si une photo en poste est retrouvée |
 
 ## Réglés
 
