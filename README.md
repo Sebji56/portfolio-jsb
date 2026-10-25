@@ -14,34 +14,17 @@ npm test             # tests unitaires
 npm run test:dist    # tests sur le site compilé (après npm run build)
 ```
 
-## Mettre le site en ligne (première fois)
+## Site en ligne
 
-### 1. Publier le code sur GitHub avec GitHub Desktop
+- Site : https://portfolio-jsb.netlify.app (projet Netlify « portfolio-jsb », équipe « SebJi Portfolio »)
+- Code : https://github.com/Sebji56/portfolio-jsb
 
-1. Ouvrez **GitHub Desktop**.
-2. Menu **File → Add local repository…**, choisissez `C:\Users\SebJi\portfolio-jsb`, puis **Add repository**.
-3. Si la branche affichée en haut n'est pas `main`, choisissez **Branch → Merge into current branch** depuis `main` selon les consignes reçues, ou demandez à Claude de fusionner la branche de travail.
-4. Cliquez sur **Publish repository**. Décochez **Keep this code private** (dépôt public, comme décidé), puis **Publish repository**.
+Réglages Netlify à conserver :
+- **Visibilité : Public** (Netlify crée les projets en privé par défaut ; sans ce réglage, le site répond « 401 »).
+- **Form detection : activée** (formulaire « contact »). Pour recevoir les messages par courriel : *Forms → Form notifications → Add notification*.
+- **Powered by Netlify badge : désactivé** (*Project configuration → General*). Sinon, Netlify injecte un script  que la politique de sécurité (CSP) bloque, ce qui affiche des erreurs dans la console et contredit la règle « aucun script tiers ».
 
-### 2. Brancher Netlify sur le dépôt
-
-1. Allez sur [app.netlify.com](https://app.netlify.com) et connectez-vous avec votre compte GitHub.
-2. **Add new site → Import an existing project → Deploy with GitHub**.
-3. Autorisez Netlify à voir le dépôt `portfolio-jsb`, puis choisissez-le.
-4. Les réglages se remplissent seuls grâce au fichier `netlify.toml` (commande `npm run build`, dossier `dist`). Cliquez **Deploy**.
-5. Après une à deux minutes, le site est en ligne sur une adresse du type `https://nom-au-hasard.netlify.app`.
-6. Pour une adresse plus lisible : **Site configuration → Change site name** → `portfolio-jsb` (si libre). L'adresse devient `https://portfolio-jsb.netlify.app`. Si vous choisissez un autre nom, remplacez l'adresse dans `astro.config.mjs` (ligne `site:`), `public/robots.txt` et `public/.well-known/security.txt`.
-
-### 3. Activer le formulaire de contact
-
-1. Dans Netlify : **Forms → Enable form detection**, puis relancez un déploiement (**Deploys → Trigger deploy → Deploy site**).
-2. Le formulaire « contact » apparaît dans **Forms**. Dans **Forms → Form notifications**, ajoutez une notification par courriel vers votre adresse.
-3. Envoyez un message test depuis le site publié et vérifiez qu'il arrive.
-
-### 4. Vérifier la sécurité en ligne
-
-- Ouvrez [securityheaders.com](https://securityheaders.com) et entrez l'adresse de votre site : la note attendue est **A** ou **A+**.
-- Ouvrez votre site, appuyez sur **F12 → Console** : aucun message rouge « Content Security Policy » ne doit apparaître.
+Vérifier la sécurité en ligne : [securityheaders.com](https://securityheaders.com) avec l'adresse du site (note attendue A ou A+), et F12 → Console sur le site (aucun message rouge).
 
 ### Mises à jour ensuite
 

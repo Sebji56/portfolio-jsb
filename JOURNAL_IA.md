@@ -108,3 +108,9 @@ Ce site a été conçu avec Claude Code (Anthropic). Ce journal note, à chaque 
 
 - **Fourni :** l'année de NSTA (2024) et le lien Flickr de la photo Collision.
 - **Vérifié avant usage :** la licence de la photo sur Flickr est CC BY 2.0 et la page nomme le photographe (Ramsey Cardy / Collision via Sportsfile) ; la photo est maintenant dans la carte Proteus-VR avec son crédit et le lien vers la licence, ce qui règle aussi un doublon de photo signalé par la revue.
+
+## 2026-10-24 — Mise en ligne
+
+- **Fait :** dépôt public créé sur GitHub (Sebji56/portfolio-jsb) et code envoyé ; projet Netlify branché sur le dépôt, adresse portfolio-jsb.netlify.app, formulaire détecté, projet rendu public. Seb a fait lui-même les connexions et l'autorisation GitHub.
+- **Avant de publier :** la photo SXSW aux droits inconnus a été retirée du dépôt et de son historique.
+- **Trouvé en ligne :** Netlify injectait un script de badge que la CSP bloquait (erreurs dans la console) ; badge désactivé, plus aucune erreur sur les pages vérifiées.
