@@ -22,7 +22,7 @@ npm run test:dist    # tests sur le site compilé (après npm run build)
 Réglages Netlify à conserver :
 - **Visibilité : Public** (Netlify crée les projets en privé par défaut ; sans ce réglage, le site répond « 401 »).
 - **Form detection : activée** (formulaire « contact »). Pour recevoir les messages par courriel : *Forms → Form notifications → Add notification*.
-- **Powered by Netlify badge : désactivé** (*Project configuration → General*). Sinon, Netlify injecte un script  que la politique de sécurité (CSP) bloque, ce qui affiche des erreurs dans la console et contredit la règle « aucun script tiers ».
+- **Powered by Netlify badge : désactivé** (*Project configuration → General*). Sinon, Netlify injecte un script `/.netlify/scripts/hud` que la politique de sécurité (CSP) bloque, ce qui affiche des erreurs dans la console et contredit la règle « aucun script tiers ».
 
 Vérifier la sécurité en ligne : [securityheaders.com](https://securityheaders.com) avec l'adresse du site (note attendue A ou A+), et F12 → Console sur le site (aucun message rouge).
 
