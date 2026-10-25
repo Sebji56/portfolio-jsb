@@ -164,3 +164,9 @@ Ce site a été conçu avec Claude Code (Anthropic). Ce journal note, à chaque 
 - **Demande :** le fond blanc du mode jour est trop intense ; voir des alternatives.
 - **Proposé :** quatre palettes (Papier, Brume, Pierre, Aube), présentées côte à côte avec l'actuelle ; contrastes vérifiés pour chacune.
 - **Choix de Seb :** Brume, un gris bleuté doux, fidèle au mode nuit. Fond `#E8ECF1` au lieu de `#F6F7F9`, cartes `#F2F5F8` au lieu du blanc pur, contraste du texte ramené de 17,5 à 14,7 (toujours bien au-dessus du seuil de 7) ; accent et pastilles foncés pour rester lisibles. Branche iteration/salons, non publiée.
+
+## 2026-10-25 — Espacement entre les sections
+
+- **Demande :** sur ordinateur, trop d'espace avant les titres de section (Expériences, Salons, Compétences, Technologies émergentes, Formation, Me joindre) ; sur mobile, ça va.
+- **Cause :** chaque section avait jusqu'à 9rem (144 px) d'espace en haut et en bas, soit près de 290 px entre deux sections sur grand écran.
+- **Fait :** un seul réglage partagé, `--section-space`, plafonné à 6rem (96 px) : environ 180 px entre deux sections sur ordinateur ; inchangé sur mobile (5rem). Branche iteration/espacements, non publiée.
