@@ -171,3 +171,10 @@ Ce site a été conçu avec Claude Code (Anthropic). Ce journal note, à chaque 
 - **Cause :** chaque section avait jusqu'à 9rem (144 px) d'espace en haut et en bas, soit près de 290 px entre deux sections sur grand écran.
 - **Fait :** un seul réglage partagé, `--section-space`, plafonné à 6rem (96 px) : environ 180 px entre deux sections sur ordinateur ; inchangé sur mobile (5rem). Branche iteration/espacements, non publiée.
 - **Retour de Seb :** resserrer encore un peu sur ordinateur. `--section-space` passe à 5rem partout, la même valeur que sur mobile : environ 160 px entre deux sections sur grand écran (contre près de 290 px au départ).
+
+## 2026-10-25 — L'Ardoisière avant « Prochain kiosque ? »
+
+- **Demande :** remonter le bloc des salons de L'Ardoisière, qui arrivait après la fin de l'allée.
+- **Fait :** le bloc fait maintenant partie de l'écran de fin, juste au-dessus de « Prochain kiosque ? » ; le titre « Avec Proteus-VR » s'efface quand l'écran de fin apparaît. Sans animation (mouvement réduit), l'écran de fin s'affiche en fin de liste, avec le bloc.
+- **Bogue trouvé et corrigé :** l'écran de fin, invisible, recouvrait les kiosques et bloquait les liens « Site officiel » à la souris et au doigt ; il ne capte plus les clics tant qu'il n'est pas affiché.
+- **Vérifié :** liens des kiosques cliquables, liens de L'Ardoisière cliquables à la fin, écran de fin complet sur un petit cellulaire (375 × 667).

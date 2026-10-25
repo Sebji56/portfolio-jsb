@@ -67,7 +67,8 @@ export function initAisle(section: HTMLElement): () => void {
     const endP = clamp01((pS - 0.9) / 0.08);
     floor?.style.setProperty('--fy', `${cam * 0.6}px`);
     meter?.style.setProperty('--p', String(pS));
-    end?.style.setProperty('--e', String(endP));
+    stage.style.setProperty('--e', String(endP)); // lu par l'écran de fin et le titre de l'allée
+    if (end) end.style.pointerEvents = endP > 0.5 ? '' : 'none'; // invisible, l'écran de fin ne doit pas bloquer les liens des kiosques
     sign?.style.setProperty('--s', String(1 - clamp01((pS - 0.88) / 0.06)));
     if (Math.abs(target - pS) > 0.0005) raf = requestAnimationFrame(frame);
     else last = 0;
