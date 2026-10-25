@@ -78,14 +78,26 @@ const words = (s: string) => s.split(' ');
     paint();
 
     // Quand le défilement s'arrête entre deux scènes, on termine la transition pour ne jamais rester à mi-chemin
-    let lastY = scrollY, dir = 0, timer = 0, touchY: number | null = null;
+    let lastY = scrollY, dir = 0, timer = 0, glideId = 0, touchY: number | null = null;
+    // Glissement maison : le défilement doux du navigateur est trop rapide et sa vitesse n'est pas réglable
+    const GLIDE_MS = 900;
+    const glide = (top: number) => {
+      cancelAnimationFrame(glideId);
+      const y0 = scrollY, t0 = performance.now();
+      const step = (now: number) => {
+        const k = Math.min(1, (now - t0) / GLIDE_MS);
+        scrollTo(0, y0 + (top - y0) * (1 - (1 - k) ** 3)); // départ vif (dans l'élan du doigt), arrivée douce
+        if (k < 1) glideId = requestAnimationFrame(step);
+      };
+      glideId = requestAnimationFrame(step);
+    };
     const settle = (d = dir) => {
       const t = restTarget(progress(), d);
-      if (t !== null) scrollTo({ top: scrollY + section.getBoundingClientRect().top + t * (section.offsetHeight - innerHeight), behavior: 'smooth' });
+      if (t !== null) glide(scrollY + section.getBoundingClientRect().top + t * (section.offsetHeight - innerHeight));
     };
     const schedule = () => { clearTimeout(timer); if (touchY === null) timer = window.setTimeout(settle, 160); };
     const onScroll = () => { dir = Math.sign(scrollY - lastY) || dir; lastY = scrollY; schedule(); };
-    const onTouchStart = (e: TouchEvent) => { touchY = e.touches[0].clientY; clearTimeout(timer); };
+    const onTouchStart = (e: TouchEvent) => { touchY = e.touches[0].clientY; clearTimeout(timer); cancelAnimationFrame(glideId); };
     // Au toucher, on décide dès que le doigt se lève, sans attendre la fin de l'élan : un seul mouvement continu
     const onTouchEnd = (e: TouchEvent) => {
       const dy = touchY === null ? 0 : touchY - e.changedTouches[0].clientY;
@@ -96,6 +108,7 @@ const words = (s: string) => s.split(' ');
     addEventListener('touchstart', onTouchStart, { passive: true });
     addEventListener('touchend', onTouchEnd, { passive: true });
     addEventListener('touchcancel', onTouchEnd, { passive: true });
+    addEventListener('wheel', () => cancelAnimationFrame(glideId), { passive: true }); // la main reprend toujours le dessus
 
     startSignal(canvas, {
       portraitSrc: section.dataset.portrait!,
@@ -103,7 +116,7 @@ const words = (s: string) => s.split(' ');
       locale: section.dataset.locale === 'en' ? 'en' : 'fr',
       getProgress: progress,
       fitAbove: () => copy.getBoundingClientRect().top - canvas.getBoundingClientRect().top,
-      onFail: () => { section.classList.remove('signal-on'); removeEventListener('scroll', paint); removeEventListener('scroll', onScroll); clearTimeout(timer); },
+      onFail: () => { section.classList.remove('signal-on'); removeEventListener('scroll', paint); removeEventListener('scroll', onScroll); clearTimeout(timer); cancelAnimationFrame(glideId); },
     });
   }
 </script>
